@@ -147,7 +147,9 @@ pub struct CircuitBuilder<F: RichField + Extendable<D>, const D: usize> {
 
 impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
     pub fn new(config: CircuitConfig) -> Self {
-        println!("{D}");
+        println!("Circuit Depth: {D}");
+        println!("num_wires: {}", config.num_wires);
+        println!("num_routed_wires: {}", config.num_routed_wires);
         let builder = CircuitBuilder {
             config,
             domain_separator: None,
