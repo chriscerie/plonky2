@@ -1162,7 +1162,7 @@ impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
             .iter()
             .map(|gen| gen.0.id())
             .collect::<HashSet<_>>();
-        
+
         println!("Unique generators:");
         for gen_name in &generators {
             println!("\t{}", gen_name)
