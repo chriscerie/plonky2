@@ -1164,12 +1164,12 @@ impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
 
     pub fn build<C: GenericConfig<D, F = F>>(self) -> CircuitData<F, C, D> {
         let cir = zkcir::ir::CirBuilder::new().num_wires(self.config.num_wires as u64);
-        
+
         //print_targets
         for i in 0..self.public_inputs.len() {
             match self.public_inputs[i] {
                 Target::VirtualTarget { index } => println!("target: VirtualTarget: <{}>", index),
-                Target::Wire(__wire) => println!("target: \"Wire\"")
+                Target::Wire(__wire) => println!("target: \"Wire\""),
             }
         }
 
