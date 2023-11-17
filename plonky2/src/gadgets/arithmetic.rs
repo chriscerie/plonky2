@@ -23,6 +23,12 @@ impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
 
     /// Computes `x^2`.
     pub fn square(&mut self, x: Target) -> Target {
+        for input in &self.public_inputs {
+            match input {
+                Target::VirtualTarget { index } => println!("target: VirtualTarget: <{}>", index),
+                Target::Wire(__wire) => println!("target: \"Wire\"")
+            }
+        }
         self.mul(x, x)
     }
 
