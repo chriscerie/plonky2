@@ -1156,7 +1156,6 @@ impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
         #[cfg(feature = "std")]
         debug!("Building circuit took {}s", start.elapsed().as_secs_f32());
 
-        // print unique generator types
         let generators = prover_only
             .generators
             .iter()
