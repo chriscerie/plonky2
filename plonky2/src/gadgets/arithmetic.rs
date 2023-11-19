@@ -25,9 +25,9 @@ impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
     pub fn square(&mut self, x: Target) -> Target {
         match x {
             Target::VirtualTarget { index } => {
-                println!("operation: square(VirtualTarget: <{}>)", index)
+                println!("operation: square(VirtualTarget: <{index}>)")
             }
-            Target::Wire(__wire) => println!("operation :square(\"Wire\")"),
+            Target::Wire(_) => println!("operation :square(\"Wire\")"),
         }
         self.mul(x, x)
     }
