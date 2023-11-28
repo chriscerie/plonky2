@@ -1185,7 +1185,7 @@ impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
         for input in &self.public_inputs {
             match input {
                 Target::VirtualTarget { index } => println!("target: VirtualTarget: <{index}>"),
-                Target::Wire(__) => println!("target: \"Wire\""),
+                Target::Wire(_) => println!("target: \"Wire\""),
             }
         }
 
