@@ -1190,6 +1190,14 @@ impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
     pub fn build<C: GenericConfig<D, F = F>>(mut self) -> CircuitData<F, C, D> {
         self.cir.num_wires(self.config.num_wires as u64);
 
+        //print_targets
+        for input in &self.public_inputs {
+            match input {
+                Target::VirtualTarget { index } => println!("target: VirtualTarget: <{index}>"),
+                Target::Wire(_) => println!("target: \"Wire\""),
+            }
+        }
+
         if let Ok(zkcir_circuit) = self.cir.to_cli_string() {
             println!("{:?}", zkcir_circuit);
             set_cir(
