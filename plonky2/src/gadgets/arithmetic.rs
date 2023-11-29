@@ -190,6 +190,25 @@ impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
     pub fn add(&mut self, x: Target, y: Target) -> Target {
         let one = self.one();
         // x + y = 1 * x * 1 + 1 * y
+        if self.cir_mutex.try_lock().is_ok() {
+            self.cir.add_expression(Expression::BinaryOperator {
+                lhs: match x {
+                    Target::Wire(w) => Box::new(Expression::Wire {
+                        row: w.row,
+                        column: w.column,
+                    }),
+                    Target::VirtualTarget { index } => Box::new(Expression::VirtualWire { index }),
+                },
+                binop: BinOp::Add,
+                rhs: match y {
+                    Target::Wire(w) => Box::new(Expression::Wire {
+                        row: w.row,
+                        column: w.column,
+                    }),
+                    Target::VirtualTarget { index } => Box::new(Expression::VirtualWire { index }),
+                },
+            });
+        }
         self.arithmetic(F::ONE, F::ONE, x, one, y)
     }
 
@@ -207,6 +226,25 @@ impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
     pub fn sub(&mut self, x: Target, y: Target) -> Target {
         let one = self.one();
         // x - y = 1 * x * 1 + (-1) * y
+        if self.cir_mutex.try_lock().is_ok() {
+            self.cir.add_expression(Expression::BinaryOperator {
+                lhs: match x {
+                    Target::Wire(w) => Box::new(Expression::Wire {
+                        row: w.row,
+                        column: w.column,
+                    }),
+                    Target::VirtualTarget { index } => Box::new(Expression::VirtualWire { index }),
+                },
+                binop: BinOp::Subtract,
+                rhs: match y {
+                    Target::Wire(w) => Box::new(Expression::Wire {
+                        row: w.row,
+                        column: w.column,
+                    }),
+                    Target::VirtualTarget { index } => Box::new(Expression::VirtualWire { index }),
+                },
+            });
+        }
         self.arithmetic(F::ONE, F::NEG_ONE, x, one, y)
     }
 
