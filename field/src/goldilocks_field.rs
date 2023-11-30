@@ -65,7 +65,9 @@ impl Sample for GoldilocksField {
     {
         use rand::Rng;
         let num = rng.gen_range(0..Self::ORDER);
-        zkcir_rand::get_last_cir_data().random_values.insert(num);
+        zkcir_rand::get_last_cir_data_write()
+            .random_values
+            .insert(num);
         Self::from_canonical_u64(num)
     }
 }

@@ -52,11 +52,11 @@ pub fn test_ir_string(test_name: &str, cir: &CirBuilder) {
     }
 }
 
-pub fn target_to_ast(target: Target) -> Expression {
+pub fn target_to_ast(target: &Target) -> Expression {
     match target {
         Target::Wire(w) => zkcir::ast::Expression::Wire(zkcir::ast::Wire::new(w.row, w.column)),
         Target::VirtualTarget { index } => {
-            zkcir::ast::Expression::VirtualWire(zkcir::ast::VirtualWire::new(index))
+            zkcir::ast::Expression::VirtualWire(zkcir::ast::VirtualWire::new(*index))
         }
     }
 }
