@@ -16,24 +16,25 @@ use crate::util::serialization::{Buffer, IoResult, Read, Write};
 impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
     /// Checks that `x < 2^n_log` using a `BaseSumGate`.
     pub fn range_check(&mut self, x: Target, n_log: usize) {
-        if self.cir_mutex.try_lock().is_ok() {
+        if self.cir_mutex.try_lock().is_some() {
             self.cir.add_expression(ast::Expression::Verify(Box::new(
                 ast::Expression::BinaryOperator {
                     lhs: match &x {
-                        Target::Wire(wire) => Box::new(ast::Expression::Wire {
-                            row: wire.row,
-                            column: wire.column,
-                        }),
+                        Target::Wire(wire) => {
+                            Box::new(ast::Expression::Wire(ast::Wire::new(wire.row, wire.column)))
+                        }
                         Target::VirtualTarget { index } => {
-                            Box::new(ast::Expression::VirtualWire { index: *index })
+                            Box::new(ast::Expression::VirtualWire(ast::VirtualWire::new(*index)))
                         }
                     },
-                    binop: ast::BinOp::Equal,
+                    binop: ast::BinOp::LessThan,
                     rhs: Box::new(ast::Expression::BinaryOperator {
                         lhs: Box::new(ast::Expression::Int(2)),
                         binop: ast::BinOp::Exponent,
                         rhs: Box::new(ast::Expression::Int((n_log as u64).try_into().unwrap())),
+                        result: None,
                     }),
+                    result: None,
                 },
             )));
         }
