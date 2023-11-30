@@ -8,7 +8,9 @@
         "lhs": {
           "VirtualWire": {
             "index": 0,
-            "value": "Random"
+            "value": {
+              "U64": 1
+            }
           }
         },
         "binop": "Multiply",
