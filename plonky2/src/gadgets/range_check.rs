@@ -32,7 +32,7 @@ impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
                         lhs: Box::new(ast::Expression::Value(zkcir::ast::Value::U64(2))),
                         binop: ast::BinOp::Exponent,
                         rhs: Box::new(ast::Expression::Value(zkcir::ast::Value::U64(
-                            (n_log as u64).try_into().unwrap(),
+                            n_log.try_into().unwrap(),
                         ))),
                         result: None,
                     }),
