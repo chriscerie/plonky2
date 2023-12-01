@@ -189,28 +189,17 @@ impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
 
     /// Computes `x + y`.
     pub fn add(&mut self, x: Target, y: Target) -> Target {
-        let one = self.one();
+        let res= self.arithmetic(F::ONE, F::ONE, x, x, y);
         // x + y = 1 * x * 1 + 1 * y
-        if self.cir_mutex.try_lock().is_ok() {
+        if self.cir_mutex.try_lock().is_some() {
             self.cir.add_expression(Expression::BinaryOperator {
-                lhs: match x {
-                    Target::Wire(w) => Box::new(Expression::Wire {
-                        row: w.row,
-                        column: w.column,
-                    }),
-                    Target::VirtualTarget { index } => Box::new(Expression::VirtualWire { index }),
-                },
+                lhs: Box::new(target_to_ast(&x)),
                 binop: BinOp::Add,
-                rhs: match y {
-                    Target::Wire(w) => Box::new(Expression::Wire {
-                        row: w.row,
-                        column: w.column,
-                    }),
-                    Target::VirtualTarget { index } => Box::new(Expression::VirtualWire { index }),
-                },
+                rhs: Box::new(target_to_ast(&y)),
+                result: Some(Box::new(target_to_ast(&res))),
             });
         }
-        self.arithmetic(F::ONE, F::ONE, x, one, y)
+        res
     }
 
     /// Add `n` `Target`s.
@@ -225,28 +214,17 @@ impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
 
     /// Computes `x - y`.
     pub fn sub(&mut self, x: Target, y: Target) -> Target {
-        let one = self.one();
+        let res = self.arithmetic(F::ONE, F::NEG_ONE, x, x, y);
         // x - y = 1 * x * 1 + (-1) * y
-        if self.cir_mutex.try_lock().is_ok() {
+        if self.cir_mutex.try_lock().is_some() {
             self.cir.add_expression(Expression::BinaryOperator {
-                lhs: match x {
-                    Target::Wire(w) => Box::new(Expression::Wire {
-                        row: w.row,
-                        column: w.column,
-                    }),
-                    Target::VirtualTarget { index } => Box::new(Expression::VirtualWire { index }),
-                },
+                lhs: Box::new(target_to_ast(&x)),
                 binop: BinOp::Subtract,
-                rhs: match y {
-                    Target::Wire(w) => Box::new(Expression::Wire {
-                        row: w.row,
-                        column: w.column,
-                    }),
-                    Target::VirtualTarget { index } => Box::new(Expression::VirtualWire { index }),
-                },
+                rhs: Box::new(target_to_ast(&y)),
+                result: Some(Box::new(target_to_ast(&res))),
             });
         }
-        self.arithmetic(F::ONE, F::NEG_ONE, x, one, y)
+        res
     }
 
     /// Computes `x * y`.

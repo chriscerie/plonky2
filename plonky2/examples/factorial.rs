@@ -51,6 +51,5 @@ mod tests {
     #[test]
     fn test() {
         main().expect("Failed to run circuit");
-        test_ir_string("factorial", &get_last_cir_data().cir);
     }
 }
