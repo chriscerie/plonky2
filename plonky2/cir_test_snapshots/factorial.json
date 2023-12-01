@@ -8,14 +8,18 @@
         "lhs": {
           "VirtualWire": {
             "index": 0,
-            "value": "Random"
+            "value": {
+              "U64": 1
+            }
           }
         },
         "binop": "Multiply",
         "rhs": {
           "VirtualWire": {
             "index": 1,
-            "value": null
+            "value": {
+              "U64": 2
+            }
           }
         },
         "result": {
@@ -40,7 +44,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 3,
-            "value": null
+            "value": {
+              "U64": 3
+            }
           }
         },
         "result": {
@@ -65,7 +71,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 4,
-            "value": null
+            "value": {
+              "U64": 4
+            }
           }
         },
         "result": {
@@ -90,7 +98,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 5,
-            "value": null
+            "value": {
+              "U64": 5
+            }
           }
         },
         "result": {
@@ -115,7 +125,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 6,
-            "value": null
+            "value": {
+              "U64": 6
+            }
           }
         },
         "result": {
@@ -140,7 +152,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 7,
-            "value": null
+            "value": {
+              "U64": 7
+            }
           }
         },
         "result": {
@@ -165,7 +179,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 8,
-            "value": null
+            "value": {
+              "U64": 8
+            }
           }
         },
         "result": {
@@ -190,7 +206,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 9,
-            "value": null
+            "value": {
+              "U64": 9
+            }
           }
         },
         "result": {
@@ -215,7 +233,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 10,
-            "value": null
+            "value": {
+              "U64": 10
+            }
           }
         },
         "result": {
@@ -240,7 +260,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 11,
-            "value": null
+            "value": {
+              "U64": 11
+            }
           }
         },
         "result": {
@@ -265,7 +287,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 12,
-            "value": null
+            "value": {
+              "U64": 12
+            }
           }
         },
         "result": {
@@ -290,7 +314,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 13,
-            "value": null
+            "value": {
+              "U64": 13
+            }
           }
         },
         "result": {
@@ -315,7 +341,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 14,
-            "value": null
+            "value": {
+              "U64": 14
+            }
           }
         },
         "result": {
@@ -340,7 +368,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 15,
-            "value": null
+            "value": {
+              "U64": 15
+            }
           }
         },
         "result": {
@@ -365,7 +395,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 16,
-            "value": null
+            "value": {
+              "U64": 16
+            }
           }
         },
         "result": {
@@ -390,7 +422,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 17,
-            "value": null
+            "value": {
+              "U64": 17
+            }
           }
         },
         "result": {
@@ -415,7 +449,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 18,
-            "value": null
+            "value": {
+              "U64": 18
+            }
           }
         },
         "result": {
@@ -440,7 +476,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 19,
-            "value": null
+            "value": {
+              "U64": 19
+            }
           }
         },
         "result": {
@@ -465,7 +503,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 20,
-            "value": null
+            "value": {
+              "U64": 20
+            }
           }
         },
         "result": {
@@ -490,7 +530,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 21,
-            "value": null
+            "value": {
+              "U64": 21
+            }
           }
         },
         "result": {
@@ -515,7 +557,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 22,
-            "value": null
+            "value": {
+              "U64": 22
+            }
           }
         },
         "result": {
@@ -540,7 +584,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 23,
-            "value": null
+            "value": {
+              "U64": 23
+            }
           }
         },
         "result": {
@@ -565,7 +611,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 24,
-            "value": null
+            "value": {
+              "U64": 24
+            }
           }
         },
         "result": {
@@ -590,7 +638,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 25,
-            "value": null
+            "value": {
+              "U64": 25
+            }
           }
         },
         "result": {
@@ -615,7 +665,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 26,
-            "value": null
+            "value": {
+              "U64": 26
+            }
           }
         },
         "result": {
@@ -640,7 +692,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 27,
-            "value": null
+            "value": {
+              "U64": 27
+            }
           }
         },
         "result": {
@@ -665,7 +719,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 28,
-            "value": null
+            "value": {
+              "U64": 28
+            }
           }
         },
         "result": {
@@ -690,7 +746,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 29,
-            "value": null
+            "value": {
+              "U64": 29
+            }
           }
         },
         "result": {
@@ -715,7 +773,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 30,
-            "value": null
+            "value": {
+              "U64": 30
+            }
           }
         },
         "result": {
@@ -740,7 +800,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 31,
-            "value": null
+            "value": {
+              "U64": 31
+            }
           }
         },
         "result": {
@@ -765,7 +827,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 32,
-            "value": null
+            "value": {
+              "U64": 32
+            }
           }
         },
         "result": {
@@ -790,7 +854,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 33,
-            "value": null
+            "value": {
+              "U64": 33
+            }
           }
         },
         "result": {
@@ -815,7 +881,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 34,
-            "value": null
+            "value": {
+              "U64": 34
+            }
           }
         },
         "result": {
@@ -840,7 +908,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 35,
-            "value": null
+            "value": {
+              "U64": 35
+            }
           }
         },
         "result": {
@@ -865,7 +935,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 36,
-            "value": null
+            "value": {
+              "U64": 36
+            }
           }
         },
         "result": {
@@ -890,7 +962,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 37,
-            "value": null
+            "value": {
+              "U64": 37
+            }
           }
         },
         "result": {
@@ -915,7 +989,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 38,
-            "value": null
+            "value": {
+              "U64": 38
+            }
           }
         },
         "result": {
@@ -940,7 +1016,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 39,
-            "value": null
+            "value": {
+              "U64": 39
+            }
           }
         },
         "result": {
@@ -965,7 +1043,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 40,
-            "value": null
+            "value": {
+              "U64": 40
+            }
           }
         },
         "result": {
@@ -990,7 +1070,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 41,
-            "value": null
+            "value": {
+              "U64": 41
+            }
           }
         },
         "result": {
@@ -1015,7 +1097,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 42,
-            "value": null
+            "value": {
+              "U64": 42
+            }
           }
         },
         "result": {
@@ -1040,7 +1124,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 43,
-            "value": null
+            "value": {
+              "U64": 43
+            }
           }
         },
         "result": {
@@ -1065,7 +1151,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 44,
-            "value": null
+            "value": {
+              "U64": 44
+            }
           }
         },
         "result": {
@@ -1090,7 +1178,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 45,
-            "value": null
+            "value": {
+              "U64": 45
+            }
           }
         },
         "result": {
@@ -1115,7 +1205,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 46,
-            "value": null
+            "value": {
+              "U64": 46
+            }
           }
         },
         "result": {
@@ -1140,7 +1232,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 47,
-            "value": null
+            "value": {
+              "U64": 47
+            }
           }
         },
         "result": {
@@ -1165,7 +1259,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 48,
-            "value": null
+            "value": {
+              "U64": 48
+            }
           }
         },
         "result": {
@@ -1190,7 +1286,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 49,
-            "value": null
+            "value": {
+              "U64": 49
+            }
           }
         },
         "result": {
@@ -1215,7 +1313,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 50,
-            "value": null
+            "value": {
+              "U64": 50
+            }
           }
         },
         "result": {
@@ -1240,7 +1340,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 51,
-            "value": null
+            "value": {
+              "U64": 51
+            }
           }
         },
         "result": {
@@ -1265,7 +1367,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 52,
-            "value": null
+            "value": {
+              "U64": 52
+            }
           }
         },
         "result": {
@@ -1290,7 +1394,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 53,
-            "value": null
+            "value": {
+              "U64": 53
+            }
           }
         },
         "result": {
@@ -1315,7 +1421,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 54,
-            "value": null
+            "value": {
+              "U64": 54
+            }
           }
         },
         "result": {
@@ -1340,7 +1448,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 55,
-            "value": null
+            "value": {
+              "U64": 55
+            }
           }
         },
         "result": {
@@ -1365,7 +1475,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 56,
-            "value": null
+            "value": {
+              "U64": 56
+            }
           }
         },
         "result": {
@@ -1390,7 +1502,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 57,
-            "value": null
+            "value": {
+              "U64": 57
+            }
           }
         },
         "result": {
@@ -1415,7 +1529,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 58,
-            "value": null
+            "value": {
+              "U64": 58
+            }
           }
         },
         "result": {
@@ -1440,7 +1556,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 59,
-            "value": null
+            "value": {
+              "U64": 59
+            }
           }
         },
         "result": {
@@ -1465,7 +1583,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 60,
-            "value": null
+            "value": {
+              "U64": 60
+            }
           }
         },
         "result": {
@@ -1490,7 +1610,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 61,
-            "value": null
+            "value": {
+              "U64": 61
+            }
           }
         },
         "result": {
@@ -1515,7 +1637,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 62,
-            "value": null
+            "value": {
+              "U64": 62
+            }
           }
         },
         "result": {
@@ -1540,7 +1664,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 63,
-            "value": null
+            "value": {
+              "U64": 63
+            }
           }
         },
         "result": {
@@ -1565,7 +1691,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 64,
-            "value": null
+            "value": {
+              "U64": 64
+            }
           }
         },
         "result": {
@@ -1590,7 +1718,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 65,
-            "value": null
+            "value": {
+              "U64": 65
+            }
           }
         },
         "result": {
@@ -1615,7 +1745,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 66,
-            "value": null
+            "value": {
+              "U64": 66
+            }
           }
         },
         "result": {
@@ -1640,7 +1772,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 67,
-            "value": null
+            "value": {
+              "U64": 67
+            }
           }
         },
         "result": {
@@ -1665,7 +1799,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 68,
-            "value": null
+            "value": {
+              "U64": 68
+            }
           }
         },
         "result": {
@@ -1690,7 +1826,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 69,
-            "value": null
+            "value": {
+              "U64": 69
+            }
           }
         },
         "result": {
@@ -1715,7 +1853,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 70,
-            "value": null
+            "value": {
+              "U64": 70
+            }
           }
         },
         "result": {
@@ -1740,7 +1880,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 71,
-            "value": null
+            "value": {
+              "U64": 71
+            }
           }
         },
         "result": {
@@ -1765,7 +1907,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 72,
-            "value": null
+            "value": {
+              "U64": 72
+            }
           }
         },
         "result": {
@@ -1790,7 +1934,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 73,
-            "value": null
+            "value": {
+              "U64": 73
+            }
           }
         },
         "result": {
@@ -1815,7 +1961,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 74,
-            "value": null
+            "value": {
+              "U64": 74
+            }
           }
         },
         "result": {
@@ -1840,7 +1988,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 75,
-            "value": null
+            "value": {
+              "U64": 75
+            }
           }
         },
         "result": {
@@ -1865,7 +2015,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 76,
-            "value": null
+            "value": {
+              "U64": 76
+            }
           }
         },
         "result": {
@@ -1890,7 +2042,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 77,
-            "value": null
+            "value": {
+              "U64": 77
+            }
           }
         },
         "result": {
@@ -1915,7 +2069,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 78,
-            "value": null
+            "value": {
+              "U64": 78
+            }
           }
         },
         "result": {
@@ -1940,7 +2096,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 79,
-            "value": null
+            "value": {
+              "U64": 79
+            }
           }
         },
         "result": {
@@ -1965,7 +2123,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 80,
-            "value": null
+            "value": {
+              "U64": 80
+            }
           }
         },
         "result": {
@@ -1990,7 +2150,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 81,
-            "value": null
+            "value": {
+              "U64": 81
+            }
           }
         },
         "result": {
@@ -2015,7 +2177,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 82,
-            "value": null
+            "value": {
+              "U64": 82
+            }
           }
         },
         "result": {
@@ -2040,7 +2204,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 83,
-            "value": null
+            "value": {
+              "U64": 83
+            }
           }
         },
         "result": {
@@ -2065,7 +2231,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 84,
-            "value": null
+            "value": {
+              "U64": 84
+            }
           }
         },
         "result": {
@@ -2090,7 +2258,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 85,
-            "value": null
+            "value": {
+              "U64": 85
+            }
           }
         },
         "result": {
@@ -2115,7 +2285,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 86,
-            "value": null
+            "value": {
+              "U64": 86
+            }
           }
         },
         "result": {
@@ -2140,7 +2312,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 87,
-            "value": null
+            "value": {
+              "U64": 87
+            }
           }
         },
         "result": {
@@ -2165,7 +2339,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 88,
-            "value": null
+            "value": {
+              "U64": 88
+            }
           }
         },
         "result": {
@@ -2190,7 +2366,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 89,
-            "value": null
+            "value": {
+              "U64": 89
+            }
           }
         },
         "result": {
@@ -2215,7 +2393,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 90,
-            "value": null
+            "value": {
+              "U64": 90
+            }
           }
         },
         "result": {
@@ -2240,7 +2420,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 91,
-            "value": null
+            "value": {
+              "U64": 91
+            }
           }
         },
         "result": {
@@ -2265,7 +2447,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 92,
-            "value": null
+            "value": {
+              "U64": 92
+            }
           }
         },
         "result": {
@@ -2290,7 +2474,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 93,
-            "value": null
+            "value": {
+              "U64": 93
+            }
           }
         },
         "result": {
@@ -2315,7 +2501,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 94,
-            "value": null
+            "value": {
+              "U64": 94
+            }
           }
         },
         "result": {
@@ -2340,7 +2528,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 95,
-            "value": null
+            "value": {
+              "U64": 95
+            }
           }
         },
         "result": {
@@ -2365,7 +2555,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 96,
-            "value": null
+            "value": {
+              "U64": 96
+            }
           }
         },
         "result": {
@@ -2390,7 +2582,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 97,
-            "value": null
+            "value": {
+              "U64": 97
+            }
           }
         },
         "result": {
@@ -2415,7 +2609,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 98,
-            "value": null
+            "value": {
+              "U64": 98
+            }
           }
         },
         "result": {
@@ -2440,7 +2636,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 99,
-            "value": null
+            "value": {
+              "U64": 99
+            }
           }
         },
         "result": {
@@ -2465,7 +2663,9 @@
         "rhs": {
           "VirtualWire": {
             "index": 100,
-            "value": null
+            "value": {
+              "U64": 100
+            }
           }
         },
         "result": {

@@ -167,13 +167,13 @@ impl<F: RichField + Extendable<D>, C: GenericConfig<D, F = F>, const D: usize>
                     cir_data.cir.set_wire_value(
                         wire.row,
                         wire.column,
-                        zkcir::ast::Value::RandomU64(value.to_canonical_u64()),
+                        zkcir::ast::Value::U64(value.to_canonical_u64()),
                     );
                 }
                 Target::VirtualTarget { index } => {
                     cir_data.cir.set_virtual_wire_value(
                         *index,
-                        zkcir::ast::Value::RandomU64(value.to_canonical_u64()),
+                        zkcir::ast::Value::U64(value.to_canonical_u64()),
                     );
                 }
             }

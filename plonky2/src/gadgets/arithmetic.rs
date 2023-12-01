@@ -257,13 +257,10 @@ impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
 
         if self.cir_mutex.try_lock().is_some() {
             self.cir.add_expression(Expression::BinaryOperator {
-                lhs: Box::new(target_to_ast(x)),
+                lhs: Box::new(target_to_ast(&x)),
                 binop: BinOp::Multiply,
-                rhs: Box::new(target_to_ast(y)),
-                result: Some(Box::new(match res {
-                    Target::Wire(w) => zkcir::ast::Wire::new(w.row, w.column).into(),
-                    Target::VirtualTarget { index } => zkcir::ast::VirtualWire::new(index).into(),
-                })),
+                rhs: Box::new(target_to_ast(&y)),
+                result: Some(Box::new(target_to_ast(&res))),
             });
         }
 

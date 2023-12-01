@@ -1190,6 +1190,24 @@ impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
     pub fn build<C: GenericConfig<D, F = F>>(mut self) -> CircuitData<F, C, D> {
         self.cir.num_wires(self.config.num_wires as u64);
 
+        for (target, constant) in &self.targets_to_constants {
+            match &target {
+                Target::Wire(wire) => {
+                    self.cir.set_wire_value(
+                        wire.row,
+                        wire.column,
+                        zkcir::ast::Value::U64(constant.to_canonical_u64()),
+                    );
+                }
+                Target::VirtualTarget { index } => {
+                    self.cir.set_virtual_wire_value(
+                        *index,
+                        zkcir::ast::Value::U64(constant.to_canonical_u64()),
+                    );
+                }
+            }
+        }
+
         // Hand off cir to prover/verifier
         set_last_cir_data(CirData {
             cir: self.cir.to_owned(),

@@ -9,18 +9,24 @@
           "lhs": {
             "VirtualWire": {
               "index": 0,
-              "value": "Random"
+              "value": {
+                "U64": 42
+              }
             }
           },
           "binop": "LessThan",
           "rhs": {
             "BinaryOperator": {
               "lhs": {
-                "Int": 2
+                "Value": {
+                  "U64": 2
+                }
               },
               "binop": "Exponent",
               "rhs": {
-                "Int": 6
+                "Value": {
+                  "U64": 6
+                }
               },
               "result": null
             }
