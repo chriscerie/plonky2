@@ -29,9 +29,11 @@ impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
                     },
                     binop: ast::BinOp::LessThan,
                     rhs: Box::new(ast::Expression::BinaryOperator {
-                        lhs: Box::new(ast::Expression::Int(2)),
+                        lhs: Box::new(ast::Expression::Value(zkcir::ast::Value::U64(2))),
                         binop: ast::BinOp::Exponent,
-                        rhs: Box::new(ast::Expression::Int((n_log as u64).try_into().unwrap())),
+                        rhs: Box::new(ast::Expression::Value(zkcir::ast::Value::U64(
+                            (n_log as u64).try_into().unwrap(),
+                        ))),
                         result: None,
                     }),
                     result: None,

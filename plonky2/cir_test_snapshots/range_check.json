@@ -18,11 +18,15 @@
           "rhs": {
             "BinaryOperator": {
               "lhs": {
-                "Int": 2
+                "Value": {
+                  "U64": 2
+                }
               },
               "binop": "Exponent",
               "rhs": {
-                "Int": 6
+                "Value": {
+                  "U64": 6
+                }
               },
               "result": null
             }
