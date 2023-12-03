@@ -2,7 +2,7 @@
   "config": {
     "num_wires": 135
   },
-  "expressions": [
+  "stmts": [
     {
       "Verify": {
         "BinaryOperator": {
@@ -27,11 +27,9 @@
                 "Value": {
                   "U64": 6
                 }
-              },
-              "result": null
+              }
             }
-          },
-          "result": null
+          }
         }
       }
     }

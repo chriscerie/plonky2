@@ -3,7 +3,7 @@ use alloc::vec;
 use alloc::vec::Vec;
 use core::borrow::Borrow;
 
-use zkcir::ast::{BinOp, Expression};
+use zkcir::ast::{self, BinOp, Expression};
 
 use crate::field::extension::Extendable;
 use crate::field::types::Field64;
@@ -16,7 +16,7 @@ use crate::iop::witness::{PartitionWitness, Witness, WitnessWrite};
 use crate::plonk::circuit_builder::CircuitBuilder;
 use crate::plonk::circuit_data::CommonCircuitData;
 use crate::util::serialization::{Buffer, IoResult, Read, Write};
-use crate::zkcir_test_util::target_to_ast;
+use crate::zkcir_test_util::{target_to_expr, target_to_ident};
 
 impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
     /// Computes `-x`.
@@ -192,14 +192,18 @@ impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
         let one = self.one();
         // x + y = 1 * x * 1 + 1 * y
         let res = self.arithmetic(F::ONE, F::ONE, x, one, y);
+
         if self.cir_mutex.try_lock().is_some() {
-            self.cir.add_expression(Expression::BinaryOperator {
-                lhs: Box::new(target_to_ast(&x)),
-                binop: BinOp::Add,
-                rhs: Box::new(target_to_ast(&y)),
-                result: Some(Box::new(target_to_ast(&res))),
-            });
+            self.cir.add_stmt(ast::Stmt::Local(
+                target_to_ident(&res),
+                Expression::BinaryOperator {
+                    lhs: Box::new(target_to_expr(&x)),
+                    binop: BinOp::Add,
+                    rhs: Box::new(target_to_expr(&y)),
+                },
+            ));
         }
+
         res
     }
 
@@ -218,14 +222,18 @@ impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
         let one = self.one();
         // x - y = 1 * x * 1 + (-1) * y
         let res = self.arithmetic(F::ONE, F::NEG_ONE, x, one, y);
+
         if self.cir_mutex.try_lock().is_some() {
-            self.cir.add_expression(Expression::BinaryOperator {
-                lhs: Box::new(target_to_ast(&x)),
-                binop: BinOp::Subtract,
-                rhs: Box::new(target_to_ast(&y)),
-                result: Some(Box::new(target_to_ast(&res))),
-            });
+            self.cir.add_stmt(ast::Stmt::Local(
+                target_to_ident(&res),
+                Expression::BinaryOperator {
+                    lhs: Box::new(target_to_expr(&x)),
+                    binop: BinOp::Subtract,
+                    rhs: Box::new(target_to_expr(&y)),
+                },
+            ));
         }
+
         res
     }
 
@@ -236,12 +244,14 @@ impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
         let res = self.arithmetic(F::ONE, F::ZERO, x, y, x);
 
         if self.cir_mutex.try_lock().is_some() {
-            self.cir.add_expression(Expression::BinaryOperator {
-                lhs: Box::new(target_to_ast(&x)),
-                binop: BinOp::Multiply,
-                rhs: Box::new(target_to_ast(&y)),
-                result: Some(Box::new(target_to_ast(&res))),
-            });
+            self.cir.add_stmt(ast::Stmt::Local(
+                target_to_ident(&res),
+                Expression::BinaryOperator {
+                    lhs: Box::new(target_to_expr(&x)),
+                    binop: BinOp::Multiply,
+                    rhs: Box::new(target_to_expr(&y)),
+                },
+            ));
         }
 
         res

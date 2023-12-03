@@ -5,6 +5,7 @@ use core::ops::{Range, RangeFrom};
 
 use anyhow::Result;
 use serde::Serialize;
+use zkcir::node::Node;
 
 use super::circuit_builder::LookupWire;
 use crate::field::extension::Extendable;
@@ -190,8 +191,8 @@ impl<F: RichField + Extendable<D>, C: GenericConfig<D, F = F>, const D: usize>
     pub fn verify(&self, proof_with_pis: ProofWithPublicInputs<F, C, D>) -> Result<()> {
         let random_values = &plonky2_field::zkcir_rand::get_last_cir_data().random_values;
 
-        for expression in &mut zkcir_test_util::get_last_cir_data().cir.expressions {
-            expression.visit_wires(&mut |wire| {
+        for stmt in &mut zkcir_test_util::get_last_cir_data().cir.stmts {
+            stmt.visit_wires(&mut |wire| {
                 if let Some(zkcir::ast::Value::U64(value)) = wire.value {
                     if random_values.contains(&value) {
                         wire.value = Some(zkcir::ast::Value::RandomU64(value));
@@ -199,7 +200,7 @@ impl<F: RichField + Extendable<D>, C: GenericConfig<D, F = F>, const D: usize>
                 }
             });
 
-            expression.visit_virtual_wires(&mut |wire| {
+            stmt.visit_virtual_wires(&mut |wire| {
                 if let Some(zkcir::ast::Value::U64(value)) = wire.value {
                     if random_values.contains(&value) {
                         wire.value = Some(zkcir::ast::Value::RandomU64(value));

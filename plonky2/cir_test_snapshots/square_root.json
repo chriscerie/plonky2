@@ -2,30 +2,34 @@
   "config": {
     "num_wires": 135
   },
-  "expressions": [
+  "stmts": [
     {
-      "BinaryOperator": {
-        "lhs": {
-          "VirtualWire": {
-            "index": 0,
-            "value": null
-          }
-        },
-        "binop": "Multiply",
-        "rhs": {
-          "VirtualWire": {
-            "index": 0,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 0,
             "column": 3,
             "value": "Random"
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "VirtualWire": {
+                "index": 0,
+                "value": null
+              }
+            },
+            "binop": "Multiply",
+            "rhs": {
+              "VirtualWire": {
+                "index": 0,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     }
   ]
 }

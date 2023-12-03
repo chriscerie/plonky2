@@ -1186,12 +1186,6 @@ impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
         #[cfg(feature = "std")]
         debug!("Building circuit took {}s", start.elapsed().as_secs_f32());
 
-        let generators = prover_only
-            .generators
-            .iter()
-            .map(|gen| gen.0.id())
-            .collect::<HashSet<_>>();
-
         (
             CircuitData {
                 prover_only,

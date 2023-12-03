@@ -2,2583 +2,2979 @@
   "config": {
     "num_wires": 135
   },
-  "expressions": [
+  "stmts": [
     {
-      "BinaryOperator": {
-        "lhs": {
-          "VirtualWire": {
-            "index": 0,
-            "value": {
-              "U64": 0
+      "Local": [
+        {
+          "Wire": {
+            "row": 0,
+            "column": 3,
+            "value": null
+          }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "VirtualWire": {
+                "index": 0,
+                "value": {
+                  "U64": 0
+                }
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "VirtualWire": {
+                "index": 1,
+                "value": {
+                  "U64": 1
+                }
+              }
             }
           }
+        }
+      ]
+    },
+    {
+      "Local": [
+        {
+          "Wire": {
+            "row": 0,
+            "column": 7,
+            "value": null
+          }
         },
-        "binop": "Add",
-        "rhs": {
-          "VirtualWire": {
-            "index": 1,
-            "value": {
-              "U64": 1
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "VirtualWire": {
+                "index": 1,
+                "value": {
+                  "U64": 1
+                }
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 0,
+                "column": 3,
+                "value": null
+              }
             }
           }
-        },
-        "result": {
-          "Wire": {
-            "row": 0,
-            "column": 3,
-            "value": null
-          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "VirtualWire": {
-            "index": 1,
-            "value": {
-              "U64": 1
+      "Local": [
+        {
+          "Wire": {
+            "row": 0,
+            "column": 11,
+            "value": null
+          }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 0,
+                "column": 3,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 0,
+                "column": 7,
+                "value": null
+              }
             }
           }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 0,
-            "column": 3,
-            "value": null
-          }
-        },
-        "result": {
-          "Wire": {
-            "row": 0,
-            "column": 7,
-            "value": null
-          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 0,
-            "column": 3,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 0,
-            "column": 7,
-            "value": null
-          }
-        },
-        "result": {
-          "Wire": {
-            "row": 0,
-            "column": 11,
-            "value": null
-          }
-        }
-      }
-    },
-    {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 0,
-            "column": 7,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 0,
-            "column": 11,
-            "value": null
-          }
-        },
-        "result": {
-          "Wire": {
-            "row": 0,
-            "column": 15,
-            "value": null
-          }
-        }
-      }
-    },
-    {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 0,
-            "column": 11,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
+      "Local": [
+        {
           "Wire": {
             "row": 0,
             "column": 15,
             "value": null
           }
         },
-        "result": {
-          "Wire": {
-            "row": 0,
-            "column": 19,
-            "value": null
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 0,
+                "column": 7,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 0,
+                "column": 11,
+                "value": null
+              }
+            }
           }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 0,
-            "column": 15,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 0,
-            "column": 19,
-            "value": null
-          }
-        },
-        "result": {
-          "Wire": {
-            "row": 0,
-            "column": 23,
-            "value": null
-          }
-        }
-      }
-    },
-    {
-      "BinaryOperator": {
-        "lhs": {
+      "Local": [
+        {
           "Wire": {
             "row": 0,
             "column": 19,
             "value": null
           }
         },
-        "binop": "Add",
-        "rhs": {
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 0,
+                "column": 11,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 0,
+                "column": 15,
+                "value": null
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Local": [
+        {
           "Wire": {
             "row": 0,
             "column": 23,
             "value": null
           }
         },
-        "result": {
-          "Wire": {
-            "row": 0,
-            "column": 27,
-            "value": null
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 0,
+                "column": 15,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 0,
+                "column": 19,
+                "value": null
+              }
+            }
           }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 0,
-            "column": 23,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 0,
-            "column": 27,
-            "value": null
-          }
-        },
-        "result": {
-          "Wire": {
-            "row": 0,
-            "column": 31,
-            "value": null
-          }
-        }
-      }
-    },
-    {
-      "BinaryOperator": {
-        "lhs": {
+      "Local": [
+        {
           "Wire": {
             "row": 0,
             "column": 27,
             "value": null
           }
         },
-        "binop": "Add",
-        "rhs": {
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 0,
+                "column": 19,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 0,
+                "column": 23,
+                "value": null
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Local": [
+        {
           "Wire": {
             "row": 0,
             "column": 31,
             "value": null
           }
         },
-        "result": {
-          "Wire": {
-            "row": 0,
-            "column": 35,
-            "value": null
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 0,
+                "column": 23,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 0,
+                "column": 27,
+                "value": null
+              }
+            }
           }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 0,
-            "column": 31,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 0,
-            "column": 35,
-            "value": null
-          }
-        },
-        "result": {
-          "Wire": {
-            "row": 0,
-            "column": 39,
-            "value": null
-          }
-        }
-      }
-    },
-    {
-      "BinaryOperator": {
-        "lhs": {
+      "Local": [
+        {
           "Wire": {
             "row": 0,
             "column": 35,
             "value": null
           }
         },
-        "binop": "Add",
-        "rhs": {
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 0,
+                "column": 27,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 0,
+                "column": 31,
+                "value": null
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Local": [
+        {
           "Wire": {
             "row": 0,
             "column": 39,
             "value": null
           }
         },
-        "result": {
-          "Wire": {
-            "row": 0,
-            "column": 43,
-            "value": null
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 0,
+                "column": 31,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 0,
+                "column": 35,
+                "value": null
+              }
+            }
           }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 0,
-            "column": 39,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 0,
-            "column": 43,
-            "value": null
-          }
-        },
-        "result": {
-          "Wire": {
-            "row": 0,
-            "column": 47,
-            "value": null
-          }
-        }
-      }
-    },
-    {
-      "BinaryOperator": {
-        "lhs": {
+      "Local": [
+        {
           "Wire": {
             "row": 0,
             "column": 43,
             "value": null
           }
         },
-        "binop": "Add",
-        "rhs": {
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 0,
+                "column": 35,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 0,
+                "column": 39,
+                "value": null
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Local": [
+        {
           "Wire": {
             "row": 0,
             "column": 47,
             "value": null
           }
         },
-        "result": {
-          "Wire": {
-            "row": 0,
-            "column": 51,
-            "value": null
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 0,
+                "column": 39,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 0,
+                "column": 43,
+                "value": null
+              }
+            }
           }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 0,
-            "column": 47,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 0,
-            "column": 51,
-            "value": null
-          }
-        },
-        "result": {
-          "Wire": {
-            "row": 0,
-            "column": 55,
-            "value": null
-          }
-        }
-      }
-    },
-    {
-      "BinaryOperator": {
-        "lhs": {
+      "Local": [
+        {
           "Wire": {
             "row": 0,
             "column": 51,
             "value": null
           }
         },
-        "binop": "Add",
-        "rhs": {
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 0,
+                "column": 43,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 0,
+                "column": 47,
+                "value": null
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Local": [
+        {
           "Wire": {
             "row": 0,
             "column": 55,
             "value": null
           }
         },
-        "result": {
-          "Wire": {
-            "row": 0,
-            "column": 59,
-            "value": null
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 0,
+                "column": 47,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 0,
+                "column": 51,
+                "value": null
+              }
+            }
           }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 0,
-            "column": 55,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 0,
-            "column": 59,
-            "value": null
-          }
-        },
-        "result": {
-          "Wire": {
-            "row": 0,
-            "column": 63,
-            "value": null
-          }
-        }
-      }
-    },
-    {
-      "BinaryOperator": {
-        "lhs": {
+      "Local": [
+        {
           "Wire": {
             "row": 0,
             "column": 59,
             "value": null
           }
         },
-        "binop": "Add",
-        "rhs": {
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 0,
+                "column": 51,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 0,
+                "column": 55,
+                "value": null
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Local": [
+        {
           "Wire": {
             "row": 0,
             "column": 63,
             "value": null
           }
         },
-        "result": {
-          "Wire": {
-            "row": 0,
-            "column": 67,
-            "value": null
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 0,
+                "column": 55,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 0,
+                "column": 59,
+                "value": null
+              }
+            }
           }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 0,
-            "column": 63,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 0,
-            "column": 67,
-            "value": null
-          }
-        },
-        "result": {
-          "Wire": {
-            "row": 0,
-            "column": 71,
-            "value": null
-          }
-        }
-      }
-    },
-    {
-      "BinaryOperator": {
-        "lhs": {
+      "Local": [
+        {
           "Wire": {
             "row": 0,
             "column": 67,
             "value": null
           }
         },
-        "binop": "Add",
-        "rhs": {
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 0,
+                "column": 59,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 0,
+                "column": 63,
+                "value": null
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Local": [
+        {
           "Wire": {
             "row": 0,
             "column": 71,
             "value": null
           }
         },
-        "result": {
-          "Wire": {
-            "row": 0,
-            "column": 75,
-            "value": null
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 0,
+                "column": 63,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 0,
+                "column": 67,
+                "value": null
+              }
+            }
           }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 0,
-            "column": 71,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
+      "Local": [
+        {
           "Wire": {
             "row": 0,
             "column": 75,
             "value": null
           }
         },
-        "result": {
-          "Wire": {
-            "row": 0,
-            "column": 79,
-            "value": null
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 0,
+                "column": 67,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 0,
+                "column": 71,
+                "value": null
+              }
+            }
           }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 0,
-            "column": 75,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
+      "Local": [
+        {
           "Wire": {
             "row": 0,
             "column": 79,
             "value": null
           }
         },
-        "result": {
-          "Wire": {
-            "row": 1,
-            "column": 3,
-            "value": null
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 0,
+                "column": 71,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 0,
+                "column": 75,
+                "value": null
+              }
+            }
           }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 0,
-            "column": 79,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
+      "Local": [
+        {
           "Wire": {
             "row": 1,
             "column": 3,
             "value": null
           }
         },
-        "result": {
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 0,
+                "column": 75,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 0,
+                "column": 79,
+                "value": null
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Local": [
+        {
           "Wire": {
             "row": 1,
             "column": 7,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 0,
+                "column": 79,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 1,
+                "column": 3,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 1,
-            "column": 3,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 1,
-            "column": 7,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 1,
             "column": 11,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 1,
+                "column": 3,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 1,
+                "column": 7,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 1,
-            "column": 7,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 1,
-            "column": 11,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 1,
             "column": 15,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 1,
+                "column": 7,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 1,
+                "column": 11,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 1,
-            "column": 11,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 1,
-            "column": 15,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 1,
             "column": 19,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 1,
+                "column": 11,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 1,
+                "column": 15,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 1,
-            "column": 15,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 1,
-            "column": 19,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 1,
             "column": 23,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 1,
+                "column": 15,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 1,
+                "column": 19,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 1,
-            "column": 19,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 1,
-            "column": 23,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 1,
             "column": 27,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 1,
+                "column": 19,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 1,
+                "column": 23,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 1,
-            "column": 23,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 1,
-            "column": 27,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 1,
             "column": 31,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 1,
+                "column": 23,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 1,
+                "column": 27,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 1,
-            "column": 27,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 1,
-            "column": 31,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 1,
             "column": 35,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 1,
+                "column": 27,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 1,
+                "column": 31,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 1,
-            "column": 31,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 1,
-            "column": 35,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 1,
             "column": 39,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 1,
+                "column": 31,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 1,
+                "column": 35,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 1,
-            "column": 35,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 1,
-            "column": 39,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 1,
             "column": 43,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 1,
+                "column": 35,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 1,
+                "column": 39,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 1,
-            "column": 39,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 1,
-            "column": 43,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 1,
             "column": 47,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 1,
+                "column": 39,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 1,
+                "column": 43,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 1,
-            "column": 43,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 1,
-            "column": 47,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 1,
             "column": 51,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 1,
+                "column": 43,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 1,
+                "column": 47,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 1,
-            "column": 47,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 1,
-            "column": 51,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 1,
             "column": 55,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 1,
+                "column": 47,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 1,
+                "column": 51,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 1,
-            "column": 51,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 1,
-            "column": 55,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 1,
             "column": 59,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 1,
+                "column": 51,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 1,
+                "column": 55,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 1,
-            "column": 55,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 1,
-            "column": 59,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 1,
             "column": 63,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 1,
+                "column": 55,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 1,
+                "column": 59,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 1,
-            "column": 59,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 1,
-            "column": 63,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 1,
             "column": 67,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 1,
+                "column": 59,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 1,
+                "column": 63,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 1,
-            "column": 63,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 1,
-            "column": 67,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 1,
             "column": 71,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 1,
+                "column": 63,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 1,
+                "column": 67,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 1,
-            "column": 67,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 1,
-            "column": 71,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 1,
             "column": 75,
             "value": null
           }
-        }
-      }
-    },
-    {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 1,
-            "column": 71,
-            "value": null
-          }
         },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 1,
-            "column": 75,
-            "value": null
-          }
-        },
-        "result": {
-          "Wire": {
-            "row": 1,
-            "column": 79,
-            "value": null
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 1,
+                "column": 67,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 1,
+                "column": 71,
+                "value": null
+              }
+            }
           }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 1,
-            "column": 75,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
+      "Local": [
+        {
           "Wire": {
             "row": 1,
             "column": 79,
             "value": null
           }
         },
-        "result": {
-          "Wire": {
-            "row": 2,
-            "column": 3,
-            "value": null
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 1,
+                "column": 71,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 1,
+                "column": 75,
+                "value": null
+              }
+            }
           }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 1,
-            "column": 79,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
+      "Local": [
+        {
           "Wire": {
             "row": 2,
             "column": 3,
             "value": null
           }
         },
-        "result": {
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 1,
+                "column": 75,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 1,
+                "column": 79,
+                "value": null
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Local": [
+        {
           "Wire": {
             "row": 2,
             "column": 7,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 1,
+                "column": 79,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 2,
+                "column": 3,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 2,
-            "column": 3,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 2,
-            "column": 7,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 2,
             "column": 11,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 2,
+                "column": 3,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 2,
+                "column": 7,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 2,
-            "column": 7,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 2,
-            "column": 11,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 2,
             "column": 15,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 2,
+                "column": 7,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 2,
+                "column": 11,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 2,
-            "column": 11,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 2,
-            "column": 15,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 2,
             "column": 19,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 2,
+                "column": 11,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 2,
+                "column": 15,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 2,
-            "column": 15,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 2,
-            "column": 19,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 2,
             "column": 23,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 2,
+                "column": 15,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 2,
+                "column": 19,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 2,
-            "column": 19,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 2,
-            "column": 23,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 2,
             "column": 27,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 2,
+                "column": 19,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 2,
+                "column": 23,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 2,
-            "column": 23,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 2,
-            "column": 27,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 2,
             "column": 31,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 2,
+                "column": 23,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 2,
+                "column": 27,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 2,
-            "column": 27,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 2,
-            "column": 31,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 2,
             "column": 35,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 2,
+                "column": 27,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 2,
+                "column": 31,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 2,
-            "column": 31,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 2,
-            "column": 35,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 2,
             "column": 39,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 2,
+                "column": 31,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 2,
+                "column": 35,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 2,
-            "column": 35,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 2,
-            "column": 39,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 2,
             "column": 43,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 2,
+                "column": 35,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 2,
+                "column": 39,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 2,
-            "column": 39,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 2,
-            "column": 43,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 2,
             "column": 47,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 2,
+                "column": 39,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 2,
+                "column": 43,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 2,
-            "column": 43,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 2,
-            "column": 47,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 2,
             "column": 51,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 2,
+                "column": 43,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 2,
+                "column": 47,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 2,
-            "column": 47,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 2,
-            "column": 51,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 2,
             "column": 55,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 2,
+                "column": 47,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 2,
+                "column": 51,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 2,
-            "column": 51,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 2,
-            "column": 55,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 2,
             "column": 59,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 2,
+                "column": 51,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 2,
+                "column": 55,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 2,
-            "column": 55,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 2,
-            "column": 59,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 2,
             "column": 63,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 2,
+                "column": 55,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 2,
+                "column": 59,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 2,
-            "column": 59,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 2,
-            "column": 63,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 2,
             "column": 67,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 2,
+                "column": 59,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 2,
+                "column": 63,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 2,
-            "column": 63,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 2,
-            "column": 67,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 2,
             "column": 71,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 2,
+                "column": 63,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 2,
+                "column": 67,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 2,
-            "column": 67,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 2,
-            "column": 71,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 2,
             "column": 75,
             "value": null
           }
-        }
-      }
-    },
-    {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 2,
-            "column": 71,
-            "value": null
-          }
         },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 2,
-            "column": 75,
-            "value": null
-          }
-        },
-        "result": {
-          "Wire": {
-            "row": 2,
-            "column": 79,
-            "value": null
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 2,
+                "column": 67,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 2,
+                "column": 71,
+                "value": null
+              }
+            }
           }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 2,
-            "column": 75,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
+      "Local": [
+        {
           "Wire": {
             "row": 2,
             "column": 79,
             "value": null
           }
         },
-        "result": {
-          "Wire": {
-            "row": 3,
-            "column": 3,
-            "value": null
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 2,
+                "column": 71,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 2,
+                "column": 75,
+                "value": null
+              }
+            }
           }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 2,
-            "column": 79,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
+      "Local": [
+        {
           "Wire": {
             "row": 3,
             "column": 3,
             "value": null
           }
         },
-        "result": {
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 2,
+                "column": 75,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 2,
+                "column": 79,
+                "value": null
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Local": [
+        {
           "Wire": {
             "row": 3,
             "column": 7,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 2,
+                "column": 79,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 3,
+                "column": 3,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 3,
-            "column": 3,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 3,
-            "column": 7,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 3,
             "column": 11,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 3,
+                "column": 3,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 3,
+                "column": 7,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 3,
-            "column": 7,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 3,
-            "column": 11,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 3,
             "column": 15,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 3,
+                "column": 7,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 3,
+                "column": 11,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 3,
-            "column": 11,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 3,
-            "column": 15,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 3,
             "column": 19,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 3,
+                "column": 11,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 3,
+                "column": 15,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 3,
-            "column": 15,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 3,
-            "column": 19,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 3,
             "column": 23,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 3,
+                "column": 15,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 3,
+                "column": 19,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 3,
-            "column": 19,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 3,
-            "column": 23,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 3,
             "column": 27,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 3,
+                "column": 19,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 3,
+                "column": 23,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 3,
-            "column": 23,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 3,
-            "column": 27,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 3,
             "column": 31,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 3,
+                "column": 23,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 3,
+                "column": 27,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 3,
-            "column": 27,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 3,
-            "column": 31,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 3,
             "column": 35,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 3,
+                "column": 27,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 3,
+                "column": 31,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 3,
-            "column": 31,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 3,
-            "column": 35,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 3,
             "column": 39,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 3,
+                "column": 31,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 3,
+                "column": 35,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 3,
-            "column": 35,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 3,
-            "column": 39,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 3,
             "column": 43,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 3,
+                "column": 35,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 3,
+                "column": 39,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 3,
-            "column": 39,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 3,
-            "column": 43,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 3,
             "column": 47,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 3,
+                "column": 39,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 3,
+                "column": 43,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 3,
-            "column": 43,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 3,
-            "column": 47,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 3,
             "column": 51,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 3,
+                "column": 43,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 3,
+                "column": 47,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 3,
-            "column": 47,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 3,
-            "column": 51,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 3,
             "column": 55,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 3,
+                "column": 47,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 3,
+                "column": 51,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 3,
-            "column": 51,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 3,
-            "column": 55,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 3,
             "column": 59,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 3,
+                "column": 51,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 3,
+                "column": 55,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 3,
-            "column": 55,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 3,
-            "column": 59,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 3,
             "column": 63,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 3,
+                "column": 55,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 3,
+                "column": 59,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 3,
-            "column": 59,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 3,
-            "column": 63,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 3,
             "column": 67,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 3,
+                "column": 59,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 3,
+                "column": 63,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 3,
-            "column": 63,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 3,
-            "column": 67,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 3,
             "column": 71,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 3,
+                "column": 63,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 3,
+                "column": 67,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 3,
-            "column": 67,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 3,
-            "column": 71,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 3,
             "column": 75,
             "value": null
           }
-        }
-      }
-    },
-    {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 3,
-            "column": 71,
-            "value": null
-          }
         },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 3,
-            "column": 75,
-            "value": null
-          }
-        },
-        "result": {
-          "Wire": {
-            "row": 3,
-            "column": 79,
-            "value": null
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 3,
+                "column": 67,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 3,
+                "column": 71,
+                "value": null
+              }
+            }
           }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 3,
-            "column": 75,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
+      "Local": [
+        {
           "Wire": {
             "row": 3,
             "column": 79,
             "value": null
           }
         },
-        "result": {
-          "Wire": {
-            "row": 4,
-            "column": 3,
-            "value": null
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 3,
+                "column": 71,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 3,
+                "column": 75,
+                "value": null
+              }
+            }
           }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 3,
-            "column": 79,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
+      "Local": [
+        {
           "Wire": {
             "row": 4,
             "column": 3,
             "value": null
           }
         },
-        "result": {
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 3,
+                "column": 75,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 3,
+                "column": 79,
+                "value": null
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Local": [
+        {
           "Wire": {
             "row": 4,
             "column": 7,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 3,
+                "column": 79,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 4,
+                "column": 3,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 4,
-            "column": 3,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 4,
-            "column": 7,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 4,
             "column": 11,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 4,
+                "column": 3,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 4,
+                "column": 7,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 4,
-            "column": 7,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 4,
-            "column": 11,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 4,
             "column": 15,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 4,
+                "column": 7,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 4,
+                "column": 11,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 4,
-            "column": 11,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 4,
-            "column": 15,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 4,
             "column": 19,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 4,
+                "column": 11,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 4,
+                "column": 15,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 4,
-            "column": 15,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 4,
-            "column": 19,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 4,
             "column": 23,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 4,
+                "column": 15,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 4,
+                "column": 19,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 4,
-            "column": 19,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 4,
-            "column": 23,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 4,
             "column": 27,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 4,
+                "column": 19,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 4,
+                "column": 23,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 4,
-            "column": 23,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 4,
-            "column": 27,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 4,
             "column": 31,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 4,
+                "column": 23,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 4,
+                "column": 27,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 4,
-            "column": 27,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 4,
-            "column": 31,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 4,
             "column": 35,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 4,
+                "column": 27,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 4,
+                "column": 31,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 4,
-            "column": 31,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 4,
-            "column": 35,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 4,
             "column": 39,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 4,
+                "column": 31,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 4,
+                "column": 35,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 4,
-            "column": 35,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 4,
-            "column": 39,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 4,
             "column": 43,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 4,
+                "column": 35,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 4,
+                "column": 39,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 4,
-            "column": 39,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 4,
-            "column": 43,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 4,
             "column": 47,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 4,
+                "column": 39,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 4,
+                "column": 43,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 4,
-            "column": 43,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 4,
-            "column": 47,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 4,
             "column": 51,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 4,
+                "column": 43,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 4,
+                "column": 47,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 4,
-            "column": 47,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 4,
-            "column": 51,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 4,
             "column": 55,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 4,
+                "column": 47,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 4,
+                "column": 51,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 4,
-            "column": 51,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 4,
-            "column": 55,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 4,
             "column": 59,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 4,
+                "column": 51,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 4,
+                "column": 55,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 4,
-            "column": 55,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 4,
-            "column": 59,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 4,
             "column": 63,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 4,
+                "column": 55,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 4,
+                "column": 59,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 4,
-            "column": 59,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 4,
-            "column": 63,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 4,
             "column": 67,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 4,
+                "column": 59,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 4,
+                "column": 63,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 4,
-            "column": 63,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 4,
-            "column": 67,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 4,
             "column": 71,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 4,
+                "column": 63,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 4,
+                "column": 67,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "BinaryOperator": {
-        "lhs": {
-          "Wire": {
-            "row": 4,
-            "column": 67,
-            "value": null
-          }
-        },
-        "binop": "Add",
-        "rhs": {
-          "Wire": {
-            "row": 4,
-            "column": 71,
-            "value": null
-          }
-        },
-        "result": {
+      "Local": [
+        {
           "Wire": {
             "row": 4,
             "column": 75,
             "value": null
           }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Wire": {
+                "row": 4,
+                "column": 67,
+                "value": null
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Wire": {
+                "row": 4,
+                "column": 71,
+                "value": null
+              }
+            }
+          }
         }
-      }
+      ]
     }
   ]
 }

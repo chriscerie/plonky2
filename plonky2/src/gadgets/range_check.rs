@@ -17,8 +17,8 @@ impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
     /// Checks that `x < 2^n_log` using a `BaseSumGate`.
     pub fn range_check(&mut self, x: Target, n_log: usize) {
         if self.cir_mutex.try_lock().is_some() {
-            self.cir.add_expression(ast::Expression::Verify(Box::new(
-                ast::Expression::BinaryOperator {
+            self.cir
+                .add_stmt(ast::Stmt::Verify(ast::Expression::BinaryOperator {
                     lhs: match &x {
                         Target::Wire(wire) => {
                             Box::new(ast::Expression::Wire(ast::Wire::new(wire.row, wire.column)))
@@ -34,11 +34,8 @@ impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
                         rhs: Box::new(ast::Expression::Value(zkcir::ast::Value::U64(
                             n_log.try_into().unwrap(),
                         ))),
-                        result: None,
                     }),
-                    result: None,
-                },
-            )));
+                }));
         }
 
         self.split_le(x, n_log);
