@@ -310,7 +310,7 @@ impl<F: RichField + Extendable<D>, C: GenericConfig<D, F = F>, const D: usize>
 }
 
 /// Circuit data required by the prover.
-#[derive(Debug)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct VerifierCircuitData<
     F: RichField + Extendable<D>,
     C: GenericConfig<D, F = F>,
