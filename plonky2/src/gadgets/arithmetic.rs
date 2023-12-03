@@ -189,8 +189,9 @@ impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
 
     /// Computes `x + y`.
     pub fn add(&mut self, x: Target, y: Target) -> Target {
-        let res = self.arithmetic(F::ONE, F::ONE, x, x, y);
         // x + y = 1 * x * 1 + 1 * y
+        let one = self.one();
+        let res = self.arithmetic(F::ONE, F::ONE, x, one, y);
         if self.cir_mutex.try_lock().is_some() {
             self.cir.add_expression(Expression::BinaryOperator {
                 lhs: Box::new(target_to_ast(&x)),
@@ -214,8 +215,9 @@ impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
 
     /// Computes `x - y`.
     pub fn sub(&mut self, x: Target, y: Target) -> Target {
-        let res = self.arithmetic(F::ONE, F::NEG_ONE, x, x, y);
         // x - y = 1 * x * 1 + (-1) * y
+        let one = self.one();
+        let res = self.arithmetic(F::ONE, F::NEG_ONE, x, one, y);
         if self.cir_mutex.try_lock().is_some() {
             self.cir.add_expression(Expression::BinaryOperator {
                 lhs: Box::new(target_to_ast(&x)),
