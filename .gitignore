@@ -8,3 +8,6 @@ pgo-data.profdata
 
 # MacOS nuisances
 .DS_Store
+
+*_data.json
+proof_with_public_inputs.json
