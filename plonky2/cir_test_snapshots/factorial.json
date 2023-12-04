@@ -6,6 +6,37 @@
     {
       "Local": [
         {
+          "String": "public_input_1"
+        },
+        {
+          "Ident": {
+            "VirtualWire": {
+              "index": 0,
+              "value": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Local": [
+        {
+          "String": "public_input_2"
+        },
+        {
+          "Ident": {
+            "Wire": {
+              "row": 4,
+              "column": 75,
+              "value": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Local": [
+        {
           "Wire": {
             "row": 0,
             "column": 3,
@@ -15,19 +46,18 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "VirtualWire": {
-                "index": 0,
-                "value": {
-                  "U64": 1
-                }
+              "Ident": {
+                "String": "public_input_1"
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 1,
-                "value": {
-                  "U64": 2
+              "Ident": {
+                "VirtualWire": {
+                  "index": 1,
+                  "value": {
+                    "U64": 2
+                  }
                 }
               }
             }
@@ -47,18 +77,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 3,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 3,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 3,
-                "value": {
-                  "U64": 3
+              "Ident": {
+                "VirtualWire": {
+                  "index": 3,
+                  "value": {
+                    "U64": 3
+                  }
                 }
               }
             }
@@ -78,18 +112,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 7,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 7,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 4,
-                "value": {
-                  "U64": 4
+              "Ident": {
+                "VirtualWire": {
+                  "index": 4,
+                  "value": {
+                    "U64": 4
+                  }
                 }
               }
             }
@@ -109,18 +147,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 11,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 11,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 5,
-                "value": {
-                  "U64": 5
+              "Ident": {
+                "VirtualWire": {
+                  "index": 5,
+                  "value": {
+                    "U64": 5
+                  }
                 }
               }
             }
@@ -140,18 +182,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 15,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 15,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 6,
-                "value": {
-                  "U64": 6
+              "Ident": {
+                "VirtualWire": {
+                  "index": 6,
+                  "value": {
+                    "U64": 6
+                  }
                 }
               }
             }
@@ -171,18 +217,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 19,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 19,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 7,
-                "value": {
-                  "U64": 7
+              "Ident": {
+                "VirtualWire": {
+                  "index": 7,
+                  "value": {
+                    "U64": 7
+                  }
                 }
               }
             }
@@ -202,18 +252,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 23,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 23,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 8,
-                "value": {
-                  "U64": 8
+              "Ident": {
+                "VirtualWire": {
+                  "index": 8,
+                  "value": {
+                    "U64": 8
+                  }
                 }
               }
             }
@@ -233,18 +287,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 27,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 27,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 9,
-                "value": {
-                  "U64": 9
+              "Ident": {
+                "VirtualWire": {
+                  "index": 9,
+                  "value": {
+                    "U64": 9
+                  }
                 }
               }
             }
@@ -264,18 +322,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 31,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 31,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 10,
-                "value": {
-                  "U64": 10
+              "Ident": {
+                "VirtualWire": {
+                  "index": 10,
+                  "value": {
+                    "U64": 10
+                  }
                 }
               }
             }
@@ -295,18 +357,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 35,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 35,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 11,
-                "value": {
-                  "U64": 11
+              "Ident": {
+                "VirtualWire": {
+                  "index": 11,
+                  "value": {
+                    "U64": 11
+                  }
                 }
               }
             }
@@ -326,18 +392,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 39,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 39,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 12,
-                "value": {
-                  "U64": 12
+              "Ident": {
+                "VirtualWire": {
+                  "index": 12,
+                  "value": {
+                    "U64": 12
+                  }
                 }
               }
             }
@@ -357,18 +427,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 43,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 43,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 13,
-                "value": {
-                  "U64": 13
+              "Ident": {
+                "VirtualWire": {
+                  "index": 13,
+                  "value": {
+                    "U64": 13
+                  }
                 }
               }
             }
@@ -388,18 +462,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 47,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 47,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 14,
-                "value": {
-                  "U64": 14
+              "Ident": {
+                "VirtualWire": {
+                  "index": 14,
+                  "value": {
+                    "U64": 14
+                  }
                 }
               }
             }
@@ -419,18 +497,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 51,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 51,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 15,
-                "value": {
-                  "U64": 15
+              "Ident": {
+                "VirtualWire": {
+                  "index": 15,
+                  "value": {
+                    "U64": 15
+                  }
                 }
               }
             }
@@ -450,18 +532,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 55,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 55,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 16,
-                "value": {
-                  "U64": 16
+              "Ident": {
+                "VirtualWire": {
+                  "index": 16,
+                  "value": {
+                    "U64": 16
+                  }
                 }
               }
             }
@@ -481,18 +567,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 59,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 59,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 17,
-                "value": {
-                  "U64": 17
+              "Ident": {
+                "VirtualWire": {
+                  "index": 17,
+                  "value": {
+                    "U64": 17
+                  }
                 }
               }
             }
@@ -512,18 +602,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 63,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 63,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 18,
-                "value": {
-                  "U64": 18
+              "Ident": {
+                "VirtualWire": {
+                  "index": 18,
+                  "value": {
+                    "U64": 18
+                  }
                 }
               }
             }
@@ -543,18 +637,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 67,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 67,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 19,
-                "value": {
-                  "U64": 19
+              "Ident": {
+                "VirtualWire": {
+                  "index": 19,
+                  "value": {
+                    "U64": 19
+                  }
                 }
               }
             }
@@ -574,18 +672,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 71,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 71,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 20,
-                "value": {
-                  "U64": 20
+              "Ident": {
+                "VirtualWire": {
+                  "index": 20,
+                  "value": {
+                    "U64": 20
+                  }
                 }
               }
             }
@@ -605,18 +707,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 75,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 75,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 21,
-                "value": {
-                  "U64": 21
+              "Ident": {
+                "VirtualWire": {
+                  "index": 21,
+                  "value": {
+                    "U64": 21
+                  }
                 }
               }
             }
@@ -636,18 +742,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 79,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 79,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 22,
-                "value": {
-                  "U64": 22
+              "Ident": {
+                "VirtualWire": {
+                  "index": 22,
+                  "value": {
+                    "U64": 22
+                  }
                 }
               }
             }
@@ -667,18 +777,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 3,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 3,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 23,
-                "value": {
-                  "U64": 23
+              "Ident": {
+                "VirtualWire": {
+                  "index": 23,
+                  "value": {
+                    "U64": 23
+                  }
                 }
               }
             }
@@ -698,18 +812,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 7,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 7,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 24,
-                "value": {
-                  "U64": 24
+              "Ident": {
+                "VirtualWire": {
+                  "index": 24,
+                  "value": {
+                    "U64": 24
+                  }
                 }
               }
             }
@@ -729,18 +847,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 11,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 11,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 25,
-                "value": {
-                  "U64": 25
+              "Ident": {
+                "VirtualWire": {
+                  "index": 25,
+                  "value": {
+                    "U64": 25
+                  }
                 }
               }
             }
@@ -760,18 +882,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 15,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 15,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 26,
-                "value": {
-                  "U64": 26
+              "Ident": {
+                "VirtualWire": {
+                  "index": 26,
+                  "value": {
+                    "U64": 26
+                  }
                 }
               }
             }
@@ -791,18 +917,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 19,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 19,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 27,
-                "value": {
-                  "U64": 27
+              "Ident": {
+                "VirtualWire": {
+                  "index": 27,
+                  "value": {
+                    "U64": 27
+                  }
                 }
               }
             }
@@ -822,18 +952,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 23,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 23,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 28,
-                "value": {
-                  "U64": 28
+              "Ident": {
+                "VirtualWire": {
+                  "index": 28,
+                  "value": {
+                    "U64": 28
+                  }
                 }
               }
             }
@@ -853,18 +987,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 27,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 27,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 29,
-                "value": {
-                  "U64": 29
+              "Ident": {
+                "VirtualWire": {
+                  "index": 29,
+                  "value": {
+                    "U64": 29
+                  }
                 }
               }
             }
@@ -884,18 +1022,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 31,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 31,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 30,
-                "value": {
-                  "U64": 30
+              "Ident": {
+                "VirtualWire": {
+                  "index": 30,
+                  "value": {
+                    "U64": 30
+                  }
                 }
               }
             }
@@ -915,18 +1057,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 35,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 35,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 31,
-                "value": {
-                  "U64": 31
+              "Ident": {
+                "VirtualWire": {
+                  "index": 31,
+                  "value": {
+                    "U64": 31
+                  }
                 }
               }
             }
@@ -946,18 +1092,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 39,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 39,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 32,
-                "value": {
-                  "U64": 32
+              "Ident": {
+                "VirtualWire": {
+                  "index": 32,
+                  "value": {
+                    "U64": 32
+                  }
                 }
               }
             }
@@ -977,18 +1127,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 43,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 43,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 33,
-                "value": {
-                  "U64": 33
+              "Ident": {
+                "VirtualWire": {
+                  "index": 33,
+                  "value": {
+                    "U64": 33
+                  }
                 }
               }
             }
@@ -1008,18 +1162,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 47,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 47,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 34,
-                "value": {
-                  "U64": 34
+              "Ident": {
+                "VirtualWire": {
+                  "index": 34,
+                  "value": {
+                    "U64": 34
+                  }
                 }
               }
             }
@@ -1039,18 +1197,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 51,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 51,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 35,
-                "value": {
-                  "U64": 35
+              "Ident": {
+                "VirtualWire": {
+                  "index": 35,
+                  "value": {
+                    "U64": 35
+                  }
                 }
               }
             }
@@ -1070,18 +1232,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 55,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 55,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 36,
-                "value": {
-                  "U64": 36
+              "Ident": {
+                "VirtualWire": {
+                  "index": 36,
+                  "value": {
+                    "U64": 36
+                  }
                 }
               }
             }
@@ -1101,18 +1267,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 59,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 59,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 37,
-                "value": {
-                  "U64": 37
+              "Ident": {
+                "VirtualWire": {
+                  "index": 37,
+                  "value": {
+                    "U64": 37
+                  }
                 }
               }
             }
@@ -1132,18 +1302,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 63,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 63,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 38,
-                "value": {
-                  "U64": 38
+              "Ident": {
+                "VirtualWire": {
+                  "index": 38,
+                  "value": {
+                    "U64": 38
+                  }
                 }
               }
             }
@@ -1163,18 +1337,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 67,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 67,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 39,
-                "value": {
-                  "U64": 39
+              "Ident": {
+                "VirtualWire": {
+                  "index": 39,
+                  "value": {
+                    "U64": 39
+                  }
                 }
               }
             }
@@ -1194,18 +1372,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 71,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 71,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 40,
-                "value": {
-                  "U64": 40
+              "Ident": {
+                "VirtualWire": {
+                  "index": 40,
+                  "value": {
+                    "U64": 40
+                  }
                 }
               }
             }
@@ -1225,18 +1407,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 75,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 75,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 41,
-                "value": {
-                  "U64": 41
+              "Ident": {
+                "VirtualWire": {
+                  "index": 41,
+                  "value": {
+                    "U64": 41
+                  }
                 }
               }
             }
@@ -1256,18 +1442,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 79,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 79,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 42,
-                "value": {
-                  "U64": 42
+              "Ident": {
+                "VirtualWire": {
+                  "index": 42,
+                  "value": {
+                    "U64": 42
+                  }
                 }
               }
             }
@@ -1287,18 +1477,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 3,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 3,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 43,
-                "value": {
-                  "U64": 43
+              "Ident": {
+                "VirtualWire": {
+                  "index": 43,
+                  "value": {
+                    "U64": 43
+                  }
                 }
               }
             }
@@ -1318,18 +1512,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 7,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 7,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 44,
-                "value": {
-                  "U64": 44
+              "Ident": {
+                "VirtualWire": {
+                  "index": 44,
+                  "value": {
+                    "U64": 44
+                  }
                 }
               }
             }
@@ -1349,18 +1547,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 11,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 11,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 45,
-                "value": {
-                  "U64": 45
+              "Ident": {
+                "VirtualWire": {
+                  "index": 45,
+                  "value": {
+                    "U64": 45
+                  }
                 }
               }
             }
@@ -1380,18 +1582,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 15,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 15,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 46,
-                "value": {
-                  "U64": 46
+              "Ident": {
+                "VirtualWire": {
+                  "index": 46,
+                  "value": {
+                    "U64": 46
+                  }
                 }
               }
             }
@@ -1411,18 +1617,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 19,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 19,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 47,
-                "value": {
-                  "U64": 47
+              "Ident": {
+                "VirtualWire": {
+                  "index": 47,
+                  "value": {
+                    "U64": 47
+                  }
                 }
               }
             }
@@ -1442,18 +1652,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 23,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 23,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 48,
-                "value": {
-                  "U64": 48
+              "Ident": {
+                "VirtualWire": {
+                  "index": 48,
+                  "value": {
+                    "U64": 48
+                  }
                 }
               }
             }
@@ -1473,18 +1687,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 27,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 27,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 49,
-                "value": {
-                  "U64": 49
+              "Ident": {
+                "VirtualWire": {
+                  "index": 49,
+                  "value": {
+                    "U64": 49
+                  }
                 }
               }
             }
@@ -1504,18 +1722,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 31,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 31,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 50,
-                "value": {
-                  "U64": 50
+              "Ident": {
+                "VirtualWire": {
+                  "index": 50,
+                  "value": {
+                    "U64": 50
+                  }
                 }
               }
             }
@@ -1535,18 +1757,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 35,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 35,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 51,
-                "value": {
-                  "U64": 51
+              "Ident": {
+                "VirtualWire": {
+                  "index": 51,
+                  "value": {
+                    "U64": 51
+                  }
                 }
               }
             }
@@ -1566,18 +1792,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 39,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 39,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 52,
-                "value": {
-                  "U64": 52
+              "Ident": {
+                "VirtualWire": {
+                  "index": 52,
+                  "value": {
+                    "U64": 52
+                  }
                 }
               }
             }
@@ -1597,18 +1827,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 43,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 43,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 53,
-                "value": {
-                  "U64": 53
+              "Ident": {
+                "VirtualWire": {
+                  "index": 53,
+                  "value": {
+                    "U64": 53
+                  }
                 }
               }
             }
@@ -1628,18 +1862,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 47,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 47,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 54,
-                "value": {
-                  "U64": 54
+              "Ident": {
+                "VirtualWire": {
+                  "index": 54,
+                  "value": {
+                    "U64": 54
+                  }
                 }
               }
             }
@@ -1659,18 +1897,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 51,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 51,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 55,
-                "value": {
-                  "U64": 55
+              "Ident": {
+                "VirtualWire": {
+                  "index": 55,
+                  "value": {
+                    "U64": 55
+                  }
                 }
               }
             }
@@ -1690,18 +1932,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 55,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 55,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 56,
-                "value": {
-                  "U64": 56
+              "Ident": {
+                "VirtualWire": {
+                  "index": 56,
+                  "value": {
+                    "U64": 56
+                  }
                 }
               }
             }
@@ -1721,18 +1967,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 59,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 59,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 57,
-                "value": {
-                  "U64": 57
+              "Ident": {
+                "VirtualWire": {
+                  "index": 57,
+                  "value": {
+                    "U64": 57
+                  }
                 }
               }
             }
@@ -1752,18 +2002,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 63,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 63,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 58,
-                "value": {
-                  "U64": 58
+              "Ident": {
+                "VirtualWire": {
+                  "index": 58,
+                  "value": {
+                    "U64": 58
+                  }
                 }
               }
             }
@@ -1783,18 +2037,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 67,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 67,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 59,
-                "value": {
-                  "U64": 59
+              "Ident": {
+                "VirtualWire": {
+                  "index": 59,
+                  "value": {
+                    "U64": 59
+                  }
                 }
               }
             }
@@ -1814,18 +2072,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 71,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 71,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 60,
-                "value": {
-                  "U64": 60
+              "Ident": {
+                "VirtualWire": {
+                  "index": 60,
+                  "value": {
+                    "U64": 60
+                  }
                 }
               }
             }
@@ -1845,18 +2107,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 75,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 75,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 61,
-                "value": {
-                  "U64": 61
+              "Ident": {
+                "VirtualWire": {
+                  "index": 61,
+                  "value": {
+                    "U64": 61
+                  }
                 }
               }
             }
@@ -1876,18 +2142,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 79,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 79,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 62,
-                "value": {
-                  "U64": 62
+              "Ident": {
+                "VirtualWire": {
+                  "index": 62,
+                  "value": {
+                    "U64": 62
+                  }
                 }
               }
             }
@@ -1907,18 +2177,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 3,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 3,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 63,
-                "value": {
-                  "U64": 63
+              "Ident": {
+                "VirtualWire": {
+                  "index": 63,
+                  "value": {
+                    "U64": 63
+                  }
                 }
               }
             }
@@ -1938,18 +2212,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 7,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 7,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 64,
-                "value": {
-                  "U64": 64
+              "Ident": {
+                "VirtualWire": {
+                  "index": 64,
+                  "value": {
+                    "U64": 64
+                  }
                 }
               }
             }
@@ -1969,18 +2247,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 11,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 11,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 65,
-                "value": {
-                  "U64": 65
+              "Ident": {
+                "VirtualWire": {
+                  "index": 65,
+                  "value": {
+                    "U64": 65
+                  }
                 }
               }
             }
@@ -2000,18 +2282,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 15,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 15,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 66,
-                "value": {
-                  "U64": 66
+              "Ident": {
+                "VirtualWire": {
+                  "index": 66,
+                  "value": {
+                    "U64": 66
+                  }
                 }
               }
             }
@@ -2031,18 +2317,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 19,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 19,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 67,
-                "value": {
-                  "U64": 67
+              "Ident": {
+                "VirtualWire": {
+                  "index": 67,
+                  "value": {
+                    "U64": 67
+                  }
                 }
               }
             }
@@ -2062,18 +2352,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 23,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 23,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 68,
-                "value": {
-                  "U64": 68
+              "Ident": {
+                "VirtualWire": {
+                  "index": 68,
+                  "value": {
+                    "U64": 68
+                  }
                 }
               }
             }
@@ -2093,18 +2387,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 27,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 27,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 69,
-                "value": {
-                  "U64": 69
+              "Ident": {
+                "VirtualWire": {
+                  "index": 69,
+                  "value": {
+                    "U64": 69
+                  }
                 }
               }
             }
@@ -2124,18 +2422,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 31,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 31,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 70,
-                "value": {
-                  "U64": 70
+              "Ident": {
+                "VirtualWire": {
+                  "index": 70,
+                  "value": {
+                    "U64": 70
+                  }
                 }
               }
             }
@@ -2155,18 +2457,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 35,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 35,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 71,
-                "value": {
-                  "U64": 71
+              "Ident": {
+                "VirtualWire": {
+                  "index": 71,
+                  "value": {
+                    "U64": 71
+                  }
                 }
               }
             }
@@ -2186,18 +2492,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 39,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 39,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 72,
-                "value": {
-                  "U64": 72
+              "Ident": {
+                "VirtualWire": {
+                  "index": 72,
+                  "value": {
+                    "U64": 72
+                  }
                 }
               }
             }
@@ -2217,18 +2527,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 43,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 43,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 73,
-                "value": {
-                  "U64": 73
+              "Ident": {
+                "VirtualWire": {
+                  "index": 73,
+                  "value": {
+                    "U64": 73
+                  }
                 }
               }
             }
@@ -2248,18 +2562,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 47,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 47,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 74,
-                "value": {
-                  "U64": 74
+              "Ident": {
+                "VirtualWire": {
+                  "index": 74,
+                  "value": {
+                    "U64": 74
+                  }
                 }
               }
             }
@@ -2279,18 +2597,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 51,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 51,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 75,
-                "value": {
-                  "U64": 75
+              "Ident": {
+                "VirtualWire": {
+                  "index": 75,
+                  "value": {
+                    "U64": 75
+                  }
                 }
               }
             }
@@ -2310,18 +2632,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 55,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 55,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 76,
-                "value": {
-                  "U64": 76
+              "Ident": {
+                "VirtualWire": {
+                  "index": 76,
+                  "value": {
+                    "U64": 76
+                  }
                 }
               }
             }
@@ -2341,18 +2667,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 59,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 59,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 77,
-                "value": {
-                  "U64": 77
+              "Ident": {
+                "VirtualWire": {
+                  "index": 77,
+                  "value": {
+                    "U64": 77
+                  }
                 }
               }
             }
@@ -2372,18 +2702,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 63,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 63,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 78,
-                "value": {
-                  "U64": 78
+              "Ident": {
+                "VirtualWire": {
+                  "index": 78,
+                  "value": {
+                    "U64": 78
+                  }
                 }
               }
             }
@@ -2403,18 +2737,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 67,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 67,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 79,
-                "value": {
-                  "U64": 79
+              "Ident": {
+                "VirtualWire": {
+                  "index": 79,
+                  "value": {
+                    "U64": 79
+                  }
                 }
               }
             }
@@ -2434,18 +2772,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 71,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 71,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 80,
-                "value": {
-                  "U64": 80
+              "Ident": {
+                "VirtualWire": {
+                  "index": 80,
+                  "value": {
+                    "U64": 80
+                  }
                 }
               }
             }
@@ -2465,18 +2807,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 75,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 75,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 81,
-                "value": {
-                  "U64": 81
+              "Ident": {
+                "VirtualWire": {
+                  "index": 81,
+                  "value": {
+                    "U64": 81
+                  }
                 }
               }
             }
@@ -2496,18 +2842,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 79,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 79,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 82,
-                "value": {
-                  "U64": 82
+              "Ident": {
+                "VirtualWire": {
+                  "index": 82,
+                  "value": {
+                    "U64": 82
+                  }
                 }
               }
             }
@@ -2527,18 +2877,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 4,
-                "column": 3,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 3,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 83,
-                "value": {
-                  "U64": 83
+              "Ident": {
+                "VirtualWire": {
+                  "index": 83,
+                  "value": {
+                    "U64": 83
+                  }
                 }
               }
             }
@@ -2558,18 +2912,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 4,
-                "column": 7,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 7,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 84,
-                "value": {
-                  "U64": 84
+              "Ident": {
+                "VirtualWire": {
+                  "index": 84,
+                  "value": {
+                    "U64": 84
+                  }
                 }
               }
             }
@@ -2589,18 +2947,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 4,
-                "column": 11,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 11,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 85,
-                "value": {
-                  "U64": 85
+              "Ident": {
+                "VirtualWire": {
+                  "index": 85,
+                  "value": {
+                    "U64": 85
+                  }
                 }
               }
             }
@@ -2620,18 +2982,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 4,
-                "column": 15,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 15,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 86,
-                "value": {
-                  "U64": 86
+              "Ident": {
+                "VirtualWire": {
+                  "index": 86,
+                  "value": {
+                    "U64": 86
+                  }
                 }
               }
             }
@@ -2651,18 +3017,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 4,
-                "column": 19,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 19,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 87,
-                "value": {
-                  "U64": 87
+              "Ident": {
+                "VirtualWire": {
+                  "index": 87,
+                  "value": {
+                    "U64": 87
+                  }
                 }
               }
             }
@@ -2682,18 +3052,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 4,
-                "column": 23,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 23,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 88,
-                "value": {
-                  "U64": 88
+              "Ident": {
+                "VirtualWire": {
+                  "index": 88,
+                  "value": {
+                    "U64": 88
+                  }
                 }
               }
             }
@@ -2713,18 +3087,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 4,
-                "column": 27,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 27,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 89,
-                "value": {
-                  "U64": 89
+              "Ident": {
+                "VirtualWire": {
+                  "index": 89,
+                  "value": {
+                    "U64": 89
+                  }
                 }
               }
             }
@@ -2744,18 +3122,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 4,
-                "column": 31,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 31,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 90,
-                "value": {
-                  "U64": 90
+              "Ident": {
+                "VirtualWire": {
+                  "index": 90,
+                  "value": {
+                    "U64": 90
+                  }
                 }
               }
             }
@@ -2775,18 +3157,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 4,
-                "column": 35,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 35,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 91,
-                "value": {
-                  "U64": 91
+              "Ident": {
+                "VirtualWire": {
+                  "index": 91,
+                  "value": {
+                    "U64": 91
+                  }
                 }
               }
             }
@@ -2806,18 +3192,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 4,
-                "column": 39,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 39,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 92,
-                "value": {
-                  "U64": 92
+              "Ident": {
+                "VirtualWire": {
+                  "index": 92,
+                  "value": {
+                    "U64": 92
+                  }
                 }
               }
             }
@@ -2837,18 +3227,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 4,
-                "column": 43,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 43,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 93,
-                "value": {
-                  "U64": 93
+              "Ident": {
+                "VirtualWire": {
+                  "index": 93,
+                  "value": {
+                    "U64": 93
+                  }
                 }
               }
             }
@@ -2868,18 +3262,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 4,
-                "column": 47,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 47,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 94,
-                "value": {
-                  "U64": 94
+              "Ident": {
+                "VirtualWire": {
+                  "index": 94,
+                  "value": {
+                    "U64": 94
+                  }
                 }
               }
             }
@@ -2899,18 +3297,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 4,
-                "column": 51,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 51,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 95,
-                "value": {
-                  "U64": 95
+              "Ident": {
+                "VirtualWire": {
+                  "index": 95,
+                  "value": {
+                    "U64": 95
+                  }
                 }
               }
             }
@@ -2930,18 +3332,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 4,
-                "column": 55,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 55,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 96,
-                "value": {
-                  "U64": 96
+              "Ident": {
+                "VirtualWire": {
+                  "index": 96,
+                  "value": {
+                    "U64": 96
+                  }
                 }
               }
             }
@@ -2961,18 +3367,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 4,
-                "column": 59,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 59,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 97,
-                "value": {
-                  "U64": 97
+              "Ident": {
+                "VirtualWire": {
+                  "index": 97,
+                  "value": {
+                    "U64": 97
+                  }
                 }
               }
             }
@@ -2992,18 +3402,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 4,
-                "column": 63,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 63,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 98,
-                "value": {
-                  "U64": 98
+              "Ident": {
+                "VirtualWire": {
+                  "index": 98,
+                  "value": {
+                    "U64": 98
+                  }
                 }
               }
             }
@@ -3023,18 +3437,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 4,
-                "column": 67,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 67,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 99,
-                "value": {
-                  "U64": 99
+              "Ident": {
+                "VirtualWire": {
+                  "index": 99,
+                  "value": {
+                    "U64": 99
+                  }
                 }
               }
             }
@@ -3045,33 +3463,46 @@
     {
       "Local": [
         {
-          "Wire": {
-            "row": 4,
-            "column": 75,
-            "value": null
-          }
+          "String": "public_input_2"
         },
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 4,
-                "column": 71,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 71,
+                  "value": null
+                }
               }
             },
             "binop": "Multiply",
             "rhs": {
-              "VirtualWire": {
-                "index": 100,
-                "value": {
-                  "U64": 100
+              "Ident": {
+                "VirtualWire": {
+                  "index": 100,
+                  "value": {
+                    "U64": 100
+                  }
                 }
               }
             }
           }
         }
       ]
+    }
+  ],
+  "public_wire_inputs": [
+    {
+      "row": 4,
+      "column": 75,
+      "value": null
+    }
+  ],
+  "public_virtual_wire_inputs": [
+    {
+      "index": 0,
+      "value": null
     }
   ]
 }

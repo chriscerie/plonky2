@@ -11,6 +11,7 @@ use itertools::Itertools;
 use log::{debug, info, warn, Level};
 use plonky2_util::ceil_div_usize;
 use spin::Mutex;
+use zkcir::ast;
 use zkcir::ir::CirBuilder;
 
 use crate::field::cosets::get_unique_coset_shifts;
@@ -1213,6 +1214,19 @@ impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
                         *index,
                         zkcir::ast::Value::U64(constant.to_canonical_u64()),
                     );
+                }
+            }
+        }
+
+        for public_input in &self.public_inputs {
+            match public_input {
+                Target::Wire(wire) => {
+                    self.cir
+                        .register_public_wire_input(ast::Wire::new(wire.row, wire.column));
+                }
+                Target::VirtualTarget { index } => {
+                    self.cir
+                        .register_public_virtual_wire_input(ast::VirtualWire::new(*index));
                 }
             }
         }

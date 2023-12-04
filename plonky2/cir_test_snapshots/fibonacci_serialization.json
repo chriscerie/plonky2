@@ -6,6 +6,52 @@
     {
       "Local": [
         {
+          "String": "public_input_1"
+        },
+        {
+          "Ident": {
+            "VirtualWire": {
+              "index": 0,
+              "value": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Local": [
+        {
+          "String": "public_input_2"
+        },
+        {
+          "Ident": {
+            "VirtualWire": {
+              "index": 1,
+              "value": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Local": [
+        {
+          "String": "public_input_3"
+        },
+        {
+          "Ident": {
+            "Wire": {
+              "row": 4,
+              "column": 75,
+              "value": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Local": [
+        {
           "Wire": {
             "row": 0,
             "column": 3,
@@ -15,19 +61,77 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "VirtualWire": {
-                "index": 0,
-                "value": {
-                  "U64": 0
+              "Ident": {
+                "String": "public_input_1"
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Ident": {
+                "String": "public_input_2"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Local": [
+        {
+          "Wire": {
+            "row": 0,
+            "column": 7,
+            "value": null
+          }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Ident": {
+                "String": "public_input_2"
+              }
+            },
+            "binop": "Add",
+            "rhs": {
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 3,
+                  "value": null
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Local": [
+        {
+          "Wire": {
+            "row": 0,
+            "column": 11,
+            "value": null
+          }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 3,
+                  "value": null
                 }
               }
             },
             "binop": "Add",
             "rhs": {
-              "VirtualWire": {
-                "index": 1,
-                "value": {
-                  "U64": 1
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 7,
+                  "value": null
                 }
               }
             }
@@ -40,86 +144,29 @@
         {
           "Wire": {
             "row": 0,
-            "column": 7,
+            "column": 15,
             "value": null
           }
         },
         {
           "BinaryOperator": {
             "lhs": {
-              "VirtualWire": {
-                "index": 1,
-                "value": {
-                  "U64": 1
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 7,
+                  "value": null
                 }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 0,
-                "column": 3,
-                "value": null
-              }
-            }
-          }
-        }
-      ]
-    },
-    {
-      "Local": [
-        {
-          "Wire": {
-            "row": 0,
-            "column": 11,
-            "value": null
-          }
-        },
-        {
-          "BinaryOperator": {
-            "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 3,
-                "value": null
-              }
-            },
-            "binop": "Add",
-            "rhs": {
-              "Wire": {
-                "row": 0,
-                "column": 7,
-                "value": null
-              }
-            }
-          }
-        }
-      ]
-    },
-    {
-      "Local": [
-        {
-          "Wire": {
-            "row": 0,
-            "column": 15,
-            "value": null
-          }
-        },
-        {
-          "BinaryOperator": {
-            "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 7,
-                "value": null
-              }
-            },
-            "binop": "Add",
-            "rhs": {
-              "Wire": {
-                "row": 0,
-                "column": 11,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 11,
+                  "value": null
+                }
               }
             }
           }
@@ -138,18 +185,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 11,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 11,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 0,
-                "column": 15,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 15,
+                  "value": null
+                }
               }
             }
           }
@@ -168,18 +219,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 15,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 15,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 0,
-                "column": 19,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 19,
+                  "value": null
+                }
               }
             }
           }
@@ -198,18 +253,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 19,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 19,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 0,
-                "column": 23,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 23,
+                  "value": null
+                }
               }
             }
           }
@@ -228,18 +287,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 23,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 23,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 0,
-                "column": 27,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 27,
+                  "value": null
+                }
               }
             }
           }
@@ -258,18 +321,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 27,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 27,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 0,
-                "column": 31,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 31,
+                  "value": null
+                }
               }
             }
           }
@@ -288,18 +355,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 31,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 31,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 0,
-                "column": 35,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 35,
+                  "value": null
+                }
               }
             }
           }
@@ -318,18 +389,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 35,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 35,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 0,
-                "column": 39,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 39,
+                  "value": null
+                }
               }
             }
           }
@@ -348,18 +423,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 39,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 39,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 0,
-                "column": 43,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 43,
+                  "value": null
+                }
               }
             }
           }
@@ -378,18 +457,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 43,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 43,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 0,
-                "column": 47,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 47,
+                  "value": null
+                }
               }
             }
           }
@@ -408,18 +491,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 47,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 47,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 0,
-                "column": 51,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 51,
+                  "value": null
+                }
               }
             }
           }
@@ -438,18 +525,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 51,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 51,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 0,
-                "column": 55,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 55,
+                  "value": null
+                }
               }
             }
           }
@@ -468,18 +559,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 55,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 55,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 0,
-                "column": 59,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 59,
+                  "value": null
+                }
               }
             }
           }
@@ -498,18 +593,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 59,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 59,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 0,
-                "column": 63,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 63,
+                  "value": null
+                }
               }
             }
           }
@@ -528,18 +627,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 63,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 63,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 0,
-                "column": 67,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 67,
+                  "value": null
+                }
               }
             }
           }
@@ -558,18 +661,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 67,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 67,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 0,
-                "column": 71,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 71,
+                  "value": null
+                }
               }
             }
           }
@@ -588,18 +695,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 71,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 71,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 0,
-                "column": 75,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 75,
+                  "value": null
+                }
               }
             }
           }
@@ -618,18 +729,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 75,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 75,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 0,
-                "column": 79,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 79,
+                  "value": null
+                }
               }
             }
           }
@@ -648,18 +763,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 0,
-                "column": 79,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 0,
+                  "column": 79,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 1,
-                "column": 3,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 3,
+                  "value": null
+                }
               }
             }
           }
@@ -678,18 +797,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 3,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 3,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 1,
-                "column": 7,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 7,
+                  "value": null
+                }
               }
             }
           }
@@ -708,18 +831,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 7,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 7,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 1,
-                "column": 11,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 11,
+                  "value": null
+                }
               }
             }
           }
@@ -738,18 +865,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 11,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 11,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 1,
-                "column": 15,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 15,
+                  "value": null
+                }
               }
             }
           }
@@ -768,18 +899,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 15,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 15,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 1,
-                "column": 19,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 19,
+                  "value": null
+                }
               }
             }
           }
@@ -798,18 +933,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 19,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 19,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 1,
-                "column": 23,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 23,
+                  "value": null
+                }
               }
             }
           }
@@ -828,18 +967,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 23,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 23,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 1,
-                "column": 27,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 27,
+                  "value": null
+                }
               }
             }
           }
@@ -858,18 +1001,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 27,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 27,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 1,
-                "column": 31,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 31,
+                  "value": null
+                }
               }
             }
           }
@@ -888,18 +1035,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 31,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 31,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 1,
-                "column": 35,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 35,
+                  "value": null
+                }
               }
             }
           }
@@ -918,18 +1069,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 35,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 35,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 1,
-                "column": 39,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 39,
+                  "value": null
+                }
               }
             }
           }
@@ -948,18 +1103,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 39,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 39,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 1,
-                "column": 43,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 43,
+                  "value": null
+                }
               }
             }
           }
@@ -978,18 +1137,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 43,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 43,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 1,
-                "column": 47,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 47,
+                  "value": null
+                }
               }
             }
           }
@@ -1008,18 +1171,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 47,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 47,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 1,
-                "column": 51,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 51,
+                  "value": null
+                }
               }
             }
           }
@@ -1038,18 +1205,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 51,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 51,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 1,
-                "column": 55,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 55,
+                  "value": null
+                }
               }
             }
           }
@@ -1068,18 +1239,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 55,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 55,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 1,
-                "column": 59,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 59,
+                  "value": null
+                }
               }
             }
           }
@@ -1098,18 +1273,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 59,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 59,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 1,
-                "column": 63,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 63,
+                  "value": null
+                }
               }
             }
           }
@@ -1128,18 +1307,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 63,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 63,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 1,
-                "column": 67,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 67,
+                  "value": null
+                }
               }
             }
           }
@@ -1158,18 +1341,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 67,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 67,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 1,
-                "column": 71,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 71,
+                  "value": null
+                }
               }
             }
           }
@@ -1188,18 +1375,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 71,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 71,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 1,
-                "column": 75,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 75,
+                  "value": null
+                }
               }
             }
           }
@@ -1218,18 +1409,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 75,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 75,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 1,
-                "column": 79,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 79,
+                  "value": null
+                }
               }
             }
           }
@@ -1248,18 +1443,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 1,
-                "column": 79,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 1,
+                  "column": 79,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 2,
-                "column": 3,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 3,
+                  "value": null
+                }
               }
             }
           }
@@ -1278,18 +1477,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 3,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 3,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 2,
-                "column": 7,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 7,
+                  "value": null
+                }
               }
             }
           }
@@ -1308,18 +1511,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 7,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 7,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 2,
-                "column": 11,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 11,
+                  "value": null
+                }
               }
             }
           }
@@ -1338,18 +1545,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 11,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 11,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 2,
-                "column": 15,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 15,
+                  "value": null
+                }
               }
             }
           }
@@ -1368,18 +1579,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 15,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 15,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 2,
-                "column": 19,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 19,
+                  "value": null
+                }
               }
             }
           }
@@ -1398,18 +1613,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 19,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 19,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 2,
-                "column": 23,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 23,
+                  "value": null
+                }
               }
             }
           }
@@ -1428,18 +1647,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 23,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 23,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 2,
-                "column": 27,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 27,
+                  "value": null
+                }
               }
             }
           }
@@ -1458,18 +1681,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 27,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 27,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 2,
-                "column": 31,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 31,
+                  "value": null
+                }
               }
             }
           }
@@ -1488,18 +1715,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 31,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 31,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 2,
-                "column": 35,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 35,
+                  "value": null
+                }
               }
             }
           }
@@ -1518,18 +1749,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 35,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 35,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 2,
-                "column": 39,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 39,
+                  "value": null
+                }
               }
             }
           }
@@ -1548,18 +1783,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 39,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 39,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 2,
-                "column": 43,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 43,
+                  "value": null
+                }
               }
             }
           }
@@ -1578,18 +1817,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 43,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 43,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 2,
-                "column": 47,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 47,
+                  "value": null
+                }
               }
             }
           }
@@ -1608,18 +1851,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 47,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 47,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 2,
-                "column": 51,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 51,
+                  "value": null
+                }
               }
             }
           }
@@ -1638,18 +1885,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 51,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 51,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 2,
-                "column": 55,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 55,
+                  "value": null
+                }
               }
             }
           }
@@ -1668,18 +1919,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 55,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 55,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 2,
-                "column": 59,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 59,
+                  "value": null
+                }
               }
             }
           }
@@ -1698,18 +1953,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 59,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 59,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 2,
-                "column": 63,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 63,
+                  "value": null
+                }
               }
             }
           }
@@ -1728,18 +1987,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 63,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 63,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 2,
-                "column": 67,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 67,
+                  "value": null
+                }
               }
             }
           }
@@ -1758,18 +2021,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 67,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 67,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 2,
-                "column": 71,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 71,
+                  "value": null
+                }
               }
             }
           }
@@ -1788,18 +2055,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 71,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 71,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 2,
-                "column": 75,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 75,
+                  "value": null
+                }
               }
             }
           }
@@ -1818,18 +2089,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 75,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 75,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 2,
-                "column": 79,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 79,
+                  "value": null
+                }
               }
             }
           }
@@ -1848,18 +2123,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 2,
-                "column": 79,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 2,
+                  "column": 79,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 3,
-                "column": 3,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 3,
+                  "value": null
+                }
               }
             }
           }
@@ -1878,18 +2157,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 3,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 3,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 3,
-                "column": 7,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 7,
+                  "value": null
+                }
               }
             }
           }
@@ -1908,18 +2191,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 7,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 7,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 3,
-                "column": 11,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 11,
+                  "value": null
+                }
               }
             }
           }
@@ -1938,18 +2225,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 11,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 11,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 3,
-                "column": 15,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 15,
+                  "value": null
+                }
               }
             }
           }
@@ -1968,18 +2259,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 15,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 15,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 3,
-                "column": 19,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 19,
+                  "value": null
+                }
               }
             }
           }
@@ -1998,18 +2293,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 19,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 19,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 3,
-                "column": 23,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 23,
+                  "value": null
+                }
               }
             }
           }
@@ -2028,18 +2327,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 23,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 23,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 3,
-                "column": 27,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 27,
+                  "value": null
+                }
               }
             }
           }
@@ -2058,18 +2361,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 27,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 27,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 3,
-                "column": 31,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 31,
+                  "value": null
+                }
               }
             }
           }
@@ -2088,18 +2395,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 31,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 31,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 3,
-                "column": 35,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 35,
+                  "value": null
+                }
               }
             }
           }
@@ -2118,18 +2429,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 35,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 35,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 3,
-                "column": 39,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 39,
+                  "value": null
+                }
               }
             }
           }
@@ -2148,18 +2463,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 39,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 39,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 3,
-                "column": 43,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 43,
+                  "value": null
+                }
               }
             }
           }
@@ -2178,18 +2497,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 43,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 43,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 3,
-                "column": 47,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 47,
+                  "value": null
+                }
               }
             }
           }
@@ -2208,18 +2531,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 47,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 47,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 3,
-                "column": 51,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 51,
+                  "value": null
+                }
               }
             }
           }
@@ -2238,18 +2565,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 51,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 51,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 3,
-                "column": 55,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 55,
+                  "value": null
+                }
               }
             }
           }
@@ -2268,18 +2599,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 55,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 55,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 3,
-                "column": 59,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 59,
+                  "value": null
+                }
               }
             }
           }
@@ -2298,18 +2633,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 59,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 59,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 3,
-                "column": 63,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 63,
+                  "value": null
+                }
               }
             }
           }
@@ -2328,18 +2667,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 63,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 63,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 3,
-                "column": 67,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 67,
+                  "value": null
+                }
               }
             }
           }
@@ -2358,18 +2701,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 67,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 67,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 3,
-                "column": 71,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 71,
+                  "value": null
+                }
               }
             }
           }
@@ -2388,18 +2735,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 71,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 71,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 3,
-                "column": 75,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 75,
+                  "value": null
+                }
               }
             }
           }
@@ -2418,18 +2769,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 75,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 75,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 3,
-                "column": 79,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 79,
+                  "value": null
+                }
               }
             }
           }
@@ -2448,18 +2803,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 3,
-                "column": 79,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 3,
+                  "column": 79,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 4,
-                "column": 3,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 3,
+                  "value": null
+                }
               }
             }
           }
@@ -2478,18 +2837,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 4,
-                "column": 3,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 3,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 4,
-                "column": 7,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 7,
+                  "value": null
+                }
               }
             }
           }
@@ -2508,18 +2871,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 4,
-                "column": 7,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 7,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 4,
-                "column": 11,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 11,
+                  "value": null
+                }
               }
             }
           }
@@ -2538,18 +2905,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 4,
-                "column": 11,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 11,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 4,
-                "column": 15,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 15,
+                  "value": null
+                }
               }
             }
           }
@@ -2568,18 +2939,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 4,
-                "column": 15,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 15,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 4,
-                "column": 19,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 19,
+                  "value": null
+                }
               }
             }
           }
@@ -2598,18 +2973,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 4,
-                "column": 19,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 19,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 4,
-                "column": 23,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 23,
+                  "value": null
+                }
               }
             }
           }
@@ -2628,18 +3007,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 4,
-                "column": 23,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 23,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 4,
-                "column": 27,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 27,
+                  "value": null
+                }
               }
             }
           }
@@ -2658,18 +3041,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 4,
-                "column": 27,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 27,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 4,
-                "column": 31,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 31,
+                  "value": null
+                }
               }
             }
           }
@@ -2688,18 +3075,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 4,
-                "column": 31,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 31,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 4,
-                "column": 35,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 35,
+                  "value": null
+                }
               }
             }
           }
@@ -2718,18 +3109,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 4,
-                "column": 35,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 35,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 4,
-                "column": 39,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 39,
+                  "value": null
+                }
               }
             }
           }
@@ -2748,18 +3143,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 4,
-                "column": 39,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 39,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 4,
-                "column": 43,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 43,
+                  "value": null
+                }
               }
             }
           }
@@ -2778,18 +3177,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 4,
-                "column": 43,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 43,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 4,
-                "column": 47,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 47,
+                  "value": null
+                }
               }
             }
           }
@@ -2808,18 +3211,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 4,
-                "column": 47,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 47,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 4,
-                "column": 51,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 51,
+                  "value": null
+                }
               }
             }
           }
@@ -2838,18 +3245,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 4,
-                "column": 51,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 51,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 4,
-                "column": 55,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 55,
+                  "value": null
+                }
               }
             }
           }
@@ -2868,18 +3279,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 4,
-                "column": 55,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 55,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 4,
-                "column": 59,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 59,
+                  "value": null
+                }
               }
             }
           }
@@ -2898,18 +3313,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 4,
-                "column": 59,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 59,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 4,
-                "column": 63,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 63,
+                  "value": null
+                }
               }
             }
           }
@@ -2928,18 +3347,22 @@
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 4,
-                "column": 63,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 63,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 4,
-                "column": 67,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 67,
+                  "value": null
+                }
               }
             }
           }
@@ -2949,32 +3372,49 @@
     {
       "Local": [
         {
-          "Wire": {
-            "row": 4,
-            "column": 75,
-            "value": null
-          }
+          "String": "public_input_3"
         },
         {
           "BinaryOperator": {
             "lhs": {
-              "Wire": {
-                "row": 4,
-                "column": 67,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 67,
+                  "value": null
+                }
               }
             },
             "binop": "Add",
             "rhs": {
-              "Wire": {
-                "row": 4,
-                "column": 71,
-                "value": null
+              "Ident": {
+                "Wire": {
+                  "row": 4,
+                  "column": 71,
+                  "value": null
+                }
               }
             }
           }
         }
       ]
+    }
+  ],
+  "public_wire_inputs": [
+    {
+      "row": 4,
+      "column": 75,
+      "value": null
+    }
+  ],
+  "public_virtual_wire_inputs": [
+    {
+      "index": 0,
+      "value": null
+    },
+    {
+      "index": 1,
+      "value": null
     }
   ]
 }

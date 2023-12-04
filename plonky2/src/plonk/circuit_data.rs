@@ -209,7 +209,11 @@ impl<F: RichField + Extendable<D>, C: GenericConfig<D, F = F>, const D: usize>
             });
         }
 
-        if let Ok(output) = zkcir_test_util::get_last_cir_data().cir.to_cli_string() {
+        if let Ok(output) = zkcir_test_util::get_last_cir_data()
+            .cir
+            .build()
+            .to_cli_string()
+        {
             println!("{output:?}");
         }
 

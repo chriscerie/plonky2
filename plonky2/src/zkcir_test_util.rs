@@ -33,7 +33,10 @@ pub fn get_last_cir_data() -> MutexGuard<'static, CirData> {
 }
 
 pub fn test_ir_string(test_name: &str, cir: &CirBuilder) {
-    let cir_json = cir.to_string_omit_random().expect("couldn't serialize cir");
+    let cir_json = cir
+        .build()
+        .to_string_omit_random()
+        .expect("couldn't serialize cir");
 
     let test_path = TEST_PROJECTS_ROOT.join(test_name).with_extension("json");
 
@@ -54,10 +57,12 @@ pub fn test_ir_string(test_name: &str, cir: &CirBuilder) {
 
 pub fn target_to_expr(target: &Target) -> Expression {
     match target {
-        Target::Wire(w) => zkcir::ast::Expression::Wire(zkcir::ast::Wire::new(w.row, w.column)),
-        Target::VirtualTarget { index } => {
-            zkcir::ast::Expression::VirtualWire(zkcir::ast::VirtualWire::new(*index))
-        }
+        Target::Wire(w) => zkcir::ast::Expression::Ident(zkcir::ast::Ident::Wire(
+            zkcir::ast::Wire::new(w.row, w.column),
+        )),
+        Target::VirtualTarget { index } => zkcir::ast::Expression::Ident(
+            zkcir::ast::Ident::VirtualWire(zkcir::ast::VirtualWire::new(*index)),
+        ),
     }
 }
 
