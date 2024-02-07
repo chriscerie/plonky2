@@ -1,7 +1,7 @@
-use std::borrow::{Borrow, BorrowMut};
-use std::fmt::Debug;
-use std::mem::{size_of, transmute};
-use std::ops::{Index, IndexMut};
+use core::borrow::{Borrow, BorrowMut};
+use core::fmt::Debug;
+use core::mem::{size_of, transmute};
+use core::ops::{Index, IndexMut};
 
 use plonky2::field::types::Field;
 
@@ -77,9 +77,6 @@ pub(crate) struct CpuColumnsView<T: Copy> {
 
     /// If CPU cycle: the opcode, broken up into bits in little-endian order.
     pub opcode_bits: [T; 8],
-
-    /// Filter. 1 iff a Keccak sponge lookup is performed on this row.
-    pub is_keccak_sponge: T,
 
     /// Columns shared by various operations.
     pub(crate) general: CpuGeneralColumnsView<T>,

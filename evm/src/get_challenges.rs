@@ -104,7 +104,7 @@ fn observe_extra_block_data<
     challenger: &mut Challenger<F, C::Hasher>,
     extra_data: &ExtraBlockData,
 ) -> Result<(), ProgramError> {
-    challenger.observe_elements(&h256_limbs(extra_data.genesis_state_trie_root));
+    challenger.observe_elements(&h256_limbs(extra_data.checkpoint_state_trie_root));
     challenger.observe_element(u256_to_u32(extra_data.txn_number_before)?);
     challenger.observe_element(u256_to_u32(extra_data.txn_number_after)?);
     challenger.observe_element(u256_to_u32(extra_data.gas_used_before)?);
@@ -123,7 +123,7 @@ fn observe_extra_block_data_target<
 ) where
     C::Hasher: AlgebraicHasher<F>,
 {
-    challenger.observe_elements(&extra_data.genesis_state_trie_root);
+    challenger.observe_elements(&extra_data.checkpoint_state_trie_root);
     challenger.observe_element(extra_data.txn_number_before);
     challenger.observe_element(extra_data.txn_number_after);
     challenger.observe_element(extra_data.gas_used_before);
@@ -199,7 +199,7 @@ impl<F: RichField + Extendable<D>, C: GenericConfig<D, F = F>, const D: usize> A
         let mut challenger = Challenger::<F, C::Hasher>::new();
 
         for proof in &self.stark_proofs {
-            challenger.observe_cap(&proof.proof.trace_cap);
+            challenger.observe_cap(&proof.trace_cap);
         }
 
         observe_public_values::<F, C, D>(&mut challenger, &self.public_values)?;
@@ -210,9 +210,7 @@ impl<F: RichField + Extendable<D>, C: GenericConfig<D, F = F>, const D: usize> A
         Ok(AllProofChallenges {
             stark_challenges: core::array::from_fn(|i| {
                 challenger.compact();
-                self.stark_proofs[i]
-                    .proof
-                    .get_challenges(&mut challenger, config)
+                self.stark_proofs[i].get_challenges(&mut challenger, config)
             }),
             ctl_challenges,
         })

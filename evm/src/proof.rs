@@ -19,12 +19,13 @@ use serde::{Deserialize, Serialize};
 use crate::all_stark::NUM_TABLES;
 use crate::config::StarkConfig;
 use crate::cross_table_lookup::GrandProductChallengeSet;
+use crate::util::{get_h160, get_h256, h2u};
 
 /// A STARK proof for each table, plus some metadata used to create recursive wrapper proofs.
 #[derive(Debug, Clone)]
 pub struct AllProof<F: RichField + Extendable<D>, C: GenericConfig<D, F = F>, const D: usize> {
     /// Proofs for all the different STARK modules.
-    pub stark_proofs: [StarkProofWithMetadata<F, C, D>; NUM_TABLES],
+    pub stark_proofs: [StarkProof<F, C, D>; NUM_TABLES],
     /// Cross-table lookup challenges.
     pub(crate) ctl_challenges: GrandProductChallengeSet<F>,
     /// Public memory values used for the recursive proofs.
@@ -34,7 +35,7 @@ pub struct AllProof<F: RichField + Extendable<D>, C: GenericConfig<D, F = F>, co
 impl<F: RichField + Extendable<D>, C: GenericConfig<D, F = F>, const D: usize> AllProof<F, C, D> {
     /// Returns the degree (i.e. the trace length) of each STARK.
     pub fn degree_bits(&self, config: &StarkConfig) -> [usize; NUM_TABLES] {
-        core::array::from_fn(|i| self.stark_proofs[i].proof.recover_degree_bits(config))
+        core::array::from_fn(|i| self.stark_proofs[i].recover_degree_bits(config))
     }
 }
 
@@ -47,7 +48,7 @@ pub(crate) struct AllProofChallenges<F: RichField + Extendable<D>, const D: usiz
 }
 
 /// Memory values which are public.
-#[derive(Debug, Clone, Default, Deserialize, Serialize)]
+#[derive(Debug, Clone, Default, PartialEq, Eq, Deserialize, Serialize)]
 pub struct PublicValues {
     /// Trie hashes before the execution of the local state transition
     pub trie_roots_before: TrieRoots,
@@ -61,8 +62,50 @@ pub struct PublicValues {
     pub extra_block_data: ExtraBlockData,
 }
 
+impl PublicValues {
+    /// Extracts public values from the given public inputs of a proof.
+    /// Public values are always the first public inputs added to the circuit,
+    /// so we can start extracting at index 0.
+    pub fn from_public_inputs<F: RichField>(pis: &[F]) -> Self {
+        assert!(
+            pis.len()
+                > TrieRootsTarget::SIZE * 2
+                    + BlockMetadataTarget::SIZE
+                    + BlockHashesTarget::SIZE
+                    + ExtraBlockDataTarget::SIZE
+                    - 1
+        );
+
+        let trie_roots_before = TrieRoots::from_public_inputs(&pis[0..TrieRootsTarget::SIZE]);
+        let trie_roots_after =
+            TrieRoots::from_public_inputs(&pis[TrieRootsTarget::SIZE..TrieRootsTarget::SIZE * 2]);
+        let block_metadata = BlockMetadata::from_public_inputs(
+            &pis[TrieRootsTarget::SIZE * 2..TrieRootsTarget::SIZE * 2 + BlockMetadataTarget::SIZE],
+        );
+        let block_hashes = BlockHashes::from_public_inputs(
+            &pis[TrieRootsTarget::SIZE * 2 + BlockMetadataTarget::SIZE
+                ..TrieRootsTarget::SIZE * 2 + BlockMetadataTarget::SIZE + BlockHashesTarget::SIZE],
+        );
+        let extra_block_data = ExtraBlockData::from_public_inputs(
+            &pis[TrieRootsTarget::SIZE * 2 + BlockMetadataTarget::SIZE + BlockHashesTarget::SIZE
+                ..TrieRootsTarget::SIZE * 2
+                    + BlockMetadataTarget::SIZE
+                    + BlockHashesTarget::SIZE
+                    + ExtraBlockDataTarget::SIZE],
+        );
+
+        Self {
+            trie_roots_before,
+            trie_roots_after,
+            block_metadata,
+            block_hashes,
+            extra_block_data,
+        }
+    }
+}
+
 /// Trie hashes.
-#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+#[derive(Debug, Clone, Default, PartialEq, Eq, Serialize, Deserialize)]
 pub struct TrieRoots {
     /// State trie hash.
     pub state_root: H256,
@@ -70,6 +113,22 @@ pub struct TrieRoots {
     pub transactions_root: H256,
     /// Receipts trie hash.
     pub receipts_root: H256,
+}
+
+impl TrieRoots {
+    pub fn from_public_inputs<F: RichField>(pis: &[F]) -> Self {
+        assert!(pis.len() == TrieRootsTarget::SIZE);
+
+        let state_root = get_h256(&pis[0..8]);
+        let transactions_root = get_h256(&pis[8..16]);
+        let receipts_root = get_h256(&pis[16..24]);
+
+        Self {
+            state_root,
+            transactions_root,
+            receipts_root,
+        }
+    }
 }
 
 // There should be 256 previous hashes stored, so the default should also contain 256 values.
@@ -88,7 +147,7 @@ impl Default for BlockHashes {
 ///
 /// When the block number is less than 256, dummy values, i.e. `H256::default()`,
 /// should be used for the additional block hashes.
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct BlockHashes {
     /// The previous 256 hashes to the current block. The leftmost hash, i.e. `prev_hashes[0]`,
     /// is the oldest, and the rightmost, i.e. `prev_hashes[255]` is the hash of the parent block.
@@ -97,9 +156,23 @@ pub struct BlockHashes {
     pub cur_hash: H256,
 }
 
+impl BlockHashes {
+    pub fn from_public_inputs<F: RichField>(pis: &[F]) -> Self {
+        assert!(pis.len() == BlockHashesTarget::SIZE);
+
+        let prev_hashes: [H256; 256] = core::array::from_fn(|i| get_h256(&pis[8 * i..8 + 8 * i]));
+        let cur_hash = get_h256(&pis[2048..2056]);
+
+        Self {
+            prev_hashes: prev_hashes.to_vec(),
+            cur_hash,
+        }
+    }
+}
+
 /// Metadata contained in a block header. Those are identical between
 /// all state transition proofs within the same block.
-#[derive(Debug, Clone, Default, Deserialize, Serialize)]
+#[derive(Debug, Clone, Default, PartialEq, Eq, Deserialize, Serialize)]
 pub struct BlockMetadata {
     /// The address of this block's producer.
     pub block_beneficiary: Address,
@@ -123,12 +196,43 @@ pub struct BlockMetadata {
     pub block_bloom: [U256; 8],
 }
 
+impl BlockMetadata {
+    pub fn from_public_inputs<F: RichField>(pis: &[F]) -> Self {
+        assert!(pis.len() == BlockMetadataTarget::SIZE);
+
+        let block_beneficiary = get_h160(&pis[0..5]);
+        let block_timestamp = pis[5].to_canonical_u64().into();
+        let block_number = pis[6].to_canonical_u64().into();
+        let block_difficulty = pis[7].to_canonical_u64().into();
+        let block_random = get_h256(&pis[8..16]);
+        let block_gaslimit = pis[16].to_canonical_u64().into();
+        let block_chain_id = pis[17].to_canonical_u64().into();
+        let block_base_fee =
+            (pis[18].to_canonical_u64() + (pis[19].to_canonical_u64() << 32)).into();
+        let block_gas_used = pis[20].to_canonical_u64().into();
+        let block_bloom = core::array::from_fn(|i| h2u(get_h256(&pis[21 + 8 * i..29 + 8 * i])));
+
+        Self {
+            block_beneficiary,
+            block_timestamp,
+            block_number,
+            block_difficulty,
+            block_random,
+            block_gaslimit,
+            block_chain_id,
+            block_base_fee,
+            block_gas_used,
+            block_bloom,
+        }
+    }
+}
+
 /// Additional block data that are specific to the local transaction being proven,
 /// unlike `BlockMetadata`.
-#[derive(Debug, Clone, Default, Deserialize, Serialize)]
+#[derive(Debug, Clone, Default, PartialEq, Eq, Deserialize, Serialize)]
 pub struct ExtraBlockData {
-    /// The state trie digest of the genesis block.
-    pub genesis_state_trie_root: H256,
+    /// The state trie digest of the checkpoint block.
+    pub checkpoint_state_trie_root: H256,
     /// The transaction count prior execution of the local state transition, starting
     /// at 0 for the initial transaction of a block.
     pub txn_number_before: U256,
@@ -142,10 +246,30 @@ pub struct ExtraBlockData {
     pub gas_used_after: U256,
 }
 
+impl ExtraBlockData {
+    pub fn from_public_inputs<F: RichField>(pis: &[F]) -> Self {
+        assert!(pis.len() == ExtraBlockDataTarget::SIZE);
+
+        let checkpoint_state_trie_root = get_h256(&pis[0..8]);
+        let txn_number_before = pis[8].to_canonical_u64().into();
+        let txn_number_after = pis[9].to_canonical_u64().into();
+        let gas_used_before = pis[10].to_canonical_u64().into();
+        let gas_used_after = pis[11].to_canonical_u64().into();
+
+        Self {
+            checkpoint_state_trie_root,
+            txn_number_before,
+            txn_number_after,
+            gas_used_before,
+            gas_used_after,
+        }
+    }
+}
+
 /// Memory values which are public.
 /// Note: All the larger integers are encoded with 32-bit limbs in little-endian order.
 #[derive(Eq, PartialEq, Debug)]
-pub(crate) struct PublicValuesTarget {
+pub struct PublicValuesTarget {
     /// Trie hashes before the execution of the local state transition.
     pub trie_roots_before: TrieRootsTarget,
     /// Trie hashes after the execution of the local state transition.
@@ -213,13 +337,13 @@ impl PublicValuesTarget {
         buffer.write_target_array(&cur_hash)?;
 
         let ExtraBlockDataTarget {
-            genesis_state_trie_root: genesis_state_root,
+            checkpoint_state_trie_root,
             txn_number_before,
             txn_number_after,
             gas_used_before,
             gas_used_after,
         } = self.extra_block_data;
-        buffer.write_target_array(&genesis_state_root)?;
+        buffer.write_target_array(&checkpoint_state_trie_root)?;
         buffer.write_target(txn_number_before)?;
         buffer.write_target(txn_number_after)?;
         buffer.write_target(gas_used_before)?;
@@ -261,7 +385,7 @@ impl PublicValuesTarget {
         };
 
         let extra_block_data = ExtraBlockDataTarget {
-            genesis_state_trie_root: buffer.read_target_array()?,
+            checkpoint_state_trie_root: buffer.read_target_array()?,
             txn_number_before: buffer.read_target()?,
             txn_number_after: buffer.read_target()?,
             gas_used_before: buffer.read_target()?,
@@ -285,7 +409,7 @@ impl PublicValuesTarget {
             pis.len()
                 > TrieRootsTarget::SIZE * 2
                     + BlockMetadataTarget::SIZE
-                    + BlockHashesTarget::BLOCK_HASHES_SIZE
+                    + BlockHashesTarget::SIZE
                     + ExtraBlockDataTarget::SIZE
                     - 1
         );
@@ -303,15 +427,13 @@ impl PublicValuesTarget {
                 &pis[TrieRootsTarget::SIZE * 2 + BlockMetadataTarget::SIZE
                     ..TrieRootsTarget::SIZE * 2
                         + BlockMetadataTarget::SIZE
-                        + BlockHashesTarget::BLOCK_HASHES_SIZE],
+                        + BlockHashesTarget::SIZE],
             ),
             extra_block_data: ExtraBlockDataTarget::from_public_inputs(
-                &pis[TrieRootsTarget::SIZE * 2
-                    + BlockMetadataTarget::SIZE
-                    + BlockHashesTarget::BLOCK_HASHES_SIZE
+                &pis[TrieRootsTarget::SIZE * 2 + BlockMetadataTarget::SIZE + BlockHashesTarget::SIZE
                     ..TrieRootsTarget::SIZE * 2
                         + BlockMetadataTarget::SIZE
-                        + BlockHashesTarget::BLOCK_HASHES_SIZE
+                        + BlockHashesTarget::SIZE
                         + ExtraBlockDataTarget::SIZE],
             ),
         }
@@ -362,7 +484,7 @@ impl PublicValuesTarget {
 /// Circuit version of `TrieRoots`.
 /// `Target`s for trie hashes. Since a `Target` holds a 32-bit limb, each hash requires 8 `Target`s.
 #[derive(Eq, PartialEq, Debug, Copy, Clone)]
-pub(crate) struct TrieRootsTarget {
+pub struct TrieRootsTarget {
     /// Targets for the state trie hash.
     pub(crate) state_root: [Target; 8],
     /// Targets for the transactions trie hash.
@@ -433,7 +555,7 @@ impl TrieRootsTarget {
 /// Metadata contained in a block header. Those are identical between
 /// all state transition proofs within the same block.
 #[derive(Eq, PartialEq, Debug, Copy, Clone)]
-pub(crate) struct BlockMetadataTarget {
+pub struct BlockMetadataTarget {
     /// `Target`s for the address of this block's producer.
     pub(crate) block_beneficiary: [Target; 5],
     /// `Target` for the timestamp of this block.
@@ -558,7 +680,7 @@ impl BlockMetadataTarget {
 /// When the block number is less than 256, dummy values, i.e. `H256::default()`,
 /// should be used for the additional block hashes.
 #[derive(Eq, PartialEq, Debug, Copy, Clone)]
-pub(crate) struct BlockHashesTarget {
+pub struct BlockHashesTarget {
     /// `Target`s for the previous 256 hashes to the current block. The leftmost hash, i.e. `prev_hashes[0..8]`,
     /// is the oldest, and the rightmost, i.e. `prev_hashes[255 * 7..255 * 8]` is the hash of the parent block.
     pub(crate) prev_hashes: [Target; 2048],
@@ -568,7 +690,7 @@ pub(crate) struct BlockHashesTarget {
 
 impl BlockHashesTarget {
     /// Number of `Target`s required for previous and current block hashes.
-    pub(crate) const BLOCK_HASHES_SIZE: usize = 2056;
+    pub(crate) const SIZE: usize = 2056;
 
     /// Extracts the previous and current block hash `Target`s from the public input `Target`s.
     /// The provided `pis` should start with the block hashes.
@@ -616,9 +738,9 @@ impl BlockHashesTarget {
 /// Additional block data that are specific to the local transaction being proven,
 /// unlike `BlockMetadata`.
 #[derive(Eq, PartialEq, Debug, Copy, Clone)]
-pub(crate) struct ExtraBlockDataTarget {
-    /// `Target`s for the state trie digest of the genesis block.
-    pub genesis_state_trie_root: [Target; 8],
+pub struct ExtraBlockDataTarget {
+    /// `Target`s for the state trie digest of the checkpoint block.
+    pub checkpoint_state_trie_root: [Target; 8],
     /// `Target` for the transaction count prior execution of the local state transition, starting
     /// at 0 for the initial trnasaction of a block.
     pub txn_number_before: Target,
@@ -639,14 +761,14 @@ impl ExtraBlockDataTarget {
     /// Extracts the extra block data `Target`s from the public input `Target`s.
     /// The provided `pis` should start with the extra vblock data.
     pub(crate) fn from_public_inputs(pis: &[Target]) -> Self {
-        let genesis_state_trie_root = pis[0..8].try_into().unwrap();
+        let checkpoint_state_trie_root = pis[0..8].try_into().unwrap();
         let txn_number_before = pis[8];
         let txn_number_after = pis[9];
         let gas_used_before = pis[10];
         let gas_used_after = pis[11];
 
         Self {
-            genesis_state_trie_root,
+            checkpoint_state_trie_root,
             txn_number_before,
             txn_number_after,
             gas_used_before,
@@ -663,11 +785,11 @@ impl ExtraBlockDataTarget {
         ed1: Self,
     ) -> Self {
         Self {
-            genesis_state_trie_root: core::array::from_fn(|i| {
+            checkpoint_state_trie_root: core::array::from_fn(|i| {
                 builder.select(
                     condition,
-                    ed0.genesis_state_trie_root[i],
-                    ed1.genesis_state_trie_root[i],
+                    ed0.checkpoint_state_trie_root[i],
+                    ed1.checkpoint_state_trie_root[i],
                 )
             }),
             txn_number_before: builder.select(
@@ -689,14 +811,14 @@ impl ExtraBlockDataTarget {
     ) {
         for i in 0..8 {
             builder.connect(
-                ed0.genesis_state_trie_root[i],
-                ed1.genesis_state_trie_root[i],
+                ed0.checkpoint_state_trie_root[i],
+                ed1.checkpoint_state_trie_root[i],
             );
         }
         builder.connect(ed0.txn_number_before, ed1.txn_number_before);
         builder.connect(ed0.txn_number_after, ed1.txn_number_after);
         builder.connect(ed0.gas_used_before, ed1.gas_used_before);
-        builder.connect(ed1.gas_used_after, ed1.gas_used_after);
+        builder.connect(ed0.gas_used_after, ed1.gas_used_after);
     }
 }
 
@@ -713,20 +835,6 @@ pub struct StarkProof<F: RichField + Extendable<D>, C: GenericConfig<D, F = F>, 
     pub openings: StarkOpeningSet<F, D>,
     /// A batch FRI argument for all openings.
     pub opening_proof: FriProof<F, C::Hasher, D>,
-}
-
-/// A `StarkProof` along with some metadata about the initial Fiat-Shamir state, which is used when
-/// creating a recursive wrapper proof around a STARK proof.
-#[derive(Debug, Clone)]
-pub struct StarkProofWithMetadata<F, C, const D: usize>
-where
-    F: RichField + Extendable<D>,
-    C: GenericConfig<D, F = F>,
-{
-    /// Initial Fiat-Shamir state.
-    pub(crate) init_challenger_state: <C::Hasher as Hasher<F>>::Permutation,
-    /// Proof for a single STARK.
-    pub(crate) proof: StarkProof<F, C, D>,
 }
 
 impl<F: RichField + Extendable<D>, C: GenericConfig<D, F = F>, const D: usize> StarkProof<F, C, D> {
@@ -851,7 +959,10 @@ impl<F: RichField + Extendable<D>, const D: usize> StarkOpeningSet<F, D> {
         auxiliary_polys_commitment: &PolynomialBatch<F, C, D>,
         quotient_commitment: &PolynomialBatch<F, C, D>,
         num_lookup_columns: usize,
+        num_ctl_polys: &[usize],
     ) -> Self {
+        let total_num_helper_cols: usize = num_ctl_polys.iter().sum();
+
         // Batch evaluates polynomials on the LDE, at a point `z`.
         let eval_commitment = |z: F::Extension, c: &PolynomialBatch<F, C, D>| {
             c.polynomials
@@ -866,6 +977,9 @@ impl<F: RichField + Extendable<D>, const D: usize> StarkOpeningSet<F, D> {
                 .map(|p| p.eval(z))
                 .collect::<Vec<_>>()
         };
+
+        let auxiliary_first = eval_commitment_base(F::ONE, auxiliary_polys_commitment);
+        let ctl_zs_first = auxiliary_first[num_lookup_columns + total_num_helper_cols..].to_vec();
         // `g * zeta`.
         let zeta_next = zeta.scalar_mul(g);
         Self {
@@ -873,9 +987,7 @@ impl<F: RichField + Extendable<D>, const D: usize> StarkOpeningSet<F, D> {
             next_values: eval_commitment(zeta_next, trace_commitment),
             auxiliary_polys: eval_commitment(zeta, auxiliary_polys_commitment),
             auxiliary_polys_next: eval_commitment(zeta_next, auxiliary_polys_commitment),
-            ctl_zs_first: eval_commitment_base(F::ONE, auxiliary_polys_commitment)
-                [num_lookup_columns..]
-                .to_vec(),
+            ctl_zs_first,
             quotient_polys: eval_commitment(zeta, quotient_commitment),
         }
     }
@@ -928,7 +1040,7 @@ pub(crate) struct StarkOpeningSetTarget<const D: usize> {
     pub auxiliary_polys: Vec<ExtensionTarget<D>>,
     /// `ExtensionTarget`s for the opening of lookups and cross-table lookups `Z` polynomials at `g * zeta`.
     pub auxiliary_polys_next: Vec<ExtensionTarget<D>>,
-    /// /// `ExtensionTarget`s for the opening of lookups and cross-table lookups `Z` polynomials at 1.
+    /// `ExtensionTarget`s for the opening of lookups and cross-table lookups `Z` polynomials at 1.
     pub ctl_zs_first: Vec<Target>,
     /// `ExtensionTarget`s for the opening of quotient polynomials at `zeta`.
     pub quotient_polys: Vec<ExtensionTarget<D>>,

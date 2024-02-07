@@ -1,5 +1,5 @@
-use std::fmt::Debug;
-use std::ops::{Add, Div, Mul, Neg, Sub};
+use core::fmt::Debug;
+use core::ops::{Add, Div, Mul, Neg, Sub};
 
 use ethereum_types::{U256, U512};
 use rand::distributions::{Distribution, Standard};
@@ -1068,7 +1068,7 @@ where
     ///     (Prod_{i=1}^11 x_i) / phi
     /// The 6th Frob map is nontrivial but leaves Fp6 fixed and hence must be the conjugate:
     ///     x_6 = (a + bz)_6 = a - bz = x.conj()
-    /// Letting prod_17 = x_1 * x_7, the remaining factors in the numerator can be expresed as:
+    /// Letting prod_17 = x_1 * x_7, the remaining factors in the numerator can be expressed as:
     ///     [(prod_17) * (prod_17)_2] * (prod_17)_4 * [(prod_17) * (prod_17)_2]_1
     /// By Galois theory, both the following are in Fp2 and are complex conjugates
     ///     prod_odds,  prod_evens

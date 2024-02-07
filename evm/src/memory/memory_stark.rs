@@ -1,4 +1,4 @@
-use std::marker::PhantomData;
+use core::marker::PhantomData;
 
 use ethereum_types::U256;
 use itertools::Itertools;
@@ -13,10 +13,10 @@ use plonky2::util::timing::TimingTree;
 use plonky2::util::transpose;
 use plonky2_maybe_rayon::*;
 
+use super::segments::Segment;
 use crate::constraint_consumer::{ConstraintConsumer, RecursiveConstraintConsumer};
-use crate::cross_table_lookup::Column;
 use crate::evaluation_frame::{StarkEvaluationFrame, StarkFrame};
-use crate::lookup::Lookup;
+use crate::lookup::{Column, Filter, Lookup};
 use crate::memory::columns::{
     value_limb, ADDR_CONTEXT, ADDR_SEGMENT, ADDR_VIRTUAL, CONTEXT_FIRST_CHANGE, COUNTER, FILTER,
     FREQUENCIES, INITIALIZE_AUX, IS_READ, NUM_COLUMNS, RANGE_CHECK, SEGMENT_FIRST_CHANGE,
@@ -41,8 +41,8 @@ pub(crate) fn ctl_data<F: Field>() -> Vec<Column<F>> {
 }
 
 /// CTL filter for memory operations.
-pub(crate) fn ctl_filter<F: Field>() -> Column<F> {
-    Column::single(FILTER)
+pub(crate) fn ctl_filter<F: Field>() -> Filter<F> {
+    Filter::new_simple(Column::single(FILTER))
 }
 
 #[derive(Copy, Clone, Default)]
@@ -158,8 +158,16 @@ impl<F: RichField + Extendable<D>, const D: usize> MemoryStark<F, D> {
         trace_col_vecs[COUNTER] = (0..height).map(|i| F::from_canonical_usize(i)).collect();
 
         for i in 0..height {
-            let x = trace_col_vecs[RANGE_CHECK][i].to_canonical_u64() as usize;
-            trace_col_vecs[FREQUENCIES][x] += F::ONE;
+            let x_rc = trace_col_vecs[RANGE_CHECK][i].to_canonical_u64() as usize;
+            trace_col_vecs[FREQUENCIES][x_rc] += F::ONE;
+            if (trace_col_vecs[CONTEXT_FIRST_CHANGE][i] == F::ONE)
+                || (trace_col_vecs[SEGMENT_FIRST_CHANGE][i] == F::ONE)
+            {
+                // CONTEXT_FIRST_CHANGE and SEGMENT_FIRST_CHANGE should be 0 at the last row, so the index
+                // should never be out of bounds.
+                let x_fo = trace_col_vecs[ADDR_VIRTUAL][i + 1].to_canonical_u64() as usize;
+                trace_col_vecs[FREQUENCIES][x_fo] += F::ONE;
+            }
         }
     }
 
@@ -175,7 +183,7 @@ impl<F: RichField + Extendable<D>, const D: usize> MemoryStark<F, D> {
     /// reads to the same address, say at timestamps 50 and 80.
     fn fill_gaps(memory_ops: &mut Vec<MemoryOp>) {
         let max_rc = memory_ops.len().next_power_of_two() - 1;
-        for (mut curr, next) in memory_ops.clone().into_iter().tuple_windows() {
+        for (mut curr, mut next) in memory_ops.clone().into_iter().tuple_windows() {
             if curr.address.context != next.address.context
                 || curr.address.segment != next.address.segment
             {
@@ -185,6 +193,15 @@ impl<F: RichField + Extendable<D>, const D: usize> MemoryStark<F, D> {
                 // Similarly, the number of possible segments is a small constant, so any gap must
                 // be small. max_rc will always be much larger, as just bootloading the kernel will
                 // trigger thousands of memory operations.
+                // However, we do check that the first address accessed is range-checkable. If not,
+                // we could start at a negative address and cheat.
+                while next.address.virt > max_rc {
+                    let mut dummy_address = next.address;
+                    dummy_address.virt -= max_rc;
+                    let dummy_read = MemoryOp::new_dummy_read(dummy_address, 0, U256::zero());
+                    memory_ops.push(dummy_read);
+                    next = dummy_read;
+                }
             } else if curr.address.virt != next.address.virt {
                 while next.address.virt - curr.address.virt - 1 > max_rc {
                     let mut dummy_address = curr.address;
@@ -287,6 +304,10 @@ impl<F: RichField + Extendable<D>, const D: usize> Stark<F, D> for MemoryStark<F
         let filter = local_values[FILTER];
         yield_constr.constraint(filter * (filter - P::ONES));
 
+        // IS_READ must be 0 or 1.
+        // This is implied by the MemoryStark CTL, where corresponding values are either
+        // hardcoded to 0/1, or boolean-constrained in their respective STARK modules.
+
         // If this is a dummy row (filter is off), it must be a read. This means the prover can
         // insert reads which never appear in the CPU trace (which are harmless), but not writes.
         let is_dummy = P::ONES - filter;
@@ -349,7 +370,11 @@ impl<F: RichField + Extendable<D>, const D: usize> Stark<F, D> for MemoryStark<F
             // We don't want to exclude the entirety of context 0. This constraint zero-initializes all segments except the
             // specified ones (segment 0 is already included in initialize_aux).
             // There is overlap with the previous constraint, but this is not a problem.
-            yield_constr.constraint_transition(initialize_aux * next_values_limbs[i]);
+            yield_constr.constraint_transition(
+                (next_addr_segment - P::Scalar::from_canonical_usize(Segment::TrieData.unscale()))
+                    * initialize_aux
+                    * next_values_limbs[i],
+            );
         }
 
         // Check the range column: First value must be 0,
@@ -388,6 +413,10 @@ impl<F: RichField + Extendable<D>, const D: usize> Stark<F, D> for MemoryStark<F
         let filter = local_values[FILTER];
         let constraint = builder.mul_sub_extension(filter, filter, filter);
         yield_constr.constraint(builder, constraint);
+
+        // IS_READ must be 0 or 1.
+        // This is implied by the MemoryStark CTL, where corresponding values are either
+        // hardcoded to 0/1, or boolean-constrained in their respective STARK modules.
 
         // If this is a dummy row (filter is off), it must be a read. This means the prover can
         // insert reads which never appear in the CPU trace (which are harmless), but not writes.
@@ -500,7 +529,13 @@ impl<F: RichField + Extendable<D>, const D: usize> Stark<F, D> for MemoryStark<F
             // We don't want to exclude the entirety of context 0. This constraint zero-initializes all segments except the
             // specified ones (segment 0 is already included in initialize_aux).
             // There is overlap with the previous constraint, but this is not a problem.
-            yield_constr.constraint_transition(builder, context_zero_initializing_constraint);
+            let segment_trie_data = builder.add_const_extension(
+                next_addr_segment,
+                F::NEG_ONE * F::from_canonical_usize(Segment::TrieData.unscale()),
+            );
+            let zero_init_constraint =
+                builder.mul_extension(segment_trie_data, context_zero_initializing_constraint);
+            yield_constr.constraint_transition(builder, zero_init_constraint);
         }
 
         // Check the range column: First value must be 0,
@@ -517,11 +552,21 @@ impl<F: RichField + Extendable<D>, const D: usize> Stark<F, D> for MemoryStark<F
         3
     }
 
-    fn lookups(&self) -> Vec<Lookup> {
+    fn lookups(&self) -> Vec<Lookup<F>> {
         vec![Lookup {
-            columns: vec![RANGE_CHECK],
-            table_column: COUNTER,
-            frequencies_column: FREQUENCIES,
+            columns: vec![
+                Column::single(RANGE_CHECK),
+                Column::single_next_row(ADDR_VIRTUAL),
+            ],
+            table_column: Column::single(COUNTER),
+            frequencies_column: Column::single(FREQUENCIES),
+            filter_columns: vec![
+                None,
+                Some(Filter::new_simple(Column::sum([
+                    CONTEXT_FIRST_CHANGE,
+                    SEGMENT_FIRST_CHANGE,
+                ]))),
+            ],
         }]
     }
 }

@@ -25,7 +25,7 @@
 //! This means that the higher-order bytes will be thrown away during the process, if the value
 //! is greater than 256^length, and as a result a different value will be stored in memory.
 
-use std::marker::PhantomData;
+use core::marker::PhantomData;
 
 use itertools::Itertools;
 use plonky2::field::extension::{Extendable, FieldExtension};
@@ -38,16 +38,14 @@ use plonky2::timed;
 use plonky2::util::timing::TimingTree;
 use plonky2::util::transpose;
 
-use super::columns::BYTE_VALUES_RANGE;
 use super::NUM_BYTES;
 use crate::byte_packing::columns::{
     index_len, value_bytes, ADDR_CONTEXT, ADDR_SEGMENT, ADDR_VIRTUAL, IS_READ, LEN_INDICES_COLS,
     NUM_COLUMNS, RANGE_COUNTER, RC_FREQUENCIES, TIMESTAMP,
 };
 use crate::constraint_consumer::{ConstraintConsumer, RecursiveConstraintConsumer};
-use crate::cross_table_lookup::Column;
 use crate::evaluation_frame::{StarkEvaluationFrame, StarkFrame};
-use crate::lookup::Lookup;
+use crate::lookup::{Column, Filter, Lookup};
 use crate::stark::Stark;
 use crate::witness::memory::MemoryAddress;
 
@@ -63,7 +61,7 @@ pub(crate) fn ctl_looked_data<F: Field>() -> Vec<Column<F>> {
     // obtain the corresponding limb.
     let outputs: Vec<Column<F>> = (0..8)
         .map(|i| {
-            let range = (value_bytes(i * 4)..value_bytes(i * 4) + 4);
+            let range = value_bytes(i * 4)..value_bytes(i * 4) + 4;
             Column::linear_combination(
                 range
                     .enumerate()
@@ -76,7 +74,7 @@ pub(crate) fn ctl_looked_data<F: Field>() -> Vec<Column<F>> {
         (0..NUM_BYTES).map(|i| (index_len(i), F::from_canonical_usize(i + 1))),
     );
 
-    Column::singles([ADDR_CONTEXT, ADDR_SEGMENT, ADDR_VIRTUAL])
+    Column::singles([IS_READ, ADDR_CONTEXT, ADDR_SEGMENT, ADDR_VIRTUAL])
         .chain([sequence_len])
         .chain(Column::singles(&[TIMESTAMP]))
         .chain(outputs)
@@ -84,10 +82,10 @@ pub(crate) fn ctl_looked_data<F: Field>() -> Vec<Column<F>> {
 }
 
 /// CTL filter for the `BytePackingStark` looked table.
-pub(crate) fn ctl_looked_filter<F: Field>() -> Column<F> {
+pub(crate) fn ctl_looked_filter<F: Field>() -> Filter<F> {
     // The CPU table is only interested in our sequence end rows,
     // since those contain the final limbs of our packed int.
-    Column::sum((0..NUM_BYTES).map(index_len))
+    Filter::new_simple(Column::sum((0..NUM_BYTES).map(index_len)))
 }
 
 /// Column linear combination for the `BytePackingStark` table reading/writing the `i`th byte sequence from `MemoryStark`.
@@ -119,8 +117,8 @@ pub(crate) fn ctl_looking_memory<F: Field>(i: usize) -> Vec<Column<F>> {
 }
 
 /// CTL filter for reading/writing the `i`th byte of the byte sequence from/to memory.
-pub(crate) fn ctl_looking_memory_filter<F: Field>(i: usize) -> Column<F> {
-    Column::sum((i..NUM_BYTES).map(index_len))
+pub(crate) fn ctl_looking_memory_filter<F: Field>(i: usize) -> Filter<F> {
+    Filter::new_simple(Column::sum((i..NUM_BYTES).map(index_len)))
 }
 
 /// Information about a byte packing operation needed for witness generation.
@@ -222,12 +220,12 @@ impl<F: RichField + Extendable<D>, const D: usize> BytePackingStark<F, D> {
         row
     }
 
-    fn generate_padding_row(&self) -> [F; NUM_COLUMNS] {
+    const fn generate_padding_row(&self) -> [F; NUM_COLUMNS] {
         [F::ZERO; NUM_COLUMNS]
     }
 
     /// Expects input in *column*-major layout
-    fn generate_range_checks(&self, cols: &mut Vec<Vec<F>>) {
+    fn generate_range_checks(&self, cols: &mut [Vec<F>]) {
         debug_assert!(cols.len() == NUM_COLUMNS);
 
         let n_rows = cols[0].len();
@@ -312,6 +310,14 @@ impl<F: RichField + Extendable<D>, const D: usize> Stark<F, D> for BytePackingSt
         // Only padding rows have their filter turned off.
         let next_filter = next_values[LEN_INDICES_COLS].iter().copied().sum::<P>();
         yield_constr.constraint_transition(next_filter * (next_filter - current_filter));
+
+        // Check that all limbs after final length are 0.
+        for i in 0..NUM_BYTES - 1 {
+            // If the length is i+1, then value_bytes(i+1),...,value_bytes(NUM_BYTES-1) must be 0.
+            for j in i + 1..NUM_BYTES {
+                yield_constr.constraint(local_values[index_len(i)] * local_values[value_bytes(j)]);
+            }
+        }
     }
 
     fn eval_ext_circuit(
@@ -367,17 +373,28 @@ impl<F: RichField + Extendable<D>, const D: usize> Stark<F, D> for BytePackingSt
         let constraint = builder.sub_extension(next_filter, current_filter);
         let constraint = builder.mul_extension(next_filter, constraint);
         yield_constr.constraint_transition(builder, constraint);
+
+        // Check that all limbs after final length are 0.
+        for i in 0..NUM_BYTES - 1 {
+            // If the length is i+1, then value_bytes(i+1),...,value_bytes(NUM_BYTES-1) must be 0.
+            for j in i + 1..NUM_BYTES {
+                let constr =
+                    builder.mul_extension(local_values[index_len(i)], local_values[value_bytes(j)]);
+                yield_constr.constraint(builder, constr);
+            }
+        }
     }
 
     fn constraint_degree(&self) -> usize {
         3
     }
 
-    fn lookups(&self) -> Vec<Lookup> {
+    fn lookups(&self) -> Vec<Lookup<F>> {
         vec![Lookup {
-            columns: (value_bytes(0)..value_bytes(0) + NUM_BYTES).collect(),
-            table_column: RANGE_COUNTER,
-            frequencies_column: RC_FREQUENCIES,
+            columns: Column::singles(value_bytes(0)..value_bytes(0) + NUM_BYTES).collect(),
+            table_column: Column::single(RANGE_COUNTER),
+            frequencies_column: Column::single(RC_FREQUENCIES),
+            filter_columns: vec![None; NUM_BYTES],
         }]
     }
 }

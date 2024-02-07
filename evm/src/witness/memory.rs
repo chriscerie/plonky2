@@ -11,8 +11,9 @@ pub(crate) enum MemoryChannel {
 
 use MemoryChannel::{Code, GeneralPurpose, PartialChannel};
 
+use super::operation::CONTEXT_SCALING_FACTOR;
 use crate::cpu::kernel::constants::global_metadata::GlobalMetadata;
-use crate::memory::segments::Segment;
+use crate::memory::segments::{Segment, SEGMENT_SCALING_FACTOR};
 use crate::witness::errors::MemoryError::{ContextTooLarge, SegmentTooLarge, VirtTooLarge};
 use crate::witness::errors::ProgramError;
 use crate::witness::errors::ProgramError::MemoryError;
@@ -38,10 +39,11 @@ pub(crate) struct MemoryAddress {
 }
 
 impl MemoryAddress {
-    pub(crate) fn new(context: usize, segment: Segment, virt: usize) -> Self {
+    pub(crate) const fn new(context: usize, segment: Segment, virt: usize) -> Self {
         Self {
             context,
-            segment: segment as usize,
+            // segment is scaled
+            segment: segment.unscale(),
             virt,
         }
     }
@@ -67,6 +69,17 @@ impl MemoryAddress {
             segment: segment.as_usize(),
             virt: virt.as_usize(),
         })
+    }
+
+    /// Creates a new `MemoryAddress` from a bundled address fitting a `U256`.
+    /// It will recover the virtual offset as the lowest 32-bit limb, the segment
+    /// as the next limb, and the context as the next one.
+    pub(crate) fn new_bundle(addr: U256) -> Result<Self, ProgramError> {
+        let virt = addr.low_u32().into();
+        let segment = (addr >> SEGMENT_SCALING_FACTOR).low_u32().into();
+        let context = (addr >> CONTEXT_SCALING_FACTOR).low_u32().into();
+
+        Self::new_u256s(context, segment, virt)
     }
 
     pub(crate) fn increment(&mut self) {
@@ -120,7 +133,11 @@ impl MemoryOp {
         }
     }
 
-    pub(crate) fn new_dummy_read(address: MemoryAddress, timestamp: usize, value: U256) -> Self {
+    pub(crate) const fn new_dummy_read(
+        address: MemoryAddress,
+        timestamp: usize,
+        value: U256,
+    ) -> Self {
         Self {
             filter: false,
             timestamp,
@@ -130,7 +147,7 @@ impl MemoryOp {
         }
     }
 
-    pub(crate) fn sorting_key(&self) -> (usize, usize, usize, usize) {
+    pub(crate) const fn sorting_key(&self) -> (usize, usize, usize, usize) {
         (
             self.address.context,
             self.address.segment,
@@ -149,7 +166,7 @@ impl MemoryState {
     pub(crate) fn new(kernel_code: &[u8]) -> Self {
         let code_u256s = kernel_code.iter().map(|&x| x.into()).collect();
         let mut result = Self::default();
-        result.contexts[0].segments[Segment::Code as usize].content = code_u256s;
+        result.contexts[0].segments[Segment::Code.unscale()].content = code_u256s;
         result
     }
 
@@ -173,6 +190,11 @@ impl MemoryState {
         }
 
         let segment = Segment::all()[address.segment];
+
+        if let Some(constant) = Segment::constant(&segment, address.virt) {
+            return constant;
+        }
+
         let val = self.contexts[address.context].segments[address.segment].get(address.virt);
         assert!(
             val.bits() <= segment.bit_range(),
@@ -190,6 +212,15 @@ impl MemoryState {
         }
 
         let segment = Segment::all()[address.segment];
+
+        if let Some(constant) = Segment::constant(&segment, address.virt) {
+            assert!(
+                constant == val,
+                "Attempting to set constant {} to incorrect value",
+                address.virt
+            );
+            return;
+        }
         assert!(
             val.bits() <= segment.bit_range(),
             "Value {} exceeds {:?} range of {} bits",
@@ -200,12 +231,9 @@ impl MemoryState {
         self.contexts[address.context].segments[address.segment].set(address.virt, val);
     }
 
+    // These fields are already scaled by their respective segment.
     pub(crate) fn read_global_metadata(&self, field: GlobalMetadata) -> U256 {
-        self.get(MemoryAddress::new(
-            0,
-            Segment::GlobalMetadata,
-            field as usize,
-        ))
+        self.get(MemoryAddress::new_bundle(U256::from(field as usize)).unwrap())
     }
 }
 

@@ -1,4 +1,4 @@
-use std::cmp::max;
+use core::cmp::max;
 
 use itertools::izip;
 use plonky2::field::extension::Extendable;
@@ -28,14 +28,12 @@ pub(crate) const MIGHT_OVERFLOW: OpsColumnsView<bool> = OpsColumnsView {
     not_pop: false,
     shift: false,
     jumpdest_keccak_general: false,
-    prover_input: false,
+    push_prover_input: true, // PROVER_INPUT doesn't require the check, but PUSH does.
     jumps: false,
     pc_push0: true,
-    push: true,
     dup_swap: true,
     context_op: false,
-    mload_32bytes: false,
-    mstore_32bytes: false,
+    m_op_32bytes: false,
     exit_kernel: true, // Doesn't directly push, but the syscall it's returning from might.
     m_op_general: false,
     syscall: false,
@@ -85,13 +83,13 @@ pub(crate) const JUMPI_OP: Option<StackBehavior> = Some(StackBehavior {
 });
 /// `StackBehavior` for MLOAD_GENERAL.
 pub(crate) const MLOAD_GENERAL_OP: Option<StackBehavior> = Some(StackBehavior {
-    num_pops: 3,
+    num_pops: 1,
     pushes: true,
     disable_other_channels: false,
 });
 
 pub(crate) const KECCAK_GENERAL_OP: StackBehavior = StackBehavior {
-    num_pops: 4,
+    num_pops: 2,
     pushes: true,
     disable_other_channels: true,
 };
@@ -120,7 +118,7 @@ pub(crate) const STACK_BEHAVIORS: OpsColumnsView<Option<StackBehavior>> = OpsCol
         disable_other_channels: false,
     }),
     jumpdest_keccak_general: None,
-    prover_input: Some(StackBehavior {
+    push_prover_input: Some(StackBehavior {
         num_pops: 0,
         pushes: true,
         disable_other_channels: true,
@@ -131,20 +129,10 @@ pub(crate) const STACK_BEHAVIORS: OpsColumnsView<Option<StackBehavior>> = OpsCol
         pushes: true,
         disable_other_channels: true,
     }),
-    push: Some(StackBehavior {
-        num_pops: 0,
-        pushes: true,
-        disable_other_channels: true,
-    }),
     dup_swap: None,
     context_op: None,
-    mload_32bytes: Some(StackBehavior {
-        num_pops: 4,
-        pushes: true,
-        disable_other_channels: false,
-    }),
-    mstore_32bytes: Some(StackBehavior {
-        num_pops: 4,
+    m_op_32bytes: Some(StackBehavior {
+        num_pops: 2,
         pushes: true,
         disable_other_channels: false,
     }),
@@ -198,7 +186,8 @@ pub(crate) fn eval_packed_one<P: PackedField>(
             yield_constr.constraint(filter * (channel.addr_context - lv.context));
             yield_constr.constraint(
                 filter
-                    * (channel.addr_segment - P::Scalar::from_canonical_u64(Segment::Stack as u64)),
+                    * (channel.addr_segment
+                        - P::Scalar::from_canonical_usize(Segment::Stack.unscale())),
             );
             // Remember that the first read (`i == 1`) is for the second stack element at `stack[stack_len - 1]`.
             let addr_virtual = lv.stack_len - P::Scalar::from_canonical_usize(i + 1);
@@ -224,7 +213,8 @@ pub(crate) fn eval_packed_one<P: PackedField>(
             yield_constr.constraint_transition(new_filter * (channel.addr_context - nv.context));
             yield_constr.constraint_transition(
                 new_filter
-                    * (channel.addr_segment - P::Scalar::from_canonical_u64(Segment::Stack as u64)),
+                    * (channel.addr_segment
+                        - P::Scalar::from_canonical_usize(Segment::Stack.unscale())),
             );
             let addr_virtual = nv.stack_len - P::ONES;
             yield_constr.constraint_transition(new_filter * (channel.addr_virtual - addr_virtual));
@@ -250,7 +240,8 @@ pub(crate) fn eval_packed_one<P: PackedField>(
         yield_constr.constraint(new_filter * (channel.addr_context - lv.context));
         yield_constr.constraint(
             new_filter
-                * (channel.addr_segment - P::Scalar::from_canonical_u64(Segment::Stack as u64)),
+                * (channel.addr_segment
+                    - P::Scalar::from_canonical_usize(Segment::Stack.unscale())),
         );
         let addr_virtual = lv.stack_len - P::ONES;
         yield_constr.constraint(new_filter * (channel.addr_virtual - addr_virtual));
@@ -355,7 +346,7 @@ pub(crate) fn eval_packed<P: PackedField>(
     yield_constr.constraint_transition(
         new_filter
             * (top_read_channel.addr_segment
-                - P::Scalar::from_canonical_u64(Segment::Stack as u64)),
+                - P::Scalar::from_canonical_usize(Segment::Stack.unscale())),
     );
     let addr_virtual = nv.stack_len - P::ONES;
     yield_constr.constraint_transition(new_filter * (top_read_channel.addr_virtual - addr_virtual));
@@ -369,6 +360,8 @@ pub(crate) fn eval_packed<P: PackedField>(
     for &channel in &lv.mem_channels[1..] {
         yield_constr.constraint(lv.op.not_pop * (lv.opcode_bits[0] - P::ONES) * channel.used);
     }
+    yield_constr
+        .constraint(lv.op.not_pop * (lv.opcode_bits[0] - P::ONES) * lv.partial_channel.used);
 
     // Constrain the new stack length for POP.
     yield_constr.constraint_transition(
@@ -407,7 +400,7 @@ pub(crate) fn eval_ext_circuit_one<F: RichField + Extendable<D>, const D: usize>
             {
                 let constr = builder.arithmetic_extension(
                     F::ONE,
-                    -F::from_canonical_u64(Segment::Stack as u64),
+                    -F::from_canonical_usize(Segment::Stack.unscale()),
                     filter,
                     channel.addr_segment,
                     filter,
@@ -464,7 +457,7 @@ pub(crate) fn eval_ext_circuit_one<F: RichField + Extendable<D>, const D: usize>
             {
                 let constr = builder.arithmetic_extension(
                     F::ONE,
-                    -F::from_canonical_u64(Segment::Stack as u64),
+                    -F::from_canonical_usize(Segment::Stack.unscale()),
                     new_filter,
                     channel.addr_segment,
                     new_filter,
@@ -517,7 +510,7 @@ pub(crate) fn eval_ext_circuit_one<F: RichField + Extendable<D>, const D: usize>
         {
             let constr = builder.arithmetic_extension(
                 F::ONE,
-                -F::from_canonical_u64(Segment::Stack as u64),
+                -F::from_canonical_usize(Segment::Stack.unscale()),
                 new_filter,
                 channel.addr_segment,
                 new_filter,
@@ -684,7 +677,7 @@ pub(crate) fn eval_ext_circuit<F: RichField + Extendable<D>, const D: usize>(
     {
         let diff = builder.add_const_extension(
             top_read_channel.addr_segment,
-            -F::from_canonical_u64(Segment::Stack as u64),
+            -F::from_canonical_usize(Segment::Stack.unscale()),
         );
         let constr = builder.mul_extension(new_filter, diff);
         yield_constr.constraint_transition(builder, constr);
@@ -710,6 +703,10 @@ pub(crate) fn eval_ext_circuit<F: RichField + Extendable<D>, const D: usize>(
     let filter = builder.mul_sub_extension(lv.op.not_pop, lv.opcode_bits[0], lv.op.not_pop);
     for &channel in &lv.mem_channels[1..] {
         let constr = builder.mul_extension(filter, channel.used);
+        yield_constr.constraint(builder, constr);
+    }
+    {
+        let constr = builder.mul_extension(filter, lv.partial_channel.used);
         yield_constr.constraint(builder, constr);
     }
 

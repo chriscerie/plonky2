@@ -1,4 +1,4 @@
-use anyhow::{anyhow, Result};
+use anyhow::Result;
 use ethereum_types::{Address, U256};
 use hex_literal::hex;
 use keccak_hash::keccak;
@@ -8,7 +8,8 @@ use crate::cpu::kernel::aggregator::KERNEL;
 use crate::cpu::kernel::constants::global_metadata::GlobalMetadata;
 use crate::cpu::kernel::constants::txn_fields::NormalizedTxnField;
 use crate::cpu::kernel::interpreter::Interpreter;
-use crate::generation::mpt::{all_mpt_prover_inputs_reversed, LegacyReceiptRlp, LogRlp};
+use crate::cpu::kernel::tests::account_code::initialize_mpts;
+use crate::generation::mpt::{LegacyReceiptRlp, LogRlp};
 use crate::memory::segments::Segment;
 
 #[test]
@@ -126,7 +127,7 @@ fn test_receipt_encoding() -> Result<()> {
     // Get the expected RLP encoding.
     let expected_rlp = rlp::encode(&rlp::encode(&receipt_1));
 
-    let initial_stack: Vec<U256> = vec![retdest, 0.into(), 0.into()];
+    let initial_stack: Vec<U256> = vec![retdest, 0.into(), 0.into(), 0.into()];
     let mut interpreter = Interpreter::new_with_kernel(encode_receipt, initial_stack);
 
     // Write data to memory.
@@ -193,7 +194,7 @@ fn test_receipt_encoding() -> Result<()> {
     interpreter.set_memory_segment(Segment::TrieData, receipt);
 
     interpreter.run()?;
-    let rlp_pos = interpreter.pop();
+    let rlp_pos = interpreter.pop().expect("The stack should not be empty");
 
     let rlp_read: Vec<u8> = interpreter.get_rlp_memory();
 
@@ -294,7 +295,9 @@ fn test_receipt_bloom_filter() -> Result<()> {
         .map(U256::from);
     logs2.extend(cur_data);
 
-    interpreter.push(retdest);
+    interpreter
+        .push(retdest)
+        .expect("The stack should not overflow");
     interpreter.generation_state.registers.program_counter = logs_bloom;
     interpreter.set_memory_segment(Segment::TxnBloom, vec![0.into(); 256]); // Initialize transaction Bloom filter.
     interpreter.set_memory_segment(Segment::LogsData, logs2);
@@ -338,7 +341,6 @@ fn test_mpt_insert_receipt() -> Result<()> {
 
     let retdest = 0xDEADBEEFu32.into();
     let trie_inputs = Default::default();
-    let load_all_mpts = KERNEL.global_labels["load_all_mpts"];
     let mpt_insert = KERNEL.global_labels["mpt_insert_receipt_trie"];
     let num_topics = 3; // Both transactions have the same number of topics.
     let payload_len = 423; // Total payload length for each receipt.
@@ -406,14 +408,8 @@ fn test_mpt_insert_receipt() -> Result<()> {
     receipt.push(num_logs.into()); // num_logs
     receipt.extend(logs_0.clone());
 
-    // First, we load all mpts.
-    let initial_stack: Vec<U256> = vec![retdest];
-
-    let mut interpreter = Interpreter::new_with_kernel(load_all_mpts, initial_stack);
-    interpreter.generation_state.mpt_prover_inputs =
-        all_mpt_prover_inputs_reversed(&trie_inputs)
-            .map_err(|err| anyhow!("Invalid MPT data: {:?}", err))?;
-    interpreter.run()?;
+    let mut interpreter = Interpreter::new_with_kernel(0, vec![]);
+    initialize_mpts(&mut interpreter, &trie_inputs);
 
     // If TrieData is empty, we need to push 0 because the first value is always 0.
     let mut cur_trie_data = interpreter.get_memory_segment(Segment::TrieData);
@@ -430,7 +426,9 @@ fn test_mpt_insert_receipt() -> Result<()> {
         num_nibbles.into(),
     ];
     for i in 0..initial_stack.len() {
-        interpreter.push(initial_stack[i]);
+        interpreter
+            .push(initial_stack[i])
+            .expect("The stack should not overflow");
     }
 
     interpreter.generation_state.registers.program_counter = mpt_insert;
@@ -500,7 +498,9 @@ fn test_mpt_insert_receipt() -> Result<()> {
         num_nibbles.into(),
     ];
     for i in 0..initial_stack2.len() {
-        interpreter.push(initial_stack2[i]);
+        interpreter
+            .push(initial_stack2[i])
+            .expect("The stack should not overflow");
     }
     cur_trie_data.extend(receipt_1);
 
@@ -513,10 +513,15 @@ fn test_mpt_insert_receipt() -> Result<()> {
     // Finally, check that the hashes correspond.
     let mpt_hash_receipt = KERNEL.global_labels["mpt_hash_receipt_trie"];
     interpreter.generation_state.registers.program_counter = mpt_hash_receipt;
-    interpreter.push(retdest);
+    interpreter
+        .push(retdest)
+        .expect("The stack should not overflow");
+    interpreter
+        .push(1.into()) // Initial length of the trie data segment, unused.; // Initial length of the trie data segment, unused.
+        .expect("The stack should not overflow");
     interpreter.run()?;
     assert_eq!(
-        interpreter.stack()[0],
+        interpreter.stack()[1],
         U256::from(hex!(
             "da46cdd329bfedace32da95f2b344d314bc6f55f027d65f9f4ac04ee425e1f98"
         ))

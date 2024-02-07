@@ -1,11 +1,11 @@
-use std::collections::HashMap;
+use std::collections::{BTreeSet, HashMap};
 
 use anyhow::anyhow;
 use eth_trie_utils::partial_trie::{HashedPartialTrie, PartialTrie};
 use ethereum_types::{Address, BigEndianHash, H256, U256};
-use itertools::enumerate;
 use plonky2::field::extension::Extendable;
 use plonky2::field::polynomial::PolynomialValues;
+use plonky2::field::types::Field;
 use plonky2::hash::hash_types::RichField;
 use plonky2::timed;
 use plonky2::util::timing::TimingTree;
@@ -20,54 +20,55 @@ use crate::config::StarkConfig;
 use crate::cpu::columns::CpuColumnsView;
 use crate::cpu::kernel::aggregator::KERNEL;
 use crate::cpu::kernel::constants::global_metadata::GlobalMetadata;
-use crate::generation::outputs::{get_outputs, GenerationOutputs};
 use crate::generation::state::GenerationState;
+use crate::generation::trie_extractor::{get_receipt_trie, get_state_trie, get_txn_trie};
 use crate::memory::segments::Segment;
 use crate::proof::{BlockHashes, BlockMetadata, ExtraBlockData, PublicValues, TrieRoots};
-use crate::util::h2u;
+use crate::util::{h2u, u256_to_u8, u256_to_usize};
 use crate::witness::memory::{MemoryAddress, MemoryChannel};
 use crate::witness::transition::transition;
 
 pub mod mpt;
-pub mod outputs;
 pub(crate) mod prover_input;
 pub(crate) mod rlp;
 pub(crate) mod state;
 mod trie_extractor;
 
-use crate::witness::util::mem_write_log;
+use crate::witness::util::{mem_write_log, stack_peek};
 
 /// Inputs needed for trace generation.
 #[derive(Clone, Debug, Deserialize, Serialize, Default)]
 pub struct GenerationInputs {
+    /// The index of the transaction being proven within its block.
     pub txn_number_before: U256,
+    /// The cumulative gas used through the execution of all transactions prior the current one.
     pub gas_used_before: U256,
+    /// The cumulative gas used after the execution of the current transaction. The exact gas used
+    /// by the current transaction is `gas_used_after` - `gas_used_before`.
     pub gas_used_after: U256,
 
-    // A None would yield an empty proof, otherwise this contains the encoding of a transaction.
+    /// A None would yield an empty proof, otherwise this contains the encoding of a transaction.
     pub signed_txn: Option<Vec<u8>>,
-    // Withdrawal pairs `(addr, amount)`. At the end of the txs, `amount` is added to `addr`'s balance. See EIP-4895.
+    /// Withdrawal pairs `(addr, amount)`. At the end of the txs, `amount` is added to `addr`'s balance. See EIP-4895.
     pub withdrawals: Vec<(Address, U256)>,
     pub tries: TrieInputs,
     /// Expected trie roots after the transactions are executed.
     pub trie_roots_after: TrieRoots,
-    /// State trie root of the genesis block.
-    pub genesis_state_trie_root: H256,
+
+    /// State trie root of the checkpoint block.
+    /// This could always be the genesis block of the chain, but it allows a prover to continue proving blocks
+    /// from certain checkpoint heights without requiring proofs for blocks past this checkpoint.
+    pub checkpoint_state_trie_root: H256,
 
     /// Mapping between smart contract code hashes and the contract byte code.
     /// All account smart contracts that are invoked will have an entry present.
     pub contract_code: HashMap<H256, Vec<u8>>,
 
+    /// Information contained in the block header.
     pub block_metadata: BlockMetadata,
 
+    /// The hash of the current block, and a list of the 256 previous block hashes.
     pub block_hashes: BlockHashes,
-
-    /// A list of known addresses in the input state trie (which itself doesn't hold addresses,
-    /// only state keys). This is only useful for debugging, so that we can return addresses in the
-    /// post-state rather than state keys. (See `GenerationOutputs`, and in particular
-    /// `AddressOrStateKey`.) If the caller is not interested in the post-state, this can be left
-    /// empty.
-    pub addresses: Vec<Address>,
 }
 
 #[derive(Clone, Debug, Deserialize, Serialize, Default)]
@@ -156,7 +157,8 @@ fn apply_metadata_and_tries_memops<F: RichField + Extendable<D>, const D: usize>
         .map(|(field, val)| {
             mem_write_log(
                 channel,
-                MemoryAddress::new(0, Segment::GlobalMetadata, field as usize),
+                // These fields are already scaled by their segment, and are in context 0 (kernel).
+                MemoryAddress::new_bundle(U256::from(field as usize)).unwrap(),
                 state,
                 val,
             )
@@ -196,30 +198,66 @@ pub fn generate_traces<F: RichField + Extendable<D>, const D: usize>(
     inputs: GenerationInputs,
     config: &StarkConfig,
     timing: &mut TimingTree,
-) -> anyhow::Result<(
-    [Vec<PolynomialValues<F>>; NUM_TABLES],
-    PublicValues,
-    GenerationOutputs,
-)> {
+) -> anyhow::Result<([Vec<PolynomialValues<F>>; NUM_TABLES], PublicValues)> {
     let mut state = GenerationState::<F>::new(inputs.clone(), &KERNEL.code)
         .map_err(|err| anyhow!("Failed to parse all the initial prover inputs: {:?}", err))?;
 
     apply_metadata_and_tries_memops(&mut state, &inputs);
 
-    timed!(timing, "simulate CPU", simulate_cpu(&mut state)?);
+    let cpu_res = timed!(timing, "simulate CPU", simulate_cpu(&mut state));
+    if cpu_res.is_err() {
+        // Retrieve previous PC (before jumping to KernelPanic), to see if we reached `hash_final_tries`.
+        // We will output debugging information on the final tries only if we got a root mismatch.
+        let previous_pc = state
+            .traces
+            .cpu
+            .last()
+            .expect("We should have CPU rows")
+            .program_counter
+            .to_canonical_u64() as usize;
 
-    assert!(
-        state.mpt_prover_inputs.is_empty(),
-        "All MPT data should have been consumed"
-    );
+        if KERNEL.offset_name(previous_pc).contains("hash_final_tries") {
+            let state_trie_ptr = u256_to_usize(
+                state
+                    .memory
+                    .read_global_metadata(GlobalMetadata::StateTrieRoot),
+            )
+            .map_err(|_| anyhow!("State trie pointer is too large to fit in a usize."))?;
+            log::debug!(
+                "Computed state trie: {:?}",
+                get_state_trie::<HashedPartialTrie>(&state.memory, state_trie_ptr)
+            );
+
+            let txn_trie_ptr = u256_to_usize(
+                state
+                    .memory
+                    .read_global_metadata(GlobalMetadata::TransactionTrieRoot),
+            )
+            .map_err(|_| anyhow!("Transactions trie pointer is too large to fit in a usize."))?;
+            log::debug!(
+                "Computed transactions trie: {:?}",
+                get_txn_trie::<HashedPartialTrie>(&state.memory, txn_trie_ptr)
+            );
+
+            let receipt_trie_ptr = u256_to_usize(
+                state
+                    .memory
+                    .read_global_metadata(GlobalMetadata::ReceiptTrieRoot),
+            )
+            .map_err(|_| anyhow!("Receipts trie pointer is too large to fit in a usize."))?;
+            log::debug!(
+                "Computed receipts trie: {:?}",
+                get_receipt_trie::<HashedPartialTrie>(&state.memory, receipt_trie_ptr)
+            );
+        }
+
+        cpu_res?;
+    }
 
     log::info!(
         "Trace lengths (before padding): {:?}",
         state.traces.get_lengths()
     );
-
-    let outputs = get_outputs(&mut state)
-        .map_err(|err| anyhow!("Failed to generate post-state info: {:?}", err))?;
 
     let read_metadata = |field| state.memory.read_global_metadata(field);
     let trie_roots_before = TrieRoots {
@@ -237,7 +275,7 @@ pub fn generate_traces<F: RichField + Extendable<D>, const D: usize>(
     let txn_number_after = read_metadata(GlobalMetadata::TxnNumberAfter);
 
     let extra_block_data = ExtraBlockData {
-        genesis_state_trie_root: inputs.genesis_state_trie_root,
+        checkpoint_state_trie_root: inputs.checkpoint_state_trie_root,
         txn_number_before: inputs.txn_number_before,
         txn_number_after,
         gas_used_before: inputs.gas_used_before,
@@ -257,12 +295,10 @@ pub fn generate_traces<F: RichField + Extendable<D>, const D: usize>(
         "convert trace data to tables",
         state.traces.into_tables(all_stark, config, timing)
     );
-    Ok((tables, public_values, outputs))
+    Ok((tables, public_values))
 }
 
-fn simulate_cpu<F: RichField + Extendable<D>, const D: usize>(
-    state: &mut GenerationState<F>,
-) -> anyhow::Result<()> {
+fn simulate_cpu<F: Field>(state: &mut GenerationState<F>) -> anyhow::Result<()> {
     let halt_pc = KERNEL.global_labels["halt"];
 
     loop {
@@ -295,5 +331,89 @@ fn simulate_cpu<F: RichField + Extendable<D>, const D: usize>(
         }
 
         transition(state)?;
+    }
+}
+
+fn simulate_cpu_between_labels_and_get_user_jumps<F: Field>(
+    initial_label: &str,
+    final_label: &str,
+    state: &mut GenerationState<F>,
+) -> Option<HashMap<usize, BTreeSet<usize>>> {
+    if state.jumpdest_table.is_some() {
+        None
+    } else {
+        const JUMP_OPCODE: u8 = 0x56;
+        const JUMPI_OPCODE: u8 = 0x57;
+
+        let halt_pc = KERNEL.global_labels[final_label];
+        let mut jumpdest_addresses: HashMap<_, BTreeSet<usize>> = HashMap::new();
+
+        state.registers.program_counter = KERNEL.global_labels[initial_label];
+        let initial_clock = state.traces.clock();
+        let initial_context = state.registers.context;
+
+        log::debug!("Simulating CPU for jumpdest analysis.");
+
+        loop {
+            // skip jumpdest table validations in simulations
+            if state.registers.is_kernel
+                && state.registers.program_counter == KERNEL.global_labels["jumpdest_analysis"]
+            {
+                state.registers.program_counter = KERNEL.global_labels["jumpdest_analysis_end"]
+            }
+            let pc = state.registers.program_counter;
+            let context = state.registers.context;
+            let halt = state.registers.is_kernel
+                && pc == halt_pc
+                && state.registers.context == initial_context;
+            let Ok(opcode) = u256_to_u8(state.memory.get(MemoryAddress::new(
+                context,
+                Segment::Code,
+                state.registers.program_counter,
+            ))) else {
+                log::debug!(
+                    "Simulated CPU for jumpdest analysis halted after {} cycles",
+                    state.traces.clock() - initial_clock
+                );
+                return Some(jumpdest_addresses);
+            };
+            let cond = if let Ok(cond) = stack_peek(state, 1) {
+                cond != U256::zero()
+            } else {
+                false
+            };
+            if !state.registers.is_kernel
+                && (opcode == JUMP_OPCODE || (opcode == JUMPI_OPCODE && cond))
+            {
+                // Avoid deeper calls to abort
+                let Ok(jumpdest) = u256_to_usize(state.registers.stack_top) else {
+                    log::debug!(
+                        "Simulated CPU for jumpdest analysis halted after {} cycles",
+                        state.traces.clock() - initial_clock
+                    );
+                    return Some(jumpdest_addresses);
+                };
+                state.memory.set(
+                    MemoryAddress::new(context, Segment::JumpdestBits, jumpdest),
+                    U256::one(),
+                );
+                let jumpdest_opcode =
+                    state
+                        .memory
+                        .get(MemoryAddress::new(context, Segment::Code, jumpdest));
+                if let Some(ctx_addresses) = jumpdest_addresses.get_mut(&context) {
+                    ctx_addresses.insert(jumpdest);
+                } else {
+                    jumpdest_addresses.insert(context, BTreeSet::from([jumpdest]));
+                }
+            }
+            if halt || transition(state).is_err() {
+                log::debug!(
+                    "Simulated CPU for jumpdest analysis halted after {} cycles",
+                    state.traces.clock() - initial_clock
+                );
+                return Some(jumpdest_addresses);
+            }
+        }
     }
 }

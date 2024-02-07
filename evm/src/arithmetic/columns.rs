@@ -1,6 +1,6 @@
 //! Arithmetic unit
 
-use std::ops::Range;
+use core::ops::Range;
 
 pub(crate) const LIMB_BITS: usize = 16;
 const EVM_REGISTER_BITS: usize = 256;
@@ -42,6 +42,10 @@ pub(crate) const IS_RANGE_CHECK: usize = IS_SHR + 1;
 /// Column that stores the opcode if the operation is a range check.
 pub(crate) const OPCODE_COL: usize = IS_RANGE_CHECK + 1;
 pub(crate) const START_SHARED_COLS: usize = OPCODE_COL + 1;
+
+pub(crate) const fn op_flags() -> Range<usize> {
+    IS_ADD..IS_RANGE_CHECK + 1
+}
 
 /// Within the Arithmetic Unit, there are shared columns which can be
 /// used by any arithmetic circuit, depending on which one is active

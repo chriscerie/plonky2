@@ -1,4 +1,4 @@
-use std::any::type_name;
+use core::any::type_name;
 
 use anyhow::{ensure, Result};
 use ethereum_types::{BigEndianHash, U256};
@@ -16,10 +16,11 @@ use crate::constraint_consumer::ConstraintConsumer;
 use crate::cpu::kernel::aggregator::KERNEL;
 use crate::cpu::kernel::constants::global_metadata::GlobalMetadata;
 use crate::cross_table_lookup::{
-    verify_cross_table_lookups, CtlCheckVars, GrandProductChallenge, GrandProductChallengeSet,
+    num_ctl_helper_columns_by_table, verify_cross_table_lookups, CtlCheckVars,
+    GrandProductChallengeSet,
 };
 use crate::evaluation_frame::StarkEvaluationFrame;
-use crate::lookup::LookupCheckVars;
+use crate::lookup::{GrandProductChallenge, LookupCheckVars};
 use crate::memory::segments::Segment;
 use crate::memory::VALUE_LIMBS;
 use crate::proof::{
@@ -56,16 +57,22 @@ where
         cross_table_lookups,
     } = all_stark;
 
+    let num_ctl_helper_cols = num_ctl_helper_columns_by_table(
+        cross_table_lookups,
+        all_stark.arithmetic_stark.constraint_degree(),
+    );
+
     let ctl_vars_per_table = CtlCheckVars::from_proofs(
         &all_proof.stark_proofs,
         cross_table_lookups,
         &ctl_challenges,
         &num_lookup_columns,
+        &num_ctl_helper_cols,
     );
 
     verify_stark_proof_with_challenges(
         arithmetic_stark,
-        &all_proof.stark_proofs[Table::Arithmetic as usize].proof,
+        &all_proof.stark_proofs[Table::Arithmetic as usize],
         &stark_challenges[Table::Arithmetic as usize],
         &ctl_vars_per_table[Table::Arithmetic as usize],
         &ctl_challenges,
@@ -73,7 +80,7 @@ where
     )?;
     verify_stark_proof_with_challenges(
         byte_packing_stark,
-        &all_proof.stark_proofs[Table::BytePacking as usize].proof,
+        &all_proof.stark_proofs[Table::BytePacking as usize],
         &stark_challenges[Table::BytePacking as usize],
         &ctl_vars_per_table[Table::BytePacking as usize],
         &ctl_challenges,
@@ -81,7 +88,7 @@ where
     )?;
     verify_stark_proof_with_challenges(
         cpu_stark,
-        &all_proof.stark_proofs[Table::Cpu as usize].proof,
+        &all_proof.stark_proofs[Table::Cpu as usize],
         &stark_challenges[Table::Cpu as usize],
         &ctl_vars_per_table[Table::Cpu as usize],
         &ctl_challenges,
@@ -89,7 +96,7 @@ where
     )?;
     verify_stark_proof_with_challenges(
         keccak_stark,
-        &all_proof.stark_proofs[Table::Keccak as usize].proof,
+        &all_proof.stark_proofs[Table::Keccak as usize],
         &stark_challenges[Table::Keccak as usize],
         &ctl_vars_per_table[Table::Keccak as usize],
         &ctl_challenges,
@@ -97,7 +104,7 @@ where
     )?;
     verify_stark_proof_with_challenges(
         keccak_sponge_stark,
-        &all_proof.stark_proofs[Table::KeccakSponge as usize].proof,
+        &all_proof.stark_proofs[Table::KeccakSponge as usize],
         &stark_challenges[Table::KeccakSponge as usize],
         &ctl_vars_per_table[Table::KeccakSponge as usize],
         &ctl_challenges,
@@ -105,7 +112,7 @@ where
     )?;
     verify_stark_proof_with_challenges(
         logic_stark,
-        &all_proof.stark_proofs[Table::Logic as usize].proof,
+        &all_proof.stark_proofs[Table::Logic as usize],
         &stark_challenges[Table::Logic as usize],
         &ctl_vars_per_table[Table::Logic as usize],
         &ctl_challenges,
@@ -113,7 +120,7 @@ where
     )?;
     verify_stark_proof_with_challenges(
         memory_stark,
-        &all_proof.stark_proofs[Table::Memory as usize].proof,
+        &all_proof.stark_proofs[Table::Memory as usize],
         &stark_challenges[Table::Memory as usize],
         &ctl_vars_per_table[Table::Memory as usize],
         &ctl_challenges,
@@ -122,21 +129,21 @@ where
 
     let public_values = all_proof.public_values;
 
-    // Extra products to add to the looked last value.
+    // Extra sums to add to the looked last value.
     // Only necessary for the Memory values.
-    let mut extra_looking_products = vec![vec![F::ONE; config.num_challenges]; NUM_TABLES];
+    let mut extra_looking_sums = vec![vec![F::ZERO; config.num_challenges]; NUM_TABLES];
 
     // Memory
-    extra_looking_products[Table::Memory as usize] = (0..config.num_challenges)
-        .map(|i| get_memory_extra_looking_products(&public_values, ctl_challenges.challenges[i]))
+    extra_looking_sums[Table::Memory as usize] = (0..config.num_challenges)
+        .map(|i| get_memory_extra_looking_sum(&public_values, ctl_challenges.challenges[i]))
         .collect_vec();
 
-    verify_cross_table_lookups::<F, D>(
+    verify_cross_table_lookups::<F, D, NUM_TABLES>(
         cross_table_lookups,
         all_proof
             .stark_proofs
-            .map(|p| p.proof.openings.ctl_zs_first),
-        extra_looking_products,
+            .map(|proof| proof.openings.ctl_zs_first),
+        extra_looking_sums,
         config,
     )
 }
@@ -144,14 +151,14 @@ where
 /// Computes the extra product to multiply to the looked value. It contains memory operations not in the CPU trace:
 /// - block metadata writes,
 /// - trie roots writes.
-pub(crate) fn get_memory_extra_looking_products<F, const D: usize>(
+pub(crate) fn get_memory_extra_looking_sum<F, const D: usize>(
     public_values: &PublicValues,
     challenge: GrandProductChallenge<F>,
 ) -> F
 where
     F: RichField + Extendable<D>,
 {
-    let mut prod = F::ONE;
+    let mut sum = F::ZERO;
 
     // Add metadata and tries writes.
     let fields = [
@@ -239,31 +246,34 @@ where
         (GlobalMetadata::KernelLen, KERNEL.code.len().into()),
     ];
 
-    let segment = F::from_canonical_u32(Segment::GlobalMetadata as u32);
+    let segment = F::from_canonical_usize(Segment::GlobalMetadata.unscale());
 
-    fields.map(|(field, val)| prod = add_data_write(challenge, segment, prod, field as usize, val));
+    fields.map(|(field, val)| {
+        // These fields are already scaled by their segment, and are in context 0 (kernel).
+        sum = add_data_write(challenge, segment, sum, field.unscale(), val)
+    });
 
     // Add block bloom writes.
-    let bloom_segment = F::from_canonical_u32(Segment::GlobalBlockBloom as u32);
+    let bloom_segment = F::from_canonical_usize(Segment::GlobalBlockBloom.unscale());
     for index in 0..8 {
         let val = public_values.block_metadata.block_bloom[index];
-        prod = add_data_write(challenge, bloom_segment, prod, index, val);
+        sum = add_data_write(challenge, bloom_segment, sum, index, val);
     }
 
     // Add Blockhashes writes.
-    let block_hashes_segment = F::from_canonical_u32(Segment::BlockHashes as u32);
+    let block_hashes_segment = F::from_canonical_usize(Segment::BlockHashes.unscale());
     for index in 0..256 {
         let val = h2u(public_values.block_hashes.prev_hashes[index]);
-        prod = add_data_write(challenge, block_hashes_segment, prod, index, val);
+        sum = add_data_write(challenge, block_hashes_segment, sum, index, val);
     }
 
-    prod
+    sum
 }
 
 fn add_data_write<F, const D: usize>(
     challenge: GrandProductChallenge<F>,
     segment: F,
-    running_product: F,
+    running_sum: F,
     index: usize,
     val: U256,
 ) -> F
@@ -280,7 +290,7 @@ where
         row[j + 4] = F::from_canonical_u32((val >> (j * 32)).low_u32());
     }
     row[12] = F::ONE; // timestamp
-    running_product * challenge.combine(row.iter())
+    running_sum + challenge.combine(row.iter()).inverse()
 }
 
 pub(crate) fn verify_stark_proof_with_challenges<
@@ -297,13 +307,18 @@ pub(crate) fn verify_stark_proof_with_challenges<
     config: &StarkConfig,
 ) -> Result<()> {
     log::debug!("Checking proof: {}", type_name::<S>());
-    validate_proof_shape(stark, proof, config, ctl_vars.len())?;
+    let num_ctl_polys = ctl_vars
+        .iter()
+        .map(|ctl| ctl.helper_columns.len())
+        .sum::<usize>();
+    let num_ctl_z_polys = ctl_vars.len();
+    validate_proof_shape(stark, proof, config, num_ctl_polys, num_ctl_z_polys)?;
     let StarkOpeningSet {
         local_values,
         next_values,
         auxiliary_polys,
         auxiliary_polys_next,
-        ctl_zs_first,
+        ctl_zs_first: _,
         quotient_polys,
     } = &proof.openings;
     let vars = S::EvaluationFrame::from_values(local_values, next_values);
@@ -371,11 +386,16 @@ pub(crate) fn verify_stark_proof_with_challenges<
         proof.quotient_polys_cap.clone(),
     ];
 
+    let num_ctl_zs = ctl_vars
+        .iter()
+        .map(|ctl| ctl.helper_columns.len())
+        .collect::<Vec<_>>();
     verify_fri_proof::<F, C, D>(
         &stark.fri_instance(
             challenges.stark_zeta,
             F::primitive_root_of_unity(degree_bits),
-            ctl_zs_first.len(),
+            num_ctl_polys,
+            num_ctl_zs,
             config,
         ),
         &proof.openings.to_fri_openings(),
@@ -392,6 +412,7 @@ fn validate_proof_shape<F, C, S, const D: usize>(
     stark: &S,
     proof: &StarkProof<F, C, D>,
     config: &StarkConfig,
+    num_ctl_helpers: usize,
     num_ctl_zs: usize,
 ) -> anyhow::Result<()>
 where
@@ -421,7 +442,8 @@ where
     let degree_bits = proof.recover_degree_bits(config);
     let fri_params = config.fri_params(degree_bits);
     let cap_height = fri_params.config.cap_height;
-    let num_auxiliary = num_ctl_zs + stark.num_lookup_helper_columns(config);
+
+    let num_auxiliary = num_ctl_helpers + stark.num_lookup_helper_columns(config) + num_ctl_zs;
 
     ensure!(trace_cap.height() == cap_height);
     ensure!(auxiliary_polys_cap.height() == cap_height);
@@ -547,22 +569,22 @@ pub(crate) mod testutils {
             (GlobalMetadata::KernelLen, KERNEL.code.len().into()),
         ];
 
-        let segment = F::from_canonical_u32(Segment::GlobalMetadata as u32);
+        let segment = F::from_canonical_usize(Segment::GlobalMetadata.unscale());
         let mut extra_looking_rows = Vec::new();
 
         fields.map(|(field, val)| {
-            extra_looking_rows.push(add_extra_looking_row(segment, field as usize, val))
+            extra_looking_rows.push(add_extra_looking_row(segment, field.unscale(), val))
         });
 
         // Add block bloom writes.
-        let bloom_segment = F::from_canonical_u32(Segment::GlobalBlockBloom as u32);
+        let bloom_segment = F::from_canonical_usize(Segment::GlobalBlockBloom.unscale());
         for index in 0..8 {
             let val = public_values.block_metadata.block_bloom[index];
             extra_looking_rows.push(add_extra_looking_row(bloom_segment, index, val));
         }
 
         // Add Blockhashes writes.
-        let block_hashes_segment = F::from_canonical_u32(Segment::BlockHashes as u32);
+        let block_hashes_segment = F::from_canonical_usize(Segment::BlockHashes.unscale());
         for index in 0..256 {
             let val = h2u(public_values.block_hashes.prev_hashes[index]);
             extra_looking_rows.push(add_extra_looking_row(block_hashes_segment, index, val));

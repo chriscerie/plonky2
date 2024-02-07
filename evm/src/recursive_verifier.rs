@@ -1,8 +1,8 @@
-use std::array::from_fn;
-use std::fmt::Debug;
+use core::array::from_fn;
+use core::fmt::Debug;
 
 use anyhow::Result;
-use ethereum_types::{BigEndianHash, H256, U256};
+use ethereum_types::{BigEndianHash, U256};
 use plonky2::field::extension::Extendable;
 use plonky2::field::types::Field;
 use plonky2::fri::witness_util::set_fri_proof_target;
@@ -31,21 +31,18 @@ use crate::config::StarkConfig;
 use crate::constraint_consumer::RecursiveConstraintConsumer;
 use crate::cpu::kernel::aggregator::KERNEL;
 use crate::cpu::kernel::constants::global_metadata::GlobalMetadata;
-use crate::cross_table_lookup::{
-    CrossTableLookup, CtlCheckVarsTarget, GrandProductChallenge, GrandProductChallengeSet,
-};
+use crate::cross_table_lookup::{CrossTableLookup, CtlCheckVarsTarget, GrandProductChallengeSet};
 use crate::evaluation_frame::StarkEvaluationFrame;
-use crate::lookup::LookupCheckVarsTarget;
+use crate::lookup::{GrandProductChallenge, LookupCheckVarsTarget};
 use crate::memory::segments::Segment;
 use crate::memory::VALUE_LIMBS;
 use crate::proof::{
     BlockHashes, BlockHashesTarget, BlockMetadata, BlockMetadataTarget, ExtraBlockData,
     ExtraBlockDataTarget, PublicValues, PublicValuesTarget, StarkOpeningSetTarget, StarkProof,
-    StarkProofChallengesTarget, StarkProofTarget, StarkProofWithMetadata, TrieRoots,
-    TrieRootsTarget,
+    StarkProofChallengesTarget, StarkProofTarget, TrieRoots, TrieRootsTarget,
 };
 use crate::stark::Stark;
-use crate::util::{h256_limbs, h2u, u256_limbs, u256_to_u32, u256_to_u64};
+use crate::util::{h256_limbs, u256_limbs, u256_to_u32, u256_to_u64};
 use crate::vanishing_poly::eval_vanishing_poly_circuit;
 use crate::witness::errors::ProgramError;
 
@@ -149,7 +146,7 @@ where
 
     pub(crate) fn prove(
         &self,
-        proof_with_metadata: &StarkProofWithMetadata<F, C, D>,
+        proof: &StarkProof<F, C, D>,
         ctl_challenges: &GrandProductChallengeSet<F>,
     ) -> Result<ProofWithPublicInputs<F, C, D>> {
         let mut inputs = PartialWitness::new();
@@ -157,7 +154,7 @@ where
         set_stark_proof_target(
             &mut inputs,
             &self.stark_proof_target,
-            &proof_with_metadata.proof,
+            proof,
             self.zero_target,
         );
 
@@ -170,11 +167,6 @@ where
             inputs.set_target(challenge_target.beta, challenge.beta);
             inputs.set_target(challenge_target.gamma, challenge.gamma);
         }
-
-        inputs.set_target_arr(
-            self.init_challenger_state_target.as_ref(),
-            proof_with_metadata.init_challenger_state.as_ref(),
-        );
 
         self.circuit.prove(inputs)
     }
@@ -229,10 +221,24 @@ where
     let zero_target = builder.zero();
 
     let num_lookup_columns = stark.num_lookup_helper_columns(inner_config);
-    let num_ctl_zs =
-        CrossTableLookup::num_ctl_zs(cross_table_lookups, table, inner_config.num_challenges);
-    let proof_target =
-        add_virtual_stark_proof(&mut builder, stark, inner_config, degree_bits, num_ctl_zs);
+    let (total_num_helpers, num_ctl_zs, num_helpers_by_ctl) =
+        CrossTableLookup::num_ctl_helpers_zs_all(
+            cross_table_lookups,
+            *table,
+            inner_config.num_challenges,
+            stark.constraint_degree(),
+        );
+    let num_ctl_helper_zs = num_ctl_zs + total_num_helpers;
+
+    let proof_target = add_virtual_stark_proof(
+        &mut builder,
+        stark,
+        inner_config,
+        degree_bits,
+        num_ctl_helper_zs,
+        num_ctl_zs,
+    );
+
     builder.register_public_inputs(
         &proof_target
             .trace_cap
@@ -252,11 +258,13 @@ where
     };
 
     let ctl_vars = CtlCheckVarsTarget::from_proof(
-        table,
+        *table,
         &proof_target,
         cross_table_lookups,
         &ctl_challenges_target,
         num_lookup_columns,
+        total_num_helpers,
+        &num_helpers_by_ctl,
     );
 
     let init_challenger_state_target =
@@ -329,6 +337,11 @@ fn verify_stark_proof_with_challenges_circuit<
 {
     let zero = builder.zero();
     let one = builder.one_extension();
+
+    let num_ctl_polys = ctl_vars
+        .iter()
+        .map(|ctl| ctl.helper_columns.len())
+        .sum::<usize>();
 
     let StarkOpeningSetTarget {
         local_values,
@@ -407,6 +420,7 @@ fn verify_stark_proof_with_challenges_circuit<
         builder,
         challenges.stark_zeta,
         F::primitive_root_of_unity(degree_bits),
+        num_ctl_polys,
         ctl_zs_first.len(),
         inner_config,
     );
@@ -420,111 +434,110 @@ fn verify_stark_proof_with_challenges_circuit<
     );
 }
 
-/// Recursive version of `get_memory_extra_looking_products`.
-pub(crate) fn get_memory_extra_looking_products_circuit<
-    F: RichField + Extendable<D>,
-    const D: usize,
->(
+/// Recursive version of `get_memory_extra_looking_sum`.
+pub(crate) fn get_memory_extra_looking_sum_circuit<F: RichField + Extendable<D>, const D: usize>(
     builder: &mut CircuitBuilder<F, D>,
     public_values: &PublicValuesTarget,
     challenge: GrandProductChallenge<Target>,
 ) -> Target {
-    let mut product = builder.one();
+    let mut sum = builder.zero();
 
     // Add metadata writes.
     let block_fields_scalars = [
         (
-            GlobalMetadata::BlockTimestamp as usize,
+            GlobalMetadata::BlockTimestamp,
             public_values.block_metadata.block_timestamp,
         ),
         (
-            GlobalMetadata::BlockNumber as usize,
+            GlobalMetadata::BlockNumber,
             public_values.block_metadata.block_number,
         ),
         (
-            GlobalMetadata::BlockDifficulty as usize,
+            GlobalMetadata::BlockDifficulty,
             public_values.block_metadata.block_difficulty,
         ),
         (
-            GlobalMetadata::BlockGasLimit as usize,
+            GlobalMetadata::BlockGasLimit,
             public_values.block_metadata.block_gaslimit,
         ),
         (
-            GlobalMetadata::BlockChainId as usize,
+            GlobalMetadata::BlockChainId,
             public_values.block_metadata.block_chain_id,
         ),
         (
-            GlobalMetadata::BlockGasUsed as usize,
+            GlobalMetadata::BlockGasUsed,
             public_values.block_metadata.block_gas_used,
         ),
         (
-            GlobalMetadata::BlockGasUsedBefore as usize,
+            GlobalMetadata::BlockGasUsedBefore,
             public_values.extra_block_data.gas_used_before,
         ),
         (
-            GlobalMetadata::BlockGasUsedAfter as usize,
+            GlobalMetadata::BlockGasUsedAfter,
             public_values.extra_block_data.gas_used_after,
         ),
         (
-            GlobalMetadata::TxnNumberBefore as usize,
+            GlobalMetadata::TxnNumberBefore,
             public_values.extra_block_data.txn_number_before,
         ),
         (
-            GlobalMetadata::TxnNumberAfter as usize,
+            GlobalMetadata::TxnNumberAfter,
             public_values.extra_block_data.txn_number_after,
         ),
     ];
 
-    let beneficiary_random_base_fee_cur_hash_fields: [(usize, &[Target]); 4] = [
+    let beneficiary_random_base_fee_cur_hash_fields: [(GlobalMetadata, &[Target]); 4] = [
         (
-            GlobalMetadata::BlockBeneficiary as usize,
+            GlobalMetadata::BlockBeneficiary,
             &public_values.block_metadata.block_beneficiary,
         ),
         (
-            GlobalMetadata::BlockRandom as usize,
+            GlobalMetadata::BlockRandom,
             &public_values.block_metadata.block_random,
         ),
         (
-            GlobalMetadata::BlockBaseFee as usize,
+            GlobalMetadata::BlockBaseFee,
             &public_values.block_metadata.block_base_fee,
         ),
         (
-            GlobalMetadata::BlockCurrentHash as usize,
+            GlobalMetadata::BlockCurrentHash,
             &public_values.block_hashes.cur_hash,
         ),
     ];
 
-    let metadata_segment = builder.constant(F::from_canonical_u32(Segment::GlobalMetadata as u32));
+    let metadata_segment =
+        builder.constant(F::from_canonical_usize(Segment::GlobalMetadata.unscale()));
     block_fields_scalars.map(|(field, target)| {
         // Each of those fields fit in 32 bits, hence in a single Target.
-        product = add_data_write(
+        sum = add_data_write(
             builder,
             challenge,
-            product,
+            sum,
             metadata_segment,
-            field,
+            field.unscale(),
             &[target],
         );
     });
 
     beneficiary_random_base_fee_cur_hash_fields.map(|(field, targets)| {
-        product = add_data_write(
+        sum = add_data_write(
             builder,
             challenge,
-            product,
+            sum,
             metadata_segment,
-            field,
+            field.unscale(),
             targets,
         );
     });
 
     // Add block hashes writes.
-    let block_hashes_segment = builder.constant(F::from_canonical_u32(Segment::BlockHashes as u32));
+    let block_hashes_segment =
+        builder.constant(F::from_canonical_usize(Segment::BlockHashes.unscale()));
     for i in 0..256 {
-        product = add_data_write(
+        sum = add_data_write(
             builder,
             challenge,
-            product,
+            sum,
             block_hashes_segment,
             i,
             &public_values.block_hashes.prev_hashes[8 * i..8 * (i + 1)],
@@ -532,12 +545,13 @@ pub(crate) fn get_memory_extra_looking_products_circuit<
     }
 
     // Add block bloom filters writes.
-    let bloom_segment = builder.constant(F::from_canonical_u32(Segment::GlobalBlockBloom as u32));
+    let bloom_segment =
+        builder.constant(F::from_canonical_usize(Segment::GlobalBlockBloom.unscale()));
     for i in 0..8 {
-        product = add_data_write(
+        sum = add_data_write(
             builder,
             challenge,
-            product,
+            sum,
             bloom_segment,
             i,
             &public_values.block_metadata.block_bloom[i * 8..(i + 1) * 8],
@@ -547,38 +561,38 @@ pub(crate) fn get_memory_extra_looking_products_circuit<
     // Add trie roots writes.
     let trie_fields = [
         (
-            GlobalMetadata::StateTrieRootDigestBefore as usize,
+            GlobalMetadata::StateTrieRootDigestBefore,
             public_values.trie_roots_before.state_root,
         ),
         (
-            GlobalMetadata::TransactionTrieRootDigestBefore as usize,
+            GlobalMetadata::TransactionTrieRootDigestBefore,
             public_values.trie_roots_before.transactions_root,
         ),
         (
-            GlobalMetadata::ReceiptTrieRootDigestBefore as usize,
+            GlobalMetadata::ReceiptTrieRootDigestBefore,
             public_values.trie_roots_before.receipts_root,
         ),
         (
-            GlobalMetadata::StateTrieRootDigestAfter as usize,
+            GlobalMetadata::StateTrieRootDigestAfter,
             public_values.trie_roots_after.state_root,
         ),
         (
-            GlobalMetadata::TransactionTrieRootDigestAfter as usize,
+            GlobalMetadata::TransactionTrieRootDigestAfter,
             public_values.trie_roots_after.transactions_root,
         ),
         (
-            GlobalMetadata::ReceiptTrieRootDigestAfter as usize,
+            GlobalMetadata::ReceiptTrieRootDigestAfter,
             public_values.trie_roots_after.receipts_root,
         ),
     ];
 
     trie_fields.map(|(field, targets)| {
-        product = add_data_write(
+        sum = add_data_write(
             builder,
             challenge,
-            product,
+            sum,
             metadata_segment,
-            field,
+            field.unscale(),
             &targets,
         );
     });
@@ -586,31 +600,31 @@ pub(crate) fn get_memory_extra_looking_products_circuit<
     // Add kernel hash and kernel length.
     let kernel_hash_limbs = h256_limbs::<F>(KERNEL.code_hash);
     let kernel_hash_targets: [Target; 8] = from_fn(|i| builder.constant(kernel_hash_limbs[i]));
-    product = add_data_write(
+    sum = add_data_write(
         builder,
         challenge,
-        product,
+        sum,
         metadata_segment,
-        GlobalMetadata::KernelHash as usize,
+        GlobalMetadata::KernelHash.unscale(),
         &kernel_hash_targets,
     );
     let kernel_len_target = builder.constant(F::from_canonical_usize(KERNEL.code.len()));
-    product = add_data_write(
+    sum = add_data_write(
         builder,
         challenge,
-        product,
+        sum,
         metadata_segment,
-        GlobalMetadata::KernelLen as usize,
+        GlobalMetadata::KernelLen.unscale(),
         &[kernel_len_target],
     );
 
-    product
+    sum
 }
 
 fn add_data_write<F: RichField + Extendable<D>, const D: usize>(
     builder: &mut CircuitBuilder<F, D>,
     challenge: GrandProductChallenge<Target>,
-    running_product: Target,
+    running_sum: Target,
     segment: Target,
     idx: usize,
     val: &[Target],
@@ -643,7 +657,8 @@ fn add_data_write<F: RichField + Extendable<D>, const D: usize>(
     builder.assert_one(row[12]);
 
     let combined = challenge.combine_base_circuit(builder, &row);
-    builder.mul(running_product, combined)
+    let inverse = builder.inverse(combined);
+    builder.add(running_sum, inverse)
 }
 
 fn eval_l_0_and_l_last_circuit<F: RichField + Extendable<D>, const D: usize>(
@@ -735,13 +750,13 @@ pub(crate) fn add_virtual_block_hashes<F: RichField + Extendable<D>, const D: us
 pub(crate) fn add_virtual_extra_block_data<F: RichField + Extendable<D>, const D: usize>(
     builder: &mut CircuitBuilder<F, D>,
 ) -> ExtraBlockDataTarget {
-    let genesis_state_trie_root = builder.add_virtual_public_input_arr();
+    let checkpoint_state_trie_root = builder.add_virtual_public_input_arr();
     let txn_number_before = builder.add_virtual_public_input();
     let txn_number_after = builder.add_virtual_public_input();
     let gas_used_before = builder.add_virtual_public_input();
     let gas_used_after = builder.add_virtual_public_input();
     ExtraBlockDataTarget {
-        genesis_state_trie_root,
+        checkpoint_state_trie_root,
         txn_number_before,
         txn_number_after,
         gas_used_before,
@@ -758,6 +773,7 @@ pub(crate) fn add_virtual_stark_proof<
     stark: &S,
     config: &StarkConfig,
     degree_bits: usize,
+    num_ctl_helper_zs: usize,
     num_ctl_zs: usize,
 ) -> StarkProofTarget<D> {
     let fri_params = config.fri_params(degree_bits);
@@ -765,7 +781,7 @@ pub(crate) fn add_virtual_stark_proof<
 
     let num_leaves_per_oracle = vec![
         S::COLUMNS,
-        stark.num_lookup_helper_columns(config) + num_ctl_zs,
+        stark.num_lookup_helper_columns(config) + num_ctl_helper_zs,
         stark.quotient_degree_factor() * config.num_challenges,
     ];
 
@@ -775,7 +791,13 @@ pub(crate) fn add_virtual_stark_proof<
         trace_cap: builder.add_virtual_cap(cap_height),
         auxiliary_polys_cap,
         quotient_polys_cap: builder.add_virtual_cap(cap_height),
-        openings: add_virtual_stark_opening_set::<F, S, D>(builder, stark, num_ctl_zs, config),
+        openings: add_virtual_stark_opening_set::<F, S, D>(
+            builder,
+            stark,
+            num_ctl_helper_zs,
+            num_ctl_zs,
+            config,
+        ),
         opening_proof: builder.add_virtual_fri_proof(&num_leaves_per_oracle, &fri_params),
     }
 }
@@ -783,6 +805,7 @@ pub(crate) fn add_virtual_stark_proof<
 fn add_virtual_stark_opening_set<F: RichField + Extendable<D>, S: Stark<F, D>, const D: usize>(
     builder: &mut CircuitBuilder<F, D>,
     stark: &S,
+    num_ctl_helper_zs: usize,
     num_ctl_zs: usize,
     config: &StarkConfig,
 ) -> StarkOpeningSetTarget<D> {
@@ -790,10 +813,12 @@ fn add_virtual_stark_opening_set<F: RichField + Extendable<D>, S: Stark<F, D>, c
     StarkOpeningSetTarget {
         local_values: builder.add_virtual_extension_targets(S::COLUMNS),
         next_values: builder.add_virtual_extension_targets(S::COLUMNS),
-        auxiliary_polys: builder
-            .add_virtual_extension_targets(stark.num_lookup_helper_columns(config) + num_ctl_zs),
-        auxiliary_polys_next: builder
-            .add_virtual_extension_targets(stark.num_lookup_helper_columns(config) + num_ctl_zs),
+        auxiliary_polys: builder.add_virtual_extension_targets(
+            stark.num_lookup_helper_columns(config) + num_ctl_helper_zs,
+        ),
+        auxiliary_polys_next: builder.add_virtual_extension_targets(
+            stark.num_lookup_helper_columns(config) + num_ctl_helper_zs,
+        ),
         ctl_zs_first: builder.add_virtual_targets(num_ctl_zs),
         quotient_polys: builder
             .add_virtual_extension_targets(stark.quotient_degree_factor() * num_challenges),
@@ -826,7 +851,7 @@ pub(crate) fn set_stark_proof_target<F, C: GenericConfig<D, F = F>, W, const D: 
     set_fri_proof_target(witness, &proof_target.opening_proof, &proof.opening_proof);
 }
 
-pub(crate) fn set_public_value_targets<F, W, const D: usize>(
+pub fn set_public_value_targets<F, W, const D: usize>(
     witness: &mut W,
     public_values_target: &PublicValuesTarget,
     public_values: &PublicValues,
@@ -1002,8 +1027,8 @@ where
     W: Witness<F>,
 {
     witness.set_target_arr(
-        &ed_target.genesis_state_trie_root,
-        &h256_limbs::<F>(ed.genesis_state_trie_root),
+        &ed_target.checkpoint_state_trie_root,
+        &h256_limbs::<F>(ed.checkpoint_state_trie_root),
     );
     witness.set_target(
         ed_target.txn_number_before,
