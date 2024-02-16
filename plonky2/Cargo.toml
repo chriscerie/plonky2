@@ -26,7 +26,7 @@ ahash = { version = "0.8.7", default-features = false, features = [
     "compile-time-rng",
 ] } # NOTE: Be sure to keep this version the same as the dependency in `hashbrown`.
 anyhow = { version = "1.0.40", default-features = false }
-hashbrown = { git = "https://github.com/rust-lang/hashbrown.git", branch = "main", default-features = false, features = [
+hashbrown = { git = "https://github.com/rust-lang/hashbrown.git", branch = "master", default-features = false, features = [
     "ahash",
     "serde",
 ] } # NOTE: When upgrading, see `ahash` dependency.
