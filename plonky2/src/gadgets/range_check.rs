@@ -33,7 +33,7 @@ impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
                             )),
                         )),
                         Target::VirtualTarget { index } => Box::new(ast::Expression::Ident(
-                            zkcir::ast::Ident::VirtualWire(ast::VirtualWire::new(*index)),
+                            zkcir::ast::Ident::VirtualWire(ast::VirtualWire::new_public(*index)),
                         )),
                     },
                     binop: ast::BinOp::LessThan,

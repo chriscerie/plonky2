@@ -69,7 +69,7 @@ pub fn target_to_expr(target: &Target, is_public_input: bool) -> Expression {
             )))
         }
         Target::VirtualTarget { index } => zkcir::ast::Expression::Ident(
-            zkcir::ast::Ident::VirtualWire(zkcir::ast::VirtualWire::new(*index)),
+            zkcir::ast::Ident::VirtualWire(zkcir::ast::VirtualWire::new_public(*index)),
         ),
     }
 }
@@ -86,7 +86,7 @@ pub fn target_to_ident(target: &Target, is_public_input: bool) -> Ident {
             },
         )),
         Target::VirtualTarget { index } => {
-            ast::Ident::VirtualWire(zkcir::ast::VirtualWire::new(*index))
+            ast::Ident::VirtualWire(zkcir::ast::VirtualWire::new_public(*index))
         }
     }
 }

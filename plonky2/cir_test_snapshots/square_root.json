@@ -6,23 +6,12 @@
     {
       "Local": [
         {
-          "String": "public_input_1"
-        },
-        {
-          "Ident": {
-            "Wire": {
-              "row": 0,
-              "column": 3,
-              "value": null
-            }
+          "Wire": {
+            "row": 0,
+            "column": 3,
+            "value": "Random",
+            "wiretype": "Private"
           }
-        }
-      ]
-    },
-    {
-      "Local": [
-        {
-          "String": "public_input_1"
         },
         {
           "BinaryOperator": {
@@ -30,7 +19,8 @@
               "Ident": {
                 "VirtualWire": {
                   "index": 0,
-                  "value": null
+                  "value": null,
+                  "wiretype": "Public"
                 }
               }
             },
@@ -39,7 +29,8 @@
               "Ident": {
                 "VirtualWire": {
                   "index": 0,
-                  "value": null
+                  "value": null,
+                  "wiretype": "Public"
                 }
               }
             }
@@ -48,12 +39,6 @@
       ]
     }
   ],
-  "public_wire_inputs": [
-    {
-      "row": 0,
-      "column": 3,
-      "value": null
-    }
-  ],
+  "public_wire_inputs": [],
   "public_virtual_wire_inputs": []
 }
