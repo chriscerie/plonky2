@@ -195,11 +195,11 @@ impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
 
         if self.cir_mutex.try_lock().is_some() {
             self.cir.add_stmt(ast::Stmt::Local(
-                target_to_ident(&res),
+                target_to_ident(&res, false),
                 Expression::BinaryOperator {
-                    lhs: Box::new(target_to_expr(&x)),
+                    lhs: Box::new(target_to_expr(&x, self.public_inputs.contains(&x))),
                     binop: BinOp::Add,
-                    rhs: Box::new(target_to_expr(&y)),
+                    rhs: Box::new(target_to_expr(&y, self.public_inputs.contains(&y))),
                 },
             ));
         }
@@ -225,11 +225,11 @@ impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
 
         if self.cir_mutex.try_lock().is_some() {
             self.cir.add_stmt(ast::Stmt::Local(
-                target_to_ident(&res),
+                target_to_ident(&res, false),
                 Expression::BinaryOperator {
-                    lhs: Box::new(target_to_expr(&x)),
+                    lhs: Box::new(target_to_expr(&x, self.public_inputs.contains(&x))),
                     binop: BinOp::Subtract,
-                    rhs: Box::new(target_to_expr(&y)),
+                    rhs: Box::new(target_to_expr(&y, self.public_inputs.contains(&y))),
                 },
             ));
         }
@@ -245,11 +245,11 @@ impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
 
         if self.cir_mutex.try_lock().is_some() {
             self.cir.add_stmt(ast::Stmt::Local(
-                target_to_ident(&res),
+                target_to_ident(&res, false),
                 Expression::BinaryOperator {
-                    lhs: Box::new(target_to_expr(&x)),
+                    lhs: Box::new(target_to_expr(&x, self.public_inputs.contains(&x))),
                     binop: BinOp::Multiply,
-                    rhs: Box::new(target_to_expr(&y)),
+                    rhs: Box::new(target_to_expr(&y, self.public_inputs.contains(&y))),
                 },
             ));
         }

@@ -4,7 +4,7 @@ use std::path::{Path, PathBuf};
 
 use lazy_static::lazy_static;
 use spin::{Mutex, MutexGuard};
-use zkcir::ast::{self, Expression, Ident};
+use zkcir::ast::{self, Expression, Ident, Wiretype};
 use zkcir::ir::CirBuilder;
 
 use crate::iop::target::Target;
@@ -55,20 +55,36 @@ pub fn test_ir_string(test_name: &str, cir: &CirBuilder) {
     }
 }
 
-pub fn target_to_expr(target: &Target) -> Expression {
+pub fn target_to_expr(target: &Target, is_public_input: bool) -> Expression {
     match target {
-        Target::Wire(w) => zkcir::ast::Expression::Ident(zkcir::ast::Ident::Wire(
-            zkcir::ast::Wire::new(w.row, w.column),
-        )),
+        Target::Wire(w) => {
+            zkcir::ast::Expression::Ident(zkcir::ast::Ident::Wire(zkcir::ast::Wire::new(
+                w.row,
+                w.column,
+                if is_public_input {
+                    Wiretype::Public
+                } else {
+                    Wiretype::Private
+                },
+            )))
+        }
         Target::VirtualTarget { index } => zkcir::ast::Expression::Ident(
             zkcir::ast::Ident::VirtualWire(zkcir::ast::VirtualWire::new(*index)),
         ),
     }
 }
 
-pub fn target_to_ident(target: &Target) -> Ident {
+pub fn target_to_ident(target: &Target, is_public_input: bool) -> Ident {
     match target {
-        Target::Wire(w) => ast::Ident::Wire(zkcir::ast::Wire::new(w.row, w.column)),
+        Target::Wire(w) => ast::Ident::Wire(zkcir::ast::Wire::new(
+            w.row,
+            w.column,
+            if is_public_input {
+                Wiretype::Public
+            } else {
+                Wiretype::Private
+            },
+        )),
         Target::VirtualTarget { index } => {
             ast::Ident::VirtualWire(zkcir::ast::VirtualWire::new(*index))
         }

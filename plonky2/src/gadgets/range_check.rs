@@ -2,7 +2,7 @@ use alloc::string::{String, ToString};
 use alloc::vec;
 use alloc::vec::Vec;
 
-use zkcir::ast;
+use zkcir::ast::{self, Wiretype};
 
 use crate::field::extension::Extendable;
 use crate::hash::hash_types::RichField;
@@ -21,7 +21,16 @@ impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
                 .add_stmt(ast::Stmt::Verify(ast::Expression::BinaryOperator {
                     lhs: match &x {
                         Target::Wire(wire) => Box::new(ast::Expression::Ident(
-                            zkcir::ast::Ident::Wire(ast::Wire::new(wire.row, wire.column)),
+                            // Is it always a private wire?
+                            zkcir::ast::Ident::Wire(ast::Wire::new(
+                                wire.row,
+                                wire.column,
+                                if self.public_inputs.contains(&x) {
+                                    Wiretype::Public
+                                } else {
+                                    Wiretype::Private
+                                },
+                            )),
                         )),
                         Target::VirtualTarget { index } => Box::new(ast::Expression::Ident(
                             zkcir::ast::Ident::VirtualWire(ast::VirtualWire::new(*index)),
