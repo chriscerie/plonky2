@@ -27,9 +27,11 @@ impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
 
     /// Computes `x^2`.
     pub fn square(&mut self, x: Target) -> Target {
+        let report_ir = self.cir_mutex.try_lock().is_some();
+
         let res = self.mul(x, x);
 
-        if self.cir_mutex.try_lock().is_some() {
+        if report_ir {
             self.cir.add_stmt(ast::Stmt::Local(
                 target_to_ident(&res, false),
                 Expression::BinaryOperator {
@@ -202,11 +204,13 @@ impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
 
     /// Computes `x + y`.
     pub fn add(&mut self, x: Target, y: Target) -> Target {
+        let report_ir = self.cir_mutex.try_lock().is_some();
+
         let one = self.one();
         // x + y = 1 * x * 1 + 1 * y
         let res = self.arithmetic(F::ONE, F::ONE, x, one, y);
 
-        if self.cir_mutex.try_lock().is_some() {
+        if report_ir {
             self.cir.add_stmt(ast::Stmt::Local(
                 target_to_ident(&res, false),
                 Expression::BinaryOperator {
@@ -232,11 +236,13 @@ impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
 
     /// Computes `x - y`.
     pub fn sub(&mut self, x: Target, y: Target) -> Target {
+        let report_ir = self.cir_mutex.try_lock().is_some();
+
         let one = self.one();
         // x - y = 1 * x * 1 + (-1) * y
         let res = self.arithmetic(F::ONE, F::NEG_ONE, x, one, y);
 
-        if self.cir_mutex.try_lock().is_some() {
+        if report_ir {
             self.cir.add_stmt(ast::Stmt::Local(
                 target_to_ident(&res, false),
                 Expression::BinaryOperator {
@@ -252,11 +258,12 @@ impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
 
     /// Computes `x * y`.
     pub fn mul(&mut self, x: Target, y: Target) -> Target {
-        // x * y = 1 * x * y + 0 * x
+        let report_ir = self.cir_mutex.try_lock().is_some();
 
+        // x * y = 1 * x * y + 0 * x
         let res = self.arithmetic(F::ONE, F::ZERO, x, y, x);
 
-        if self.cir_mutex.try_lock().is_some() {
+        if report_ir {
             self.cir.add_stmt(ast::Stmt::Local(
                 target_to_ident(&res, false),
                 Expression::BinaryOperator {
