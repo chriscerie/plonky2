@@ -52,12 +52,12 @@ use crate::plonk::config::{AlgebraicHasher, GenericConfig, GenericHashOut, Hashe
 use crate::plonk::copy_constraint::CopyConstraint;
 use crate::plonk::permutation_argument::Forest;
 use crate::plonk::plonk_common::PlonkOracle;
-use crate::timed;
 use crate::util::context_tree::ContextTree;
 use crate::util::partial_products::num_partial_products;
 use crate::util::timing::TimingTree;
 use crate::util::{log2_ceil, log2_strict, transpose, transpose_poly_values};
 use crate::zkcir_test_util::{set_last_cir_data, target_to_expr, CirData};
+use crate::{iop, timed};
 
 /// Number of random coins needed for lookups (for each challenge).
 /// A coin is a randomly sampled extension field element from the verifier,
@@ -529,12 +529,28 @@ impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
         );
 
         if self.cir_mutex.try_lock().is_some() {
-            self.cir
-                .add_stmt(ast::Stmt::Verify(ast::Expression::BinaryOperator {
-                    lhs: Box::new(target_to_expr(&x, self.public_inputs.contains(&x))),
-                    binop: ast::BinOp::Equal,
-                    rhs: Box::new(target_to_expr(&y, self.public_inputs.contains(&y))),
-                }));
+            // Otherwise plonky2 implementation detail would sometimes add verifies to private wires
+            // that were never defined before everything else
+            let mut should_report_ir = true;
+            if let iop::target::Target::Wire(Wire { row, column }) = x {
+                if !self.cir.has_wire_defined(row, column, Wiretype::Private) {
+                    should_report_ir = false;
+                }
+            }
+            if let iop::target::Target::Wire(Wire { row, column }) = y {
+                if !self.cir.has_wire_defined(row, column, Wiretype::Private) {
+                    should_report_ir = false;
+                }
+            }
+
+            if should_report_ir {
+                self.cir
+                    .add_stmt(ast::Stmt::Verify(ast::Expression::BinaryOperator {
+                        lhs: Box::new(target_to_expr(&x, self.public_inputs.contains(&x))),
+                        binop: ast::BinOp::Equal,
+                        rhs: Box::new(target_to_expr(&y, self.public_inputs.contains(&y))),
+                    }));
+            }
         }
 
         self.copy_constraints
