@@ -13,6 +13,7 @@ use itertools::Itertools;
 use log::{debug, info, warn, Level};
 use plonky2_util::ceil_div_usize;
 use spin::Mutex;
+use zkcir::ast::{self, Wiretype};
 use zkcir::ir::CirBuilder;
 
 use crate::field::cosets::get_unique_coset_shifts;
@@ -56,7 +57,7 @@ use crate::util::context_tree::ContextTree;
 use crate::util::partial_products::num_partial_products;
 use crate::util::timing::TimingTree;
 use crate::util::{log2_ceil, log2_strict, transpose, transpose_poly_values};
-use crate::zkcir_test_util::{set_last_cir_data, CirData};
+use crate::zkcir_test_util::{set_last_cir_data, target_to_expr, CirData};
 
 /// Number of random coins needed for lookups (for each challenge).
 /// A coin is a randomly sampled extension field element from the verifier,
@@ -526,6 +527,16 @@ impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
             y.is_routable(&self.config),
             "Tried to route a wire that isn't routable"
         );
+
+        if self.cir_mutex.try_lock().is_some() {
+            self.cir
+                .add_stmt(ast::Stmt::Verify(ast::Expression::BinaryOperator {
+                    lhs: Box::new(target_to_expr(&x, self.public_inputs.contains(&x))),
+                    binop: ast::BinOp::Equal,
+                    rhs: Box::new(target_to_expr(&y, self.public_inputs.contains(&y))),
+                }));
+        }
+
         self.copy_constraints
             .push(CopyConstraint::new((x, y), self.context_log.open_stack()));
     }

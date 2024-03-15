@@ -3,7 +3,7 @@ use alloc::vec;
 use alloc::vec::Vec;
 use core::borrow::Borrow;
 
-use zkcir::ast::{self, BinOp, Expression};
+use zkcir::ast::{self, BinOp, Expression, Ident};
 
 use crate::field::extension::Extendable;
 use crate::field::types::Field64;
@@ -27,7 +27,20 @@ impl<F: RichField + Extendable<D>, const D: usize> CircuitBuilder<F, D> {
 
     /// Computes `x^2`.
     pub fn square(&mut self, x: Target) -> Target {
-        self.mul(x, x)
+        let res = self.mul(x, x);
+
+        if self.cir_mutex.try_lock().is_some() {
+            self.cir.add_stmt(ast::Stmt::Local(
+                target_to_ident(&res, false),
+                Expression::BinaryOperator {
+                    lhs: Box::new(target_to_expr(&x, self.public_inputs.contains(&x))),
+                    binop: BinOp::Exponent,
+                    rhs: Box::new(Expression::Ident(Ident::String("2".to_string()))),
+                },
+            ));
+        }
+
+        res
     }
 
     /// Computes `x^3`.

@@ -4,6 +4,90 @@
   },
   "stmts": [
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 0,
+                "value": {
+                  "U64": 1
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 0,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 1,
+                "value": {
+                  "U64": 2
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 1,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 0,
+                "value": {
+                  "U64": 1
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 2,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -41,6 +125,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 3,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 4,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 3,
+                "value": {
+                  "U64": 3
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 5,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 3,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 6,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -81,6 +247,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 7,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 8,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 4,
+                "value": {
+                  "U64": 4
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 9,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 7,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 10,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -117,6 +365,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 11,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 12,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 5,
+                "value": {
+                  "U64": 5
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 13,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 11,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 14,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -157,6 +487,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 15,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 16,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 6,
+                "value": {
+                  "U64": 6
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 17,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 15,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 18,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -193,6 +605,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 19,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 20,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 7,
+                "value": {
+                  "U64": 7
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 21,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 19,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 22,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -233,6 +727,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 23,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 24,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 8,
+                "value": {
+                  "U64": 8
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 25,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 23,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 26,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -269,6 +845,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 27,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 28,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 9,
+                "value": {
+                  "U64": 9
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 29,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 27,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 30,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -309,6 +967,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 31,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 32,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 10,
+                "value": {
+                  "U64": 10
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 33,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 31,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 34,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -345,6 +1085,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 35,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 36,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 11,
+                "value": {
+                  "U64": 11
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 37,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 35,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 38,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -385,6 +1207,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 39,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 40,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 12,
+                "value": {
+                  "U64": 12
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 41,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 39,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 42,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -421,6 +1325,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 43,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 44,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 13,
+                "value": {
+                  "U64": 13
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 45,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 43,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 46,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -461,6 +1447,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 47,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 48,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 14,
+                "value": {
+                  "U64": 14
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 49,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 47,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 50,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -497,6 +1565,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 51,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 52,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 15,
+                "value": {
+                  "U64": 15
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 53,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 51,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 54,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -537,6 +1687,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 55,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 56,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 16,
+                "value": {
+                  "U64": 16
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 57,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 55,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 58,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -573,6 +1805,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 59,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 60,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 17,
+                "value": {
+                  "U64": 17
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 61,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 59,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 62,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -613,6 +1927,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 63,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 64,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 18,
+                "value": {
+                  "U64": 18
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 65,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 63,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 66,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -649,6 +2045,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 67,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 68,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 19,
+                "value": {
+                  "U64": 19
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 69,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 67,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 70,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -689,6 +2167,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 71,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 72,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 20,
+                "value": {
+                  "U64": 20
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 73,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 71,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 74,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -725,6 +2285,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 75,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 76,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 21,
+                "value": {
+                  "U64": 21
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 77,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 75,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 78,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -765,6 +2407,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 79,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 0,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 22,
+                "value": {
+                  "U64": 22
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 1,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 79,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 2,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -801,6 +2525,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 3,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 4,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 23,
+                "value": {
+                  "U64": 23
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 5,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 3,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 6,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -841,6 +2647,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 7,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 8,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 24,
+                "value": {
+                  "U64": 24
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 9,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 7,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 10,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -877,6 +2765,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 11,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 12,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 25,
+                "value": {
+                  "U64": 25
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 13,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 11,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 14,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -917,6 +2887,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 15,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 16,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 26,
+                "value": {
+                  "U64": 26
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 17,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 15,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 18,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -953,6 +3005,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 19,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 20,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 27,
+                "value": {
+                  "U64": 27
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 21,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 19,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 22,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -993,6 +3127,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 23,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 24,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 28,
+                "value": {
+                  "U64": 28
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 25,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 23,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 26,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -1029,6 +3245,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 27,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 28,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 29,
+                "value": {
+                  "U64": 29
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 29,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 27,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 30,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -1069,6 +3367,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 31,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 32,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 30,
+                "value": {
+                  "U64": 30
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 33,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 31,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 34,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -1105,6 +3485,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 35,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 36,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 31,
+                "value": {
+                  "U64": 31
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 37,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 35,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 38,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -1145,6 +3607,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 39,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 40,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 32,
+                "value": {
+                  "U64": 32
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 41,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 39,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 42,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -1181,6 +3725,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 43,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 44,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 33,
+                "value": {
+                  "U64": 33
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 45,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 43,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 46,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -1221,6 +3847,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 47,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 48,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 34,
+                "value": {
+                  "U64": 34
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 49,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 47,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 50,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -1257,6 +3965,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 51,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 52,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 35,
+                "value": {
+                  "U64": 35
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 53,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 51,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 54,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -1297,6 +4087,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 55,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 56,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 36,
+                "value": {
+                  "U64": 36
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 57,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 55,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 58,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -1333,6 +4205,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 59,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 60,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 37,
+                "value": {
+                  "U64": 37
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 61,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 59,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 62,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -1373,6 +4327,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 63,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 64,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 38,
+                "value": {
+                  "U64": 38
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 65,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 63,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 66,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -1409,6 +4445,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 67,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 68,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 39,
+                "value": {
+                  "U64": 39
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 69,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 67,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 70,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -1449,6 +4567,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 71,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 72,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 40,
+                "value": {
+                  "U64": 40
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 73,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 71,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 74,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -1485,6 +4685,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 75,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 76,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 41,
+                "value": {
+                  "U64": 41
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 77,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 75,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 78,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -1525,6 +4807,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 79,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 0,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 42,
+                "value": {
+                  "U64": 42
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 1,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 1,
+                "column": 79,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 2,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -1561,6 +4925,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 3,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 4,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 43,
+                "value": {
+                  "U64": 43
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 5,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 3,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 6,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -1601,6 +5047,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 7,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 8,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 44,
+                "value": {
+                  "U64": 44
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 9,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 7,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 10,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -1637,6 +5165,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 11,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 12,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 45,
+                "value": {
+                  "U64": 45
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 13,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 11,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 14,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -1677,6 +5287,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 15,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 16,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 46,
+                "value": {
+                  "U64": 46
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 17,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 15,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 18,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -1713,6 +5405,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 19,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 20,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 47,
+                "value": {
+                  "U64": 47
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 21,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 19,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 22,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -1753,6 +5527,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 23,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 24,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 48,
+                "value": {
+                  "U64": 48
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 25,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 23,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 26,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -1789,6 +5645,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 27,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 28,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 49,
+                "value": {
+                  "U64": 49
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 29,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 27,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 30,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -1829,6 +5767,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 31,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 32,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 50,
+                "value": {
+                  "U64": 50
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 33,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 31,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 34,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -1865,6 +5885,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 35,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 36,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 51,
+                "value": {
+                  "U64": 51
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 37,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 35,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 38,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -1905,6 +6007,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 39,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 40,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 52,
+                "value": {
+                  "U64": 52
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 41,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 39,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 42,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -1941,6 +6125,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 43,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 44,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 53,
+                "value": {
+                  "U64": 53
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 45,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 43,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 46,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -1981,6 +6247,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 47,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 48,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 54,
+                "value": {
+                  "U64": 54
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 49,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 47,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 50,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -2017,6 +6365,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 51,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 52,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 55,
+                "value": {
+                  "U64": 55
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 53,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 51,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 54,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -2057,6 +6487,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 55,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 56,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 56,
+                "value": {
+                  "U64": 56
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 57,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 55,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 58,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -2093,6 +6605,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 59,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 60,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 57,
+                "value": {
+                  "U64": 57
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 61,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 59,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 62,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -2133,6 +6727,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 63,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 64,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 58,
+                "value": {
+                  "U64": 58
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 65,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 63,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 66,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -2169,6 +6845,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 67,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 68,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 59,
+                "value": {
+                  "U64": 59
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 69,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 67,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 70,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -2209,6 +6967,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 71,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 72,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 60,
+                "value": {
+                  "U64": 60
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 73,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 71,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 74,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -2245,6 +7085,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 75,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 76,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 61,
+                "value": {
+                  "U64": 61
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 77,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 75,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 78,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -2285,6 +7207,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 79,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 0,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 62,
+                "value": {
+                  "U64": 62
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 1,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 2,
+                "column": 79,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 2,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -2321,6 +7325,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 3,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 4,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 63,
+                "value": {
+                  "U64": 63
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 5,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 3,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 6,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -2361,6 +7447,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 7,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 8,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 64,
+                "value": {
+                  "U64": 64
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 9,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 7,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 10,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -2397,6 +7565,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 11,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 12,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 65,
+                "value": {
+                  "U64": 65
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 13,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 11,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 14,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -2437,6 +7687,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 15,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 16,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 66,
+                "value": {
+                  "U64": 66
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 17,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 15,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 18,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -2473,6 +7805,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 19,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 20,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 67,
+                "value": {
+                  "U64": 67
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 21,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 19,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 22,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -2513,6 +7927,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 23,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 24,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 68,
+                "value": {
+                  "U64": 68
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 25,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 23,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 26,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -2549,6 +8045,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 27,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 28,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 69,
+                "value": {
+                  "U64": 69
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 29,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 27,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 30,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -2589,6 +8167,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 31,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 32,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 70,
+                "value": {
+                  "U64": 70
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 33,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 31,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 34,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -2625,6 +8285,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 35,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 36,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 71,
+                "value": {
+                  "U64": 71
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 37,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 35,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 38,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -2665,6 +8407,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 39,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 40,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 72,
+                "value": {
+                  "U64": 72
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 41,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 39,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 42,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -2701,6 +8525,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 43,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 44,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 73,
+                "value": {
+                  "U64": 73
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 45,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 43,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 46,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -2741,6 +8647,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 47,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 48,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 74,
+                "value": {
+                  "U64": 74
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 49,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 47,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 50,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -2777,6 +8765,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 51,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 52,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 75,
+                "value": {
+                  "U64": 75
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 53,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 51,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 54,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -2817,6 +8887,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 55,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 56,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 76,
+                "value": {
+                  "U64": 76
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 57,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 55,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 58,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -2853,6 +9005,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 59,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 60,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 77,
+                "value": {
+                  "U64": 77
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 61,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 59,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 62,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -2893,6 +9127,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 63,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 64,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 78,
+                "value": {
+                  "U64": 78
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 65,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 63,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 66,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -2929,6 +9245,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 67,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 68,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 79,
+                "value": {
+                  "U64": 79
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 69,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 67,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 70,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -2969,6 +9367,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 71,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 72,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 80,
+                "value": {
+                  "U64": 80
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 73,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 71,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 74,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -3005,6 +9485,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 75,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 76,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 81,
+                "value": {
+                  "U64": 81
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 77,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 75,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 78,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -3045,6 +9607,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 79,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 0,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 82,
+                "value": {
+                  "U64": 82
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 1,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 3,
+                "column": 79,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 2,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -3081,6 +9725,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 3,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 4,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 83,
+                "value": {
+                  "U64": 83
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 5,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 3,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 6,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -3121,6 +9847,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 7,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 8,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 84,
+                "value": {
+                  "U64": 84
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 9,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 7,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 10,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -3157,6 +9965,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 11,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 12,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 85,
+                "value": {
+                  "U64": 85
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 13,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 11,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 14,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -3197,6 +10087,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 15,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 16,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 86,
+                "value": {
+                  "U64": 86
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 17,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 15,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 18,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -3233,6 +10205,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 19,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 20,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 87,
+                "value": {
+                  "U64": 87
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 21,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 19,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 22,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -3273,6 +10327,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 23,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 24,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 88,
+                "value": {
+                  "U64": 88
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 25,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 23,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 26,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -3309,6 +10445,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 27,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 28,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 89,
+                "value": {
+                  "U64": 89
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 29,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 27,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 30,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -3349,6 +10567,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 31,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 32,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 90,
+                "value": {
+                  "U64": 90
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 33,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 31,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 34,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -3385,6 +10685,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 35,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 36,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 91,
+                "value": {
+                  "U64": 91
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 37,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 35,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 38,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -3425,6 +10807,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 39,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 40,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 92,
+                "value": {
+                  "U64": 92
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 41,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 39,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 42,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -3461,6 +10925,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 43,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 44,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 93,
+                "value": {
+                  "U64": 93
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 45,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 43,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 46,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -3501,6 +11047,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 47,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 48,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 94,
+                "value": {
+                  "U64": 94
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 49,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 47,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 50,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -3537,6 +11165,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 51,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 52,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 95,
+                "value": {
+                  "U64": 95
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 53,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 51,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 54,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -3577,6 +11287,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 55,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 56,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 96,
+                "value": {
+                  "U64": 96
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 57,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 55,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 58,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -3613,6 +11405,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 59,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 60,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 97,
+                "value": {
+                  "U64": 97
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 61,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 59,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 62,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [
@@ -3653,6 +11527,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 63,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 64,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 98,
+                "value": {
+                  "U64": 98
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 65,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 63,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 66,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -3691,6 +11647,88 @@
       ]
     },
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 67,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 68,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 99,
+                "value": {
+                  "U64": 99
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 69,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 67,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 70,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -3727,6 +11765,88 @@
           }
         }
       ]
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 71,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 72,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 100,
+                "value": {
+                  "U64": 100
+                },
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 73,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 71,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 4,
+                "column": 74,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "Local": [

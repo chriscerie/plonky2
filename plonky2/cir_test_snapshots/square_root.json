@@ -4,6 +4,84 @@
   },
   "stmts": [
     {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 0,
+                "value": null,
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 0,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 0,
+                "value": null,
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 1,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "Verify": {
+        "BinaryOperator": {
+          "lhs": {
+            "Ident": {
+              "VirtualWire": {
+                "index": 0,
+                "value": null,
+                "wiretype": "Public"
+              }
+            }
+          },
+          "binop": "Equal",
+          "rhs": {
+            "Ident": {
+              "Wire": {
+                "row": 0,
+                "column": 2,
+                "value": null,
+                "wiretype": "Private"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "Local": [
         {
           "Wire": {
@@ -32,6 +110,37 @@
                   "value": null,
                   "wiretype": "Public"
                 }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Local": [
+        {
+          "Wire": {
+            "row": 0,
+            "column": 3,
+            "value": "Random",
+            "wiretype": "Private"
+          }
+        },
+        {
+          "BinaryOperator": {
+            "lhs": {
+              "Ident": {
+                "VirtualWire": {
+                  "index": 0,
+                  "value": null,
+                  "wiretype": "Public"
+                }
+              }
+            },
+            "binop": "Exponent",
+            "rhs": {
+              "Ident": {
+                "String": "2"
               }
             }
           }
